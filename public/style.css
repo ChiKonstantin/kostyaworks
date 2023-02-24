@@ -1,0 +1,113 @@
+html {
+	width: 95vw;
+	margin: 0px;
+	padding: 0px;
+}
+body {
+	height: 400vh;
+	margin: 0px;
+	padding: 0px;
+}
+
+img {
+	width: 600px;
+	height: 300px;
+}
+
+#app,
+#main,
+#main-view {
+	margin: 0px;
+	padding: 0px;
+	/* border: dotted orange; */
+}
+
+.page {
+	margin: 0px;
+	width: 100%;
+	height: 100vh;
+	position: fixed;
+	top: 0px;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+#journey {
+	background-color: #ffd800;
+	z-index: 0;
+}
+
+#products {
+	background-color: #005dff;
+	z-index: -1;
+}
+
+#motivation {
+	background-color: #b200ff;
+	z-index: -2;
+}
+
+#summary {
+	background-color: rgb(255, 81, 68);
+	z-index: -3;
+}
+
+.page-content {
+	display: flex;
+	flex-direction: row;
+	/* position: fixed;
+	top: 0px; */
+}
+
+.side-menu-space,
+.content {
+	border: solid black;
+	height: 100vh;
+}
+
+.side-menu-space {
+	width: 23vw;
+}
+
+.content {
+	width: 77vw;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#site-overlay {
+	display: flex;
+	flex-direction: row;
+	position: fixed;
+	top: 0px;
+	width: 100vw;
+	height: 100vh;
+	z-index: 2;
+}
+
+#menu-journey,
+#menu-products,
+#menu-motivation,
+#menu-summary {
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	font-weight: bolder;
+}
+
+#menu-journey {
+	color: #ffd800;
+}
+#menu-products {
+	color: #005dff;
+}
+#menu-motivation {
+	color: #b200ff;
+}
+#menu-summary {
+	color: rgb(255, 81, 68);
+}
+
+.slide-test-content {
+	background-color: aqua;
+	width: 620px;
+	height: 380px;
+}
