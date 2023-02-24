@@ -30,7 +30,7 @@ img {
 	top: 0px;
 	overflow: hidden;
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 }
 
 #journey {
@@ -38,9 +38,40 @@ img {
 	z-index: 0;
 }
 
+#journey-menu {
+	background: radial-gradient(
+		circle at 0% 100%,
+		rgba(255, 134, 41, 0.3),
+		rgba(255, 255, 255, 0)
+	);
+}
+#journey-content {
+	background: radial-gradient(
+		farthest-corner at 120% 0%,
+		rgba(255, 134, 41, 0.9),
+		rgba(255, 255, 255, 0)
+	);
+}
+
 #products {
 	background-color: #005dff;
 	z-index: -1;
+}
+
+#products-menu {
+	background: radial-gradient(
+		circle at 0% 100%,
+		rgba(183, 147, 255, 0.3),
+		rgba(255, 255, 255, 0)
+	);
+}
+
+#products-content {
+	background: radial-gradient(
+		farthest-corner at 120% 0%,
+		rgba(183, 147, 255, 0.9),
+		rgba(255, 255, 255, 0)
+	);
 }
 
 #motivation {
@@ -62,7 +93,7 @@ img {
 
 .side-menu-space,
 .content {
-	border: solid black;
+	/* border: solid black; */
 	height: 100vh;
 }
 

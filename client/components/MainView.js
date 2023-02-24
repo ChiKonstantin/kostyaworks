@@ -13,60 +13,53 @@ export default function MainView() {
 		let productsPage = document.getElementById('products');
 		let motivationPage = document.getElementById('motivation');
 		let summaryPage = document.getElementById('summary');
+		console.log('Scroll position: ', scrollPosition);
+
+		if (scrollPosition === 0) {
+			journeyPage.style.height = `${screenHeight}px`;
+		}
+		if (scrollPosition < screenHeight) {
+			products.style.height = `${screenHeight}px`;
+		}
+		if (scrollPosition < screenHeight * 2) {
+			motivationPage.style.height = `${screenHeight}px`;
+		}
+		if (scrollPosition < screenHeight * 3) {
+			summaryPage.style.height = `${screenHeight}px`;
+		}
 
 		//controlling page 1 div height:
 		if (scrollPosition > 0) {
 			journeyPage.style.height = `${screenHeight - scrollPosition}px`;
-			// journeyPage.style.position = 'fixed';
-			// journeyPage.style.top = `-${scrollPosition}px`;
-			console.log('DIV HEIGHT: ', journeyPage.style.height);
 		}
-		// making sure div collapses:
 
-		//controlling page 2 div height:
+		//controlling page 2 div height, collapsing div 1:
 		if (scrollPosition > screenHeight) {
 			productsPage.style.height = `${screenHeight * 2 - scrollPosition}px`;
 			journeyPage.style.height = '0px';
-			// productsPage.style.position = 'fixed';
-			// productsPage.style.top = `-${scrollPosition - screenHeight}px`;
 		}
-		// else {
-		// 	productsPage.style.position = 'fixed';
-		// 	productsPage.style.top = `0px`;
-		// }
-		// making sure div collapses:
+
+		//controlling page 3 div height, collapsing div 2:
 		if (scrollPosition > screenHeight * 2) {
+			motivationPage.style.height = `${screenHeight * 3 - scrollPosition}px`;
 			productsPage.style.height = '0px';
 		}
-		//controlling page 3 div height:
-		if (scrollPosition > screenHeight * 2) {
-			motivationPage.style.position = 'fixed';
-			motivationPage.style.top = `-${scrollPosition - screenHeight * 2}px`;
-		} else {
-			motivationPage.style.position = 'fixed';
-			motivationPage.style.top = '0px';
-		}
-		// making sure div collapses:
+		//controlling page 4 div height, collapsing div 3:
 		if (scrollPosition > screenHeight * 3) {
+			summaryPage.style.height = `${screenHeight * 4 - scrollPosition}px`;
 			motivationPage.style.height = '0px';
 		}
-		//controlling page 4 div height:
-		if (scrollPosition > screenHeight * 3) {
-			summaryPage.style.position = 'fixed';
-			summaryPage.style.top = `-${scrollPosition - screenHeight * 3}px`;
-		} else {
-			summaryPage.style.position = 'fixed';
-			summaryPage.style.top = '0px';
-		}
-		// making sure div collapses:
+		// collapsing div 4:
 		if (scrollPosition > screenHeight * 4) {
 			summaryPage.style.height = '0px';
 		}
 	}
 	function colorChange() {
-		const scrollPosition = Math.round(document.documentElement.scrollTop);
+		const scrollPosition = document.documentElement.scrollTop;
 		const screenHeight = window.innerHeight;
-		const positionRatio = Math.min(scrollPosition / screenHeight, 1);
+		const positionRatio = Math.round(
+			Math.min(scrollPosition / screenHeight, 1)
+		);
 		const colorChangeRatio = 0.5;
 	}
 
@@ -76,12 +69,17 @@ export default function MainView() {
 			<SiteOverlay />
 
 			<div id='journey' className='page'>
-				<img src='https://www.designblendz.com/hubfs/Portfolio/The_Y_Residence_Architectural_Model/1.jpg' />
-				{/* <PageContent name='Journey' /> */}
+				<div id='journey-menu' className='side-menu-space'></div>
+				<div id='journey-content' className='content'>
+					<h1>Journey</h1>
+				</div>
 			</div>
 
 			<div id='products' className='page'>
-				<PageContent name='Products' />
+				<div id='products-menu' className='side-menu-space'></div>
+				<div id='products-content' className='content'>
+					<h1>Products</h1>
+				</div>
 			</div>
 
 			<div id='motivation' className='page'>
