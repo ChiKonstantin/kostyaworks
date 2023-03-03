@@ -5,6 +5,7 @@ import SiteOverlay from './SiteOverlay';
 export default function MainView() {
 	window.onscroll = function () {
 		slidePages();
+		moveBarOnScroll();
 	};
 	function slidePages() {
 		const scrollPosition = document.documentElement.scrollTop;
@@ -13,7 +14,7 @@ export default function MainView() {
 		let productsPage = document.getElementById('products');
 		let motivationPage = document.getElementById('motivation');
 		let summaryPage = document.getElementById('summary');
-		console.log('Scroll position: ', scrollPosition);
+		// console.log('Scroll position: ', scrollPosition);
 
 		if (scrollPosition === 0) {
 			journeyPage.style.height = `${screenHeight}px`;
@@ -62,6 +63,13 @@ export default function MainView() {
 		);
 		const colorChangeRatio = 0.5;
 	}
+	function moveBarOnScroll() {
+		let selectBar = document.getElementById('menu-select-bar');
+		const scrollPosition = document.documentElement.scrollTop;
+		const screenHeight = window.innerHeight;
+		const scrollRatio = (scrollPosition / (screenHeight * 4)) * 30;
+		selectBar.style.top = `${scrollRatio + 10}vh`;
+	}
 
 	function snapView() {}
 	return (
@@ -83,11 +91,17 @@ export default function MainView() {
 			</div>
 
 			<div id='motivation' className='page'>
-				<PageContent name='Motivation' />
+				<div id='motivation-menu' className='side-menu-space'></div>
+				<div id='motivation-content' className='content'>
+					<h1>Motivation</h1>
+				</div>
 			</div>
 
 			<div id='summary' className='page'>
-				<PageContent name='Summary' />
+				<div id='summary-menu' className='side-menu-space'></div>
+				<div id='summary-content' className='content'>
+					<h1>Summary</h1>
+				</div>
 			</div>
 		</div>
 	);
