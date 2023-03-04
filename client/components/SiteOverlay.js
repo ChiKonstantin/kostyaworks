@@ -6,12 +6,12 @@ import { RiLinkedinBoxFill } from 'react-icons/ri';
 
 export default function SiteOverlay() {
 	return (
-		<div id='site-overlay'>
-			<div className='side-menu-space'>
+		<div id='overlay-page'>
+			<div className='side-menu-spacer'>
 				<SideMenu />
 				<Outlines />
 			</div>
-			<div className='content'>
+			<div className='content-2'>
 				<div className='icons-div'>
 					<RiGithubFill />
 					<RiLinkedinBoxFill />

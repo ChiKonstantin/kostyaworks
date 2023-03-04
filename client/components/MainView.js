@@ -74,33 +74,35 @@ export default function MainView() {
 	function snapView() {}
 	return (
 		<div id='main-view'>
-			<SiteOverlay />
-
 			<div id='journey' className='page'>
-				<div id='journey-menu' className='side-menu-space'></div>
+				<div id='journey-menu' className='side-menu-spacer'></div>
 				<div id='journey-content' className='content'>
-					<h1>Journey</h1>
+					{/* <h1>Journey</h1> */}
+					<PageContent />
 				</div>
 			</div>
-
+			<SiteOverlay />
 			<div id='products' className='page'>
-				<div id='products-menu' className='side-menu-space'></div>
+				<div id='products-menu' className='side-menu-spacer'></div>
 				<div id='products-content' className='content'>
-					<h1>Products</h1>
+					{/* <h1>Products</h1> */}
+					<PageContent />
 				</div>
 			</div>
 
 			<div id='motivation' className='page'>
-				<div id='motivation-menu' className='side-menu-space'></div>
+				<div id='motivation-menu' className='side-menu-spacer'></div>
 				<div id='motivation-content' className='content'>
-					<h1>Motivation</h1>
+					{/* <h1>Motivation</h1> */}
+					<PageContent />
 				</div>
 			</div>
 
 			<div id='summary' className='page'>
-				<div id='summary-menu' className='side-menu-space'></div>
+				<div id='summary-menu' className='side-menu-spacer'></div>
 				<div id='summary-content' className='content'>
-					<h1>Summary</h1>
+					{/* <h1>Summary</h1> */}
+					<PageContent />
 				</div>
 			</div>
 		</div>
