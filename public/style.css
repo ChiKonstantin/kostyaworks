@@ -155,17 +155,34 @@ img {
 }
 
 .page-content {
-	/* display: flex;
-	flex-direction: row; */
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 	height: inherit;
 	width: 100%;
-	border: dotted black;
+	/* border: dotted black; */
 	border-width: 3px;
 	overflow: hidden;
+	gap: 25px;
 }
 
 .content-window {
+	display: flex;
+	align-self: center;
+	flex-direction: row;
+	gap: 100px;
 	border: solid blue;
+	align-content: center;
+	width: 90%;
+	/* height: 500px; */
+	overflow: hidden;
+}
+
+.content-navigation {
+	display: flex;
+	align-self: center;
+	border: solid red;
+	width: 75%;
 }
 
 #side-menu {

@@ -86,7 +86,7 @@ export default function MainView() {
 				<div id='products-menu' className='side-menu-spacer'></div>
 				<div id='products-content' className='content'>
 					{/* <h1>Products</h1> */}
-					<PageContent />
+					{/* <PageContent /> */}
 				</div>
 			</div>
 
@@ -94,7 +94,7 @@ export default function MainView() {
 				<div id='motivation-menu' className='side-menu-spacer'></div>
 				<div id='motivation-content' className='content'>
 					{/* <h1>Motivation</h1> */}
-					<PageContent />
+					{/* <PageContent /> */}
 				</div>
 			</div>
 
@@ -102,7 +102,7 @@ export default function MainView() {
 				<div id='summary-menu' className='side-menu-spacer'></div>
 				<div id='summary-content' className='content'>
 					{/* <h1>Summary</h1> */}
-					<PageContent />
+					{/* <PageContent /> */}
 				</div>
 			</div>
 		</div>
