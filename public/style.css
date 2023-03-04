@@ -14,6 +14,10 @@ img {
 	height: 300px;
 }
 
+.icon {
+	cursor: pointer;
+}
+
 #app,
 #main,
 #main-view {
@@ -45,6 +49,14 @@ img {
 	overflow: hidden;
 	display: flex;
 	flex-direction: row;
+}
+.overlay-content {
+	display: flex;
+	flex-direction: row;
+	justify-content: end;
+	width: 78vw;
+	/* border: dotted orangered;
+	border-width: 6px; */
 }
 
 .page {
@@ -147,8 +159,13 @@ img {
 	flex-direction: row; */
 	height: inherit;
 	width: 100%;
-	/* border: dotted black; */
+	border: dotted black;
+	border-width: 3px;
 	overflow: hidden;
+}
+
+.content-window {
+	border: solid blue;
 }
 
 #side-menu {
@@ -205,11 +222,6 @@ img {
 	border-width: 5px; */
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-.content-2 {
-	width: 78vw;
-	/* border: dotted orangered;
-	border-width: 6px; */
-}
 
 #menu-journey,
 #menu-products,
@@ -251,13 +263,19 @@ img {
 .icons-div {
 	display: flex;
 	flex-direction: row;
-	justify-content: end;
-	width: inherit;
+	justify-content: center;
+	gap: 15px;
+	width: 200px;
 	font-size: 35px;
-	padding-right: 50px;
+
 	padding-top: 30px;
 	/* filter: drop-shadow(2px 2px white); */
-	border: solid red;
+	/* border: solid red; */
+}
+
+.border {
+	border: dotted black;
+	border-width: 3px;
 }
 
 #outlines-wrapper {

@@ -4,7 +4,7 @@ export default function PageContent(props) {
 	return (
 		<div className='page-content'>
 			page content
-			<div></div>
+			<div className='content-window'></div>
 		</div>
 	);
 }

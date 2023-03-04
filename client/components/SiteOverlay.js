@@ -11,10 +11,22 @@ export default function SiteOverlay() {
 				<SideMenu />
 				<Outlines />
 			</div>
-			<div className='content-2'>
+			<div className='overlay-content'>
+				{/* <div className='border'></div> */}
 				<div className='icons-div'>
-					<RiGithubFill />
-					<RiLinkedinBoxFill />
+					<RiGithubFill
+						className='icon'
+						onClick={() => {
+							open('https://github.com/ChiKonstantin');
+						}}
+					/>
+
+					<RiLinkedinBoxFill
+						className='icon'
+						onClick={() => {
+							open('https://www.linkedin.com/in/kbalakirev');
+						}}
+					/>
 				</div>
 			</div>
 		</div>
