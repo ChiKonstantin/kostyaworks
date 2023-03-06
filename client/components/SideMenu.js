@@ -12,6 +12,13 @@ export default function SideMenu() {
 	// 	const scrollRatio = (scrollPosition / screenHeight) * 30;
 	// 	selectBar.style.top = `${scrollRatio}vh`;
 	// }
+	function moveBarOnScroll() {
+		let selectBar = document.getElementById('menu-select-bar');
+		const scrollPosition = document.documentElement.scrollTop;
+		const screenHeight = window.innerHeight;
+		const scrollRatio = (scrollPosition / (screenHeight * 4)) * 30;
+		selectBar.style.top = `${scrollRatio + 10}vh`;
+	}
 
 	function menuScroll(location) {
 		const screenHeight = window.innerHeight;
