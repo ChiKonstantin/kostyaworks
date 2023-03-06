@@ -1,5 +1,5 @@
 :root {
-	--left-offset-web: 300px;
+	--left-offset-web: 275px;
 	--top-offset-web: 70px;
 	--right-offset-web: 100px;
 	--bottom-offset-web: 140px;
@@ -168,40 +168,48 @@ img {
 .page-content {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: end;
 	height: inherit;
 	width: 100%;
 	/* border: dotted black; */
 	border-width: 3px;
 	overflow: hidden;
-	gap: 25px;
 
 	/* z-index: 50; */
 }
-
 .content-window {
+	border: solid violet;
+	overflow: hidden;
+	width: calc(100vw - var(--left-offset-web));
+	height: calc(100vh - var(--top-offset-web) - var(--bottom-offset-web));
+}
+
+.content-scroller {
+	scroll-behavior: smooth;
+	scrollbar-width: none;
 	display: flex;
 	align-self: center;
 	flex-direction: row;
-	gap: 100px;
-	/* border: solid blue; */
+	border: solid orangered;
 	align-content: center;
-	width: 100%;
-	/* height: 500px; */
 	overflow: scroll;
-	padding: 1%;
-	height: 100%;
+	width: calc(100vw - var(--left-offset-web));
+	height: calc(100vh - var(--top-offset-web) - var(--bottom-offset-web));
 	/* position: fixed;
 	top: 0px;
 	left: 10px; */
 }
 
+.content-scroller::-webkit-scrollbar {
+	display: none;
+}
+
 .content-navigation {
-	height: 10%;
+	height: var(--bottom-offset-web);
 	display: flex;
 	align-self: center;
 	/* border: solid red; */
-	width: 75%;
+	width: 100%;
 }
 
 #side-menu {
@@ -325,7 +333,7 @@ img {
 	bottom: -1px;
 	width: inherit;
 	height: var(--bottom-offset-web);
-	border: dotted black;
+	/* border: dotted black; */
 	/* border-width: 6px; */
 }
 

@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
 
 export default function PageContent() {
-	function arrowRight() {}
+	function arrowRight() {
+		let journeyScroller = document.getElementById('journey-scroller');
+		journeyScroller.scrollLeft += screen.width - 275;
+	}
 
 	return (
 		<div className='page-content'>
-			<div className='content-window'>
+			{/* <div className='content-window'></div> */}
+			<div id='journey-scroller' className='content-scroller'>
 				<div
 					id='arrow-right'
 					onClick={() => {
@@ -14,6 +18,7 @@ export default function PageContent() {
 				>
 					arrow right
 				</div>
+
 				<img src='https://storage.googleapis.com/kostya-works-public/design/test%20content.png' />
 				<img src='https://storage.googleapis.com/kostya-works-public/design/test%20content.png' />
 				<img src='https://storage.googleapis.com/kostya-works-public/design/test%20content.png' />
