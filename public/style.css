@@ -5,6 +5,7 @@
 	--bottom-offset-web: 140px;
 	--menu-text-size: 35px;
 	--menu-items-gap: 5px;
+	--arrow-width: 40px;
 }
 
 html {
@@ -165,6 +166,13 @@ img {
 	);
 }
 
+.content {
+	width: calc(100vw - var(--left-offset-web));
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	border: solid blueviolet;
+	border-width: 5px;
+}
+
 .page-content {
 	display: flex;
 	flex-direction: column;
@@ -173,15 +181,40 @@ img {
 	width: 100%;
 	/* border: dotted black; */
 	border-width: 3px;
-	overflow: hidden;
+	/* overflow: hidden; */
 
 	/* z-index: 50; */
 }
-.content-window {
-	border: solid violet;
-	overflow: hidden;
-	width: calc(100vw - var(--left-offset-web));
-	height: calc(100vh - var(--top-offset-web) - var(--bottom-offset-web));
+.content-wrapper {
+	display: flex;
+	flex-direction: row;
+	justify-content: start;
+	width: 100%;
+	/* border: dotted blue; */
+	border-width: 3px;
+	/* align-items: stretch; */
+}
+
+.content-arrow-right,
+.content-arrow-left {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-content: stretch;
+	position: relative;
+	border: solid blue;
+	width: var(--arrow-width);
+}
+.arrow-icon {
+	border: solid red;
+	width: 100%;
+	height: 50px;
+	color: rgba(0, 0, 0, 0.521);
+	cursor: pointer;
+}
+
+.arrow-icon :hover {
+	color: black;
 }
 
 .content-scroller {
@@ -193,11 +226,10 @@ img {
 	border: solid orangered;
 	align-content: center;
 	overflow: scroll;
-	width: calc(100vw - var(--left-offset-web));
+	width: 100%;
 	height: calc(100vh - var(--top-offset-web) - var(--bottom-offset-web));
-	/* position: fixed;
-	top: 0px;
-	left: 10px; */
+	position: relative;
+	/* right: var(--arrow-width); */
 }
 
 .content-scroller::-webkit-scrollbar {
@@ -225,13 +257,6 @@ img {
 
 	/* text-align: right; */
 	/* border: solid black; */
-}
-
-.content {
-	width: calc(100vw - var(--left-offset-web));
-	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-	/* border: solid blueviolet;
-	border-width: 5px; */
 }
 
 .side-menu-spacer,
@@ -375,9 +400,6 @@ img {
 	left: 40px;
 }
 
-/* #arrow-right {
-	border: solid blue;
-} */
 img {
 	height: 100%;
 	width: 100%;
