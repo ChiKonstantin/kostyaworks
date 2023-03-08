@@ -6,7 +6,8 @@
 	--menu-text-size: 35px;
 	--menu-items-gap: 5px;
 	--arrow-width: 40px;
-	--nav-text-size: 20px;
+	--nav-text-size: 15px;
+	--nav-marker-spacing: 80px;
 }
 
 html {
@@ -290,39 +291,87 @@ img {
 	/* border: solid red; */
 	width: 100%;
 }
+
 .navigation-visual {
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	align-items: center;
+	width: calc(100% - 40px - var(--arrow-width) - var(--arrow-width));
+	/* border: solid blueviolet; */
+}
+
+.nav-markers-wrapper {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
-	width: calc(100% - 40px - var(--arrow-width) - var(--arrow-width));
+	position: relative;
+	/* left: 40px; */
+	height: 100%;
+	width: fit-content;
+	/* width: calc(100% - 40px - var(--arrow-width) - var(--arrow-width)); */
 	/* border: solid blue; */
+}
+
+.nav-bar {
+	height: var(--nav-text-size);
+	width: 50%;
+	position: relative;
+	top: calc(var(--nav-text-size) - 1px);
+	left: calc(var(--nav-marker-spacing) / -2.8);
+	background-image: linear-gradient(
+		to right,
+		rgba(0, 0, 0, 0),
+		rgba(0, 0, 0, 0.158),
+		rgba(0, 0, 0, 0)
+	);
+}
+.abc {
+	border: solid black;
 }
 
 .nav-wrapper {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	justify-content: start;
-	width: 120px;
-	height: 10px;
-	/* position: relative; */
+	align-items: start;
+	width: var(--nav-marker-spacing);
+	height: fit-content;
+	position: relative;
+	/* top: 20px; */
 	overflow: visible;
 	white-space: nowrap;
 	/* top: 50px; */
-	border: dotted black;
-	transform-origin: top left;
-	transform: rotate(20deg) translateX(0px);
+	/* border: solid black; */
+}
+
+.nav-text,
+.nav-checkbox-empty {
+	font-size: var(--nav-text-size);
 }
 
 .nav-text {
-	font-size: var(--nav-text-size);
+	transform-origin: bottom left;
+	transform: rotate(45deg);
+	position: relative;
+	left: 6px;
+	top: -8px;
+}
+
+.nav-spacer {
+	min-height: 5px;
 }
 
 .nav-checkbox-filler,
 .nav-checkbox-empty,
 .nav-spacer,
 .nav-text {
-	border: dotted grey;
-	min-width: 5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: auto;
+
+	/* border: solid grey; */
 }
 
 .side-menu-spacer,

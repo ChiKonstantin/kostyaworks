@@ -72,12 +72,16 @@ export default function JourneyContent() {
 				>
 					<IoChevronBackCircle className='arrow-icon' />
 				</div>
+
 				<div className='navigation-visual'>
-					<NavMarker text='Station One Hunder' />
-					<NavMarker text='Station Two' />
-					<NavMarker text='Station Three' />
-					<NavMarker text='Station Four' />
-					<NavMarker text='Station Five' />
+					<div className='nav-bar'></div>
+					<div className='nav-markers-wrapper'>
+						<NavMarker text='SCHOOL' />
+						<NavMarker text='COLLEGE' />
+						<NavMarker text='JOBS' />
+						<NavMarker text='CAREER CHANGE' />
+						<NavMarker text='TODAY' />
+					</div>
 				</div>
 
 				<div
