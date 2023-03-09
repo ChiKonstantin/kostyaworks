@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { IoChevronBackCircle } from 'react-icons/io5';
 import { IoChevronForwardCircle } from 'react-icons/io5';
+import NavMarker from './NavMarker';
 
 export default function SummaryContent() {
 	const pageName = 'summary';
@@ -72,7 +73,14 @@ export default function SummaryContent() {
 				>
 					<IoChevronBackCircle className='arrow-icon' />
 				</div>
-				<div className='navigation-visual'>CONTENT NAVIGATION</div>
+				<div className='navigation-visual'>
+					<div className='nav-bar'></div>
+					<div className='nav-markers-wrapper'>
+						<NavMarker text='1234' />
+						<NavMarker text='5678' />
+						<NavMarker text='2023' />
+					</div>
+				</div>
 
 				<div
 					className='content-arrow-right'

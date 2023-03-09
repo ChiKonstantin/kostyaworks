@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { IoChevronBackCircle } from 'react-icons/io5';
 import { IoChevronForwardCircle } from 'react-icons/io5';
 import NavMarker from './NavMarker';
+import { journeyData } from '../contentData';
+import ContentModule from './ContentModule';
 
 export default function JourneyContent() {
 	const pageName = 'journey';
@@ -26,40 +28,14 @@ export default function JourneyContent() {
 		<div className='page-content'>
 			<div id={pageName + '-scroller'} className='content-scroller'>
 				<div id={pageName + '-wrapper'} className='content-wrapper'>
-					<div className=''></div>
-					<div className='content-module'>
-						<img
-							className='img-content'
-							src='https://media.architecturaldigest.com/photos/56ba787ca254b168296a8fff/master/pass/zaha-hadid-architecture-01.jpg'
-						/>
-					</div>
-					<div className='content-module'>
-						<img
-							className='img-content'
-							src='https://architecturesideas.com/wp-content/uploads/2018/02/modern-architecture-buildings-9.jpg'
-						/>
-					</div>
-					<div className='content-module'>
-						<img
-							className='img-content'
-							src='https://wallpaperaccess.com/full/153244.jpg'
-						/>
-					</div>
-					<div className='content-module'>
-						<img src='https://architecturesideas.com/wp-content/uploads/2017/09/5-19.jpg' />
-					</div>
-					<div className='content-module'>
-						<img
-							className='img-content'
-							src='https://cdn.britannica.com/28/116528-050-1CAC6728/Great-Court-Foster-and-Partners-British-Museum-2000.jpg'
-						/>
-					</div>
-					<div className='content-module'>
-						<img
-							className='img-content'
-							src='https://wallpapercave.com/wp/EPfczsw.jpg'
-						/>
-					</div>
+					{journeyData.map((journeyData) => {
+						return (
+							<>
+								<ContentModule imageUrl={journeyData.subsections[0].imageUrl} />
+								<ContentModule imageUrl={journeyData.subsections[1].imageUrl} />
+							</>
+						);
+					})}
 				</div>
 			</div>
 

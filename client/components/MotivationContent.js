@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { IoChevronBackCircle } from 'react-icons/io5';
 import { IoChevronForwardCircle } from 'react-icons/io5';
+import NavMarker from './NavMarker';
 
 export default function MotivationContent() {
 	const pageName = 'motivation';
@@ -71,7 +72,16 @@ export default function MotivationContent() {
 				>
 					<IoChevronBackCircle className='arrow-icon' />
 				</div>
-				<div className='navigation-visual'>CONTENT NAVIGATION</div>
+				<div className='navigation-visual'>
+					<div className='nav-bar'></div>
+					<div className='nav-markers-wrapper'>
+						<NavMarker text='ABCD' />
+						<NavMarker text='EFGH' />
+						<NavMarker text='IJKL' />
+						<NavMarker text='MNOP' />
+						<NavMarker text='XYZ' />
+					</div>
+				</div>
 
 				<div
 					className='content-arrow-right'

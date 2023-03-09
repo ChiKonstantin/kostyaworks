@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { IoChevronBackCircle } from 'react-icons/io5';
 import { IoChevronForwardCircle } from 'react-icons/io5';
+import NavMarker from './NavMarker';
 
 export default function ProductsContent() {
 	const pageName = 'products';
@@ -72,7 +73,15 @@ export default function ProductsContent() {
 				>
 					<IoChevronBackCircle className='arrow-icon' />
 				</div>
-				<div className='navigation-visual'>CONTENT NAVIGATION</div>
+				<div className='navigation-visual'>
+					<div className='nav-bar'></div>
+					<div className='nav-markers-wrapper'>
+						<NavMarker text='CHATATOR' />
+						<NavMarker text='PANDEMIC BEAT' />
+						<NavMarker text='NOUGAT.NEWS' />
+						<NavMarker text='NEIGHBOR FAVE' />
+					</div>
+				</div>
 
 				<div
 					className='content-arrow-right'
