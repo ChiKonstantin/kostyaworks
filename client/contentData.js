@@ -11,8 +11,9 @@ export const journeyData = [
 					{
 						text: 'This is subsection text...',
 						size: '25px',
-						color: 'orange',
-						align: 'left',
+						color: 'black',
+						align: 'right',
+						font: 'inherit',
 					},
 					{},
 				],
@@ -25,16 +26,35 @@ export const journeyData = [
 			},
 		],
 	},
-	// {
-	// 	sectionName: 'COLLEGE',
-	// 	twoSubsections: [
-	// 		{ subsectionNum: 1, imageUrl: '', subsectionText: [{}, {}, {}] },
-	// 		{ subsectionNum: 2, imageUrl: '', subsectionText: [{}, {}, {}] },
-	// 	],
-	// },
+	{
+		sectionName: 'COLLEGE',
+		subsections: [
+			{
+				subsectionNum: 1,
+				imageUrl: 'https://wallpaperaccess.com/full/153244.jpg',
+				subsectionText: [
+					{},
+					{},
+					{
+						text: 'College is a great time.',
+						size: '15px',
+						color: 'white',
+						align: 'left',
+						font: 'Georgia',
+					},
+				],
+			},
+			{
+				subsectionNum: 2,
+				imageUrl:
+					'https://cdn.britannica.com/28/116528-050-1CAC6728/Great-Court-Foster-and-Partners-British-Museum-2000.jpg',
+				subsectionText: [{}, {}, {}],
+			},
+		],
+	},
 	// {
 	// 	sectionName: 'JOBS',
-	// 	twoSubsections: [
+	// 	subsections: [
 	// 		{ subsectionNum: 1, imageUrl: '', subsectionText: [{}, {}, {}] },
 	// 		{ subsectionNum: 2, imageUrl: '', subsectionText: [{}, {}, {}] },
 	// 	],

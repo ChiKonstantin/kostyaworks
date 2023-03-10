@@ -6,7 +6,7 @@ export default function NavMarker(props) {
 	return (
 		<div className='nav-wrapper'>
 			<div className='nav-checkbox-empty'>
-				<RiCheckboxBlankCircleLine />
+				<RiCheckboxBlankCircleFill />
 			</div>
 			<div className='nav-spacer'></div>
 			<div className='nav-text'>{props.text}</div>

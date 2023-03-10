@@ -7,7 +7,10 @@ import ContentModule from './ContentModule';
 
 export default function JourneyContent() {
 	const pageName = 'journey';
-	function arrowScroll(direction) {
+
+	const [counter, setCounter] = useState(1);
+
+	function arrowScroll(direction, sectionsArr) {
 		//getting the scroller
 		let scroller = document.getElementById(`${pageName}-scroller`);
 		let wrapper = document.getElementById(`${pageName}-wrapper`);
@@ -17,10 +20,30 @@ export default function JourneyContent() {
 		//getting height of scroller and removing px to have a pure number
 		let scrollValue = parseInt(contentWrapperStyle.height);
 		//applying scrolling to
-		if (direction === 'left') {
+		if (direction === 'left' && counter > 1) {
+			setCounter(() => counter - 1);
 			scroller.scrollLeft -= scrollValue * 2;
-		} else if (direction === 'right') {
+			console.log('COUNTER ', counter);
+		} else if (direction === 'right' && counter < sectionsArr.length) {
+			setCounter(() => counter + 1);
 			scroller.scrollLeft += scrollValue * 2;
+			console.log('COUNTER ', counter);
+		}
+	}
+
+	function renderLeftArrow(counter, dataArr) {
+		if (counter > 1) {
+			return <IoChevronBackCircle className='arrow-icon active' />;
+		} else {
+			return <IoChevronBackCircle className='arrow-icon inactive' />;
+		}
+	}
+
+	function renderRightArrow(counter, sectionArr) {
+		if (counter < sectionArr.length) {
+			return <IoChevronForwardCircle className='arrow-icon active' />;
+		} else {
+			return <IoChevronForwardCircle className='arrow-icon inactive' />;
 		}
 	}
 
@@ -31,11 +54,12 @@ export default function JourneyContent() {
 					{journeyData.map((journeyData) => {
 						return (
 							<>
-								<ContentModule imageUrl={journeyData.subsections[0].imageUrl} />
-								<ContentModule imageUrl={journeyData.subsections[1].imageUrl} />
+								<ContentModule data={journeyData.subsections[0]} />
+								<ContentModule data={journeyData.subsections[1]} />
 							</>
 						);
 					})}
+					<ContentModule data='none' />
 				</div>
 			</div>
 
@@ -43,10 +67,10 @@ export default function JourneyContent() {
 				<div
 					className='content-arrow-left'
 					onClick={() => {
-						arrowScroll('left');
+						arrowScroll('left', journeyData);
 					}}
 				>
-					<IoChevronBackCircle className='arrow-icon' />
+					{renderLeftArrow(counter)}
 				</div>
 
 				<div className='navigation-visual'>
@@ -63,10 +87,10 @@ export default function JourneyContent() {
 				<div
 					className='content-arrow-right'
 					onClick={() => {
-						arrowScroll('right');
+						arrowScroll('right', journeyData);
 					}}
 				>
-					<IoChevronForwardCircle className='arrow-icon' />
+					{renderRightArrow(counter, journeyData)}
 				</div>
 			</div>
 		</div>
