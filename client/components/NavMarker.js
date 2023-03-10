@@ -4,7 +4,7 @@ import { RiCheckboxBlankCircleFill } from 'react-icons/ri';
 
 export default function NavMarker(props) {
 	return (
-		<div className='nav-wrapper'>
+		<div id={props.id} className='nav-wrapper'>
 			<div className='nav-checkbox-empty'>
 				<RiCheckboxBlankCircleFill />
 			</div>

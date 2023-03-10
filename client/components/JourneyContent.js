@@ -32,36 +32,46 @@ export default function JourneyContent() {
 		}
 	}
 
+	function navStatus(sectionArr) {
+		let scroller = document.getElementById(`${pageName}-scroller`);
+		let wrapper = document.getElementById(`${pageName}-wrapper`);
+		let contentWrapperStyle = document.defaultView.getComputedStyle(wrapper);
+		let scrollValue = parseInt(contentWrapperStyle.height);
+
+		let activeNavNumber = Math.floor(scroller.scrollLeft / (scrollValue * 2));
+		console.log('scroller', scroller.scrollLeft);
+		console.log('scrollValue: ', scrollValue);
+		console.log('ACTIVE NAV: ', activeNavNumber);
+		let activeNavName = sectionArr[activeNavNumber].sectionName;
+		let activeNav = document.getElementById(`nav-${activeNavName}`);
+
+		activeNav.style.color = 'black';
+	}
+
 	function arrowStatus(sectionArr) {
 		let scroller = document.getElementById(`${pageName}-scroller`);
 		let wrapper = document.getElementById(`${pageName}-wrapper`);
 		let contentWrapperStyle = document.defaultView.getComputedStyle(wrapper);
 		let scrollValue = parseInt(contentWrapperStyle.height);
-		console.log('scroll value:', scroller.scrollLeft);
 
 		if (scroller.scrollLeft === 0) {
 			setArrows(() => ({ left: false, right: true }));
-			console.log('&&&&&&', 1);
 		}
 		if (
 			0 < scroller.scrollLeft &&
 			scroller.scrollLeft < scrollValue * (sectionArr.length * 2 - 1)
 		) {
 			setArrows(() => ({ left: true, right: true }));
-			console.log('&&&&&&', 2);
 		}
 		if (scroller.scrollLeft >= scrollValue * (sectionArr.length * 2 - 1)) {
 			setArrows(() => ({ left: true, right: false }));
-			console.log('&&&&&&', 3);
 		}
 	}
 
 	function renderLeftArrow() {
 		if (arrowState.left) {
-			console.log('ACTIVE');
 			return <IoChevronBackCircle className='arrow-icon active' />;
 		} else {
-			console.log('INACTIVE');
 			return <IoChevronBackCircle className='arrow-icon inactive' />;
 		}
 	}
@@ -79,9 +89,11 @@ export default function JourneyContent() {
 			<div
 				id={pageName + '-scroller'}
 				className='content-scroller'
-				onScroll={() => arrowStatus(contentData)}
+				onScroll={() => {
+					arrowStatus(contentData);
+					navStatus(contentData);
+				}}
 			>
-				{/* {console.log('RENDER')} */}
 				<div id={pageName + '-wrapper'} className='content-wrapper'>
 					{contentData.map((contentData) => {
 						return (
@@ -111,11 +123,19 @@ export default function JourneyContent() {
 				<div className='navigation-visual'>
 					<div className='nav-bar'></div>
 					<div className='nav-markers-wrapper'>
-						<NavMarker text='SCHOOL' />
-						<NavMarker text='COLLEGE' />
+						{contentData.map((contentData) => {
+							return (
+								<NavMarker
+									text={contentData.sectionName}
+									id={`nav-${contentData.sectionName}`}
+								/>
+							);
+						})}
+
+						{/* <NavMarker text='COLLEGE' />
 						<NavMarker text='JOBS' />
 						<NavMarker text='CAREER CHANGE' />
-						<NavMarker text='TODAY' />
+						<NavMarker text='TODAY' /> */}
 					</div>
 				</div>
 
