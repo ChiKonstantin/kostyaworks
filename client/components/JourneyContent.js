@@ -6,41 +6,68 @@ import { journeyData } from '../contentData';
 import ContentModule from './ContentModule';
 
 export default function JourneyContent() {
+	//update these:
 	const pageName = 'journey';
+	const contentData = journeyData;
+	//
 
-	const [counter, setCounter] = useState(1);
+	const [arrowState, setArrows] = useState({ left: false, right: true });
 
 	function arrowScroll(direction, sectionsArr) {
-		//getting the scroller
 		let scroller = document.getElementById(`${pageName}-scroller`);
 		let wrapper = document.getElementById(`${pageName}-wrapper`);
-
-		//getting all styles from scroller
 		let contentWrapperStyle = document.defaultView.getComputedStyle(wrapper);
-		//getting height of scroller and removing px to have a pure number
+
 		let scrollValue = parseInt(contentWrapperStyle.height);
-		//applying scrolling to
-		if (direction === 'left' && counter > 1) {
-			setCounter(() => counter - 1);
-			scroller.scrollLeft -= scrollValue * 2;
-			console.log('COUNTER ', counter);
-		} else if (direction === 'right' && counter < sectionsArr.length) {
-			setCounter(() => counter + 1);
-			scroller.scrollLeft += scrollValue * 2;
-			console.log('COUNTER ', counter);
+
+		if (direction === 'left' && scroller.scrollLeft > 0) {
+			scroller.scrollLeft -= scrollValue * 1;
+		}
+
+		if (
+			direction === 'right' &&
+			scroller.scrollLeft < scrollValue * (sectionsArr.length * 2 - 1)
+		) {
+			scroller.scrollLeft += scrollValue * 1;
 		}
 	}
 
-	function renderLeftArrow(counter, dataArr) {
-		if (counter > 1) {
+	function arrowStatus(sectionArr) {
+		let scroller = document.getElementById(`${pageName}-scroller`);
+		let wrapper = document.getElementById(`${pageName}-wrapper`);
+		let contentWrapperStyle = document.defaultView.getComputedStyle(wrapper);
+		let scrollValue = parseInt(contentWrapperStyle.height);
+		console.log('scroll value:', scroller.scrollLeft);
+
+		if (scroller.scrollLeft === 0) {
+			setArrows(() => ({ left: false, right: true }));
+			console.log('&&&&&&', 1);
+		}
+		if (
+			0 < scroller.scrollLeft &&
+			scroller.scrollLeft < scrollValue * (sectionArr.length * 2 - 1)
+		) {
+			setArrows(() => ({ left: true, right: true }));
+			console.log('&&&&&&', 2);
+		}
+		if (scroller.scrollLeft >= scrollValue * (sectionArr.length * 2 - 1)) {
+			setArrows(() => ({ left: true, right: false }));
+			console.log('&&&&&&', 3);
+		}
+	}
+
+	function renderLeftArrow() {
+		if (arrowState.left) {
+			console.log('ACTIVE');
 			return <IoChevronBackCircle className='arrow-icon active' />;
 		} else {
+			console.log('INACTIVE');
 			return <IoChevronBackCircle className='arrow-icon inactive' />;
 		}
 	}
 
-	function renderRightArrow(counter, sectionArr) {
-		if (counter < sectionArr.length) {
+	function renderRightArrow() {
+		if (arrowState.right) {
 			return <IoChevronForwardCircle className='arrow-icon active' />;
 		} else {
 			return <IoChevronForwardCircle className='arrow-icon inactive' />;
@@ -49,28 +76,36 @@ export default function JourneyContent() {
 
 	return (
 		<div className='page-content'>
-			<div id={pageName + '-scroller'} className='content-scroller'>
+			<div
+				id={pageName + '-scroller'}
+				className='content-scroller'
+				onScroll={() => arrowStatus(contentData)}
+			>
+				{/* {console.log('RENDER')} */}
 				<div id={pageName + '-wrapper'} className='content-wrapper'>
-					{journeyData.map((journeyData) => {
+					{contentData.map((contentData) => {
 						return (
 							<>
-								<ContentModule data={journeyData.subsections[0]} />
-								<ContentModule data={journeyData.subsections[1]} />
+								<ContentModule data={contentData.subsections[0]} />
+								<ContentModule data={contentData.subsections[1]} />
 							</>
 						);
 					})}
+					<ContentModule data='none' />
 					<ContentModule data='none' />
 				</div>
 			</div>
 
 			<div className='content-navigation'>
-				<div
-					className='content-arrow-left'
-					onClick={() => {
-						arrowScroll('left', journeyData);
-					}}
-				>
-					{renderLeftArrow(counter)}
+				<div className='content-arrow'>
+					<div
+						className='arrow-wrapper'
+						onClick={() => {
+							arrowScroll('left', contentData);
+						}}
+					>
+						{renderLeftArrow()}
+					</div>
 				</div>
 
 				<div className='navigation-visual'>
@@ -84,13 +119,15 @@ export default function JourneyContent() {
 					</div>
 				</div>
 
-				<div
-					className='content-arrow-right'
-					onClick={() => {
-						arrowScroll('right', journeyData);
-					}}
-				>
-					{renderRightArrow(counter, journeyData)}
+				<div className='content-arrow'>
+					<div
+						className='arrow-wrapper'
+						onClick={() => {
+							arrowScroll('right', contentData);
+						}}
+					>
+						{renderRightArrow()}
+					</div>
 				</div>
 			</div>
 		</div>
