@@ -27,7 +27,7 @@ export const journeyData = [
 		],
 	},
 	{
-		sectionName: 'COLLEGE',
+		sectionName: 'IIT',
 		subsections: [
 			{
 				subsectionNum: 1,
@@ -52,11 +52,20 @@ export const journeyData = [
 			},
 		],
 	},
-	// {
-	// 	sectionName: 'JOBS',
-	// 	subsections: [
-	// 		{ subsectionNum: 1, imageUrl: '', subsectionText: [{}, {}, {}] },
-	// 		{ subsectionNum: 2, imageUrl: '', subsectionText: [{}, {}, {}] },
-	// 	],
-	// },
+	{
+		sectionName: 'JOBS',
+		subsections: [
+			{
+				subsectionNum: 1,
+				imageUrl:
+					'https://cdn.britannica.com/28/116528-050-1CAC6728/Great-Court-Foster-and-Partners-British-Museum-2000.jpg',
+				subsectionText: [{}, {}, {}],
+			},
+			{
+				subsectionNum: 2,
+				imageUrl: 'https://wallpaperaccess.com/full/153244.jpg',
+				subsectionText: [{}, {}, {}],
+			},
+		],
+	},
 ];

@@ -173,14 +173,10 @@ export default function JourneyContent() {
 									index={contentData.indexOf(contentElement)}
 									text={contentElement.sectionName}
 									activeNav={activeNav}
+									navArr={navArr}
 								/>
 							);
 						})}
-
-						{/* <NavMarker text='COLLEGE' />
-						<NavMarker text='JOBS' />
-						<NavMarker text='CAREER CHANGE' />
-						<NavMarker text='TODAY' /> */}
 					</div>
 				</div>
 

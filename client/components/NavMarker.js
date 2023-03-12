@@ -12,13 +12,25 @@ export default function NavMarker(props) {
 		navClass = 'nav-wrapper';
 	}
 
+	function scrollToPosition(position) {
+		let scroller = document.getElementById(`journey-scroller`);
+		scroller.scrollLeft = position;
+	}
+
 	return (
 		<div className={navClass}>
 			<div className='nav-checkbox-empty'>
 				<RiCheckboxBlankCircleFill />
 			</div>
 			<div className='nav-spacer'></div>
-			<div className='nav-text'>{props.text}</div>
+			<div
+				className='nav-text'
+				onClick={() =>
+					scrollToPosition(props.navArr[props.index].startLocation)
+				}
+			>
+				{props.text}
+			</div>
 		</div>
 	);
 }
