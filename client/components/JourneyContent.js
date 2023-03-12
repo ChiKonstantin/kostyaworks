@@ -12,58 +12,104 @@ export default function JourneyContent() {
 	//
 
 	const [arrowState, setArrows] = useState({ left: false, right: true });
+	const [activeNav, setActiveNav] = useState(0);
+	// const [contentNavObjStatus, setContentNavObjStatus] = useState(false);
+	const [navArr, setNavArr] = useState([{ index: 0, startLocation: 0 }]);
+	const [subsectionsCount, setSubsectionsCount] = useState(0);
+
+	useEffect(() => {
+		if (navArr.length === 1) {
+			returnNavArr(contentData);
+		}
+
+		if (subsectionsCount === 0) {
+			let count = 0;
+			contentData.map((section) => {
+				count += section.subsections.length;
+			});
+			setSubsectionsCount(count);
+		}
+	});
+
+	function returnNavArr(contentArr) {
+		let wrapper = document.getElementById(`${pageName}-wrapper`);
+		let contentWrapperStyle = document.defaultView.getComputedStyle(wrapper);
+
+		let arr = [];
+		let moduleWidth = parseInt(contentWrapperStyle.height);
+		let locationOffset = 0;
+
+		contentArr.map((section) => {
+			const sectionIndex = contentArr.indexOf(section);
+			const sectionStartLocation = locationOffset;
+
+			arr.push({
+				index: sectionIndex,
+				startLocation: sectionStartLocation,
+			});
+
+			locationOffset =
+				locationOffset + moduleWidth * section.subsections.length;
+		});
+
+		setNavArr(arr);
+	}
 
 	function arrowScroll(direction, sectionsArr) {
 		let scroller = document.getElementById(`${pageName}-scroller`);
 		let wrapper = document.getElementById(`${pageName}-wrapper`);
 		let contentWrapperStyle = document.defaultView.getComputedStyle(wrapper);
 
-		let scrollValue = parseInt(contentWrapperStyle.height);
+		let moduleWidth = parseInt(contentWrapperStyle.height);
 
 		if (direction === 'left' && scroller.scrollLeft > 0) {
-			scroller.scrollLeft -= scrollValue * 1;
+			scroller.scrollLeft -= moduleWidth;
 		}
 
 		if (
 			direction === 'right' &&
-			scroller.scrollLeft < scrollValue * (sectionsArr.length * 2 - 1)
+			scroller.scrollLeft < moduleWidth * (subsectionsCount - 1)
 		) {
-			scroller.scrollLeft += scrollValue * 1;
+			scroller.scrollLeft += moduleWidth;
 		}
 	}
 
-	function navStatus(sectionArr) {
+	function navStatus(arr) {
 		let scroller = document.getElementById(`${pageName}-scroller`);
 		let wrapper = document.getElementById(`${pageName}-wrapper`);
 		let contentWrapperStyle = document.defaultView.getComputedStyle(wrapper);
-		let scrollValue = parseInt(contentWrapperStyle.height);
+		let moduleWidth = parseInt(contentWrapperStyle.height);
 
-		let activeNavNumber = Math.floor(scroller.scrollLeft / (scrollValue * 2));
-		console.log('scroller', scroller.scrollLeft);
-		console.log('scrollValue: ', scrollValue);
-		console.log('ACTIVE NAV: ', activeNavNumber);
-		let activeNavName = sectionArr[activeNavNumber].sectionName;
-		let activeNav = document.getElementById(`nav-${activeNavName}`);
+		// const activeNavNumber = Math.floor(
+		// 	(scroller.scrollLeft + scrollValue / 2) / (scrollValue * 2)
+		// );
 
-		activeNav.style.color = 'black';
+		for (let i = arr.length - 1; i >= 0; i--) {
+			// console.log('', arr[i]);
+			if (scroller.scrollLeft + moduleWidth / 2 >= arr[i].startLocation) {
+				// console.log(arr[i].index);
+				setActiveNav(arr[i].index);
+				break;
+			}
+		}
 	}
 
 	function arrowStatus(sectionArr) {
 		let scroller = document.getElementById(`${pageName}-scroller`);
 		let wrapper = document.getElementById(`${pageName}-wrapper`);
 		let contentWrapperStyle = document.defaultView.getComputedStyle(wrapper);
-		let scrollValue = parseInt(contentWrapperStyle.height);
+		let moduleWidth = parseInt(contentWrapperStyle.height);
 
 		if (scroller.scrollLeft === 0) {
 			setArrows(() => ({ left: false, right: true }));
 		}
 		if (
 			0 < scroller.scrollLeft &&
-			scroller.scrollLeft < scrollValue * (sectionArr.length * 2 - 1)
+			scroller.scrollLeft < moduleWidth * (subsectionsCount - 1)
 		) {
 			setArrows(() => ({ left: true, right: true }));
 		}
-		if (scroller.scrollLeft >= scrollValue * (sectionArr.length * 2 - 1)) {
+		if (scroller.scrollLeft >= moduleWidth * (subsectionsCount - 1)) {
 			setArrows(() => ({ left: true, right: false }));
 		}
 	}
@@ -91,17 +137,15 @@ export default function JourneyContent() {
 				className='content-scroller'
 				onScroll={() => {
 					arrowStatus(contentData);
-					navStatus(contentData);
+					navStatus(navArr);
 				}}
 			>
 				<div id={pageName + '-wrapper'} className='content-wrapper'>
 					{contentData.map((contentData) => {
-						return (
-							<>
-								<ContentModule data={contentData.subsections[0]} />
-								<ContentModule data={contentData.subsections[1]} />
-							</>
-						);
+						const toReturn = contentData.subsections.map((subsection) => {
+							return <ContentModule data={subsection} />;
+						});
+						return toReturn;
 					})}
 					<ContentModule data='none' />
 					<ContentModule data='none' />
@@ -123,11 +167,12 @@ export default function JourneyContent() {
 				<div className='navigation-visual'>
 					<div className='nav-bar'></div>
 					<div className='nav-markers-wrapper'>
-						{contentData.map((contentData) => {
+						{contentData.map((contentElement) => {
 							return (
 								<NavMarker
-									text={contentData.sectionName}
-									id={`nav-${contentData.sectionName}`}
+									index={contentData.indexOf(contentElement)}
+									text={contentElement.sectionName}
+									activeNav={activeNav}
 								/>
 							);
 						})}

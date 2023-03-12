@@ -3,8 +3,17 @@ import { RiCheckboxBlankCircleLine } from 'react-icons/ri';
 import { RiCheckboxBlankCircleFill } from 'react-icons/ri';
 
 export default function NavMarker(props) {
+	// function to activate current nav
+
+	let navClass = '';
+	if (props.index === props.activeNav) {
+		navClass = `nav-wrapper nav-active`;
+	} else {
+		navClass = 'nav-wrapper';
+	}
+
 	return (
-		<div id={props.id} className='nav-wrapper'>
+		<div className={navClass}>
 			<div className='nav-checkbox-empty'>
 				<RiCheckboxBlankCircleFill />
 			</div>

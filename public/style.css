@@ -1,8 +1,8 @@
 :root {
-	--left-offset-web: 275px;
+	--left-offset-web: 200px;
 	--top-offset-web: 70px;
 	--right-offset-web: 100px;
-	--bottom-offset-web: 140px;
+	--bottom-offset-web: 90px;
 	--menu-text-size: 25px;
 	--menu-items-gap: 5px;
 	--arrow-width: 30px;
@@ -376,20 +376,13 @@ img {
 	/* cursor: pointer; */
 }
 
-/* .nav-active {
-	color: white;
-	mix-blend-mode: difference;
-	background-color: rgba(0, 0, 0, 0);
-	backdrop-filter: invert(80%);
-} */
+.nav-active {
+	color: black;
+}
 
 .nav-spacer {
 	min-height: 5px;
 }
-
-/* #nav-COLLEGE {
-	color: black;
-} */
 
 .nav-checkbox-filler,
 .nav-checkbox-empty,
