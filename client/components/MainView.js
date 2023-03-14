@@ -8,7 +8,21 @@ import SMIcons from './SMIcons';
 import { moveBarOnScroll } from '../functions';
 
 export default function MainView() {
+	const [scrollRange, setScrollRange] = useState({
+		topLimit: 0,
+		bottomLimit: window.innerHeight,
+	});
+	let timeOutId = 0;
+	document.documentElement.scrollTop = 0;
+
 	window.onscroll = function () {
+		clearTimeout(timeOutId);
+		timeOutId = setTimeout(() => {
+			snapViewPages();
+		}, 50);
+
+		let scrollPosition = document.documentElement.scrollTop;
+
 		slidePages();
 		moveBarOnScroll();
 	};
@@ -16,6 +30,10 @@ export default function MainView() {
 	function slidePages() {
 		const scrollPosition = document.documentElement.scrollTop;
 		const screenHeight = window.innerHeight;
+		// let mainView = document.getElementById('main-view');
+		// const scrollPosition = mainView.scrollTop;
+		// console.log('SCROLL: ', scrollPosition);
+
 		let journeyPage = document.getElementById('journey');
 		let productsPage = document.getElementById('products');
 		let motivationPage = document.getElementById('motivation');
@@ -62,18 +80,41 @@ export default function MainView() {
 			summaryPage.style.height = '0px';
 		}
 	}
+
 	function colorChange() {
 		const scrollPosition = document.documentElement.scrollTop;
 		const screenHeight = window.innerHeight;
 		const positionRatio = Math.round(
 			Math.min(scrollPosition / screenHeight, 1)
 		);
-		const colorChangeRatio = 0.5;
+		const colorChangeRatio = 0.7;
 	}
 
-	function snapView() {}
+	function snapViewPages() {
+		let scrollPosition = document.documentElement.scrollTop;
+		const snapThresholdValue = 0.5;
+		const screenHeight = window.innerHeight;
+		const snapThresholdTop = screenHeight * snapThresholdValue;
+		const snapThresholdBottom = screenHeight * (1 - snapThresholdValue);
+		const pageTopOffset = scrollPosition % screenHeight;
+		// console.log('OFFSET, THRESHOLD: ', pageTopOffset, snapThreshold);
+		if (pageTopOffset <= snapThresholdTop) {
+			document.documentElement.scrollTop = scrollPosition - pageTopOffset;
+			console.log('snap to bottom');
+		} else if (pageTopOffset > snapThresholdBottom) {
+			document.documentElement.scrollTop =
+				scrollPosition + (screenHeight - pageTopOffset);
+			console.log('snap to top');
+		}
+	}
 	return (
-		<div id='main-view'>
+		<div
+			id='main-view'
+			// onScroll={() => {
+			// 	slidePages();
+			// 	moveBarOnScroll();
+			// }}
+		>
 			<div id='summary' className='page'>
 				<div id='summary-menu' className='side-menu-spacer'></div>
 				<div id='summary-content' className='content'>
@@ -99,8 +140,13 @@ export default function MainView() {
 					<JourneyContent />
 				</div>
 			</div>
+
 			<MenuArea />
 			<SMIcons />
+			{/* <section className='scroll-spacer-div'>1</section>
+			<section className='scroll-spacer-div'>2</section>
+			<section className='scroll-spacer-div'>3</section>
+			<section className='scroll-spacer-div'>4</section> */}
 		</div>
 	);
 }
