@@ -9,7 +9,7 @@ export const journeyData = [
 				subsectionText: [
 					{},
 					{
-						text: 'This is subsection text...',
+						text: 'school',
 						size: '25px',
 						color: 'black',
 						align: 'right',
@@ -22,7 +22,15 @@ export const journeyData = [
 				subsectionNum: 2,
 				imageUrl:
 					'https://architecturesideas.com/wp-content/uploads/2018/02/modern-architecture-buildings-9.jpg',
-				subsectionText: [],
+				subsectionText: [
+					{
+						text: 'school',
+						size: '25px',
+						color: 'black',
+						align: 'right',
+						font: 'inherit',
+					},
+				],
 			},
 		],
 	},
@@ -36,7 +44,7 @@ export const journeyData = [
 					{},
 					{},
 					{
-						text: 'College is a great time.',
+						text: 'IIT',
 						size: '15px',
 						color: 'white',
 						align: 'left',
@@ -48,7 +56,18 @@ export const journeyData = [
 				subsectionNum: 2,
 				imageUrl:
 					'https://cdn.britannica.com/28/116528-050-1CAC6728/Great-Court-Foster-and-Partners-British-Museum-2000.jpg',
-				subsectionText: [{}, {}, {}],
+				subsectionText: [
+					{
+						text: 'IIT',
+						size: '15px',
+						color: 'white',
+						align: 'left',
+						font: 'Georgia',
+					},
+
+					{},
+					{},
+				],
 			},
 		],
 	},
@@ -59,12 +78,50 @@ export const journeyData = [
 				subsectionNum: 1,
 				imageUrl:
 					'https://cdn.britannica.com/28/116528-050-1CAC6728/Great-Court-Foster-and-Partners-British-Museum-2000.jpg',
-				subsectionText: [{}, {}, {}],
+				subsectionText: [
+					{
+						text: 'JOBS',
+						size: '15px',
+						color: 'white',
+						align: 'left',
+						font: 'Georgia',
+					},
+
+					{},
+					{},
+				],
 			},
 			{
 				subsectionNum: 2,
 				imageUrl: 'https://wallpaperaccess.com/full/153244.jpg',
-				subsectionText: [{}, {}, {}],
+				subsectionText: [
+					{
+						text: 'JOBS',
+						size: '15px',
+						color: 'white',
+						align: 'left',
+						font: 'Georgia',
+					},
+					{},
+					{},
+				],
+			},
+			{
+				subsectionNum: 1,
+				imageUrl:
+					'https://cdn.britannica.com/28/116528-050-1CAC6728/Great-Court-Foster-and-Partners-British-Museum-2000.jpg',
+				subsectionText: [
+					{
+						text: 'JOBS',
+						size: '15px',
+						color: 'white',
+						align: 'left',
+						font: 'Georgia',
+					},
+
+					{},
+					{},
+				],
 			},
 		],
 	},

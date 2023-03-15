@@ -10,5 +10,5 @@ export function moveBarOnScroll() {
 	const scrollRatio =
 		(scrollPosition / (screenHeight * 4)) * parseInt(sideMenuStyle.height);
 
-	selectBar.style.top = `${70 + scrollRatio}px`;
+	selectBar.style.top = `${parseInt(sideMenuStyle.top) + scrollRatio}px`;
 }

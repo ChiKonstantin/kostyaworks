@@ -9,6 +9,7 @@ export default function MotivationContent() {
 		//getting the scroller
 		let scroller = document.getElementById(`${pageName}-scroller`);
 		let wrapper = document.getElementById(`${pageName}-wrapper`);
+		let timeOutId = 0;
 
 		//getting all styles from scroller
 		let contentWrapperStyle = document.defaultView.getComputedStyle(wrapper);

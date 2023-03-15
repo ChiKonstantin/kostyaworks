@@ -27,6 +27,8 @@ export default function MainView() {
 		moveBarOnScroll();
 	};
 
+	document.getElementsByClassName;
+
 	function slidePages() {
 		const scrollPosition = document.documentElement.scrollTop;
 		const screenHeight = window.innerHeight;
