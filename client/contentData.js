@@ -3,9 +3,9 @@ export const journeyData = [
 		sectionName: 'SCHOOL',
 		subsections: [
 			{
-				subsectionNum: 1,
+				// subsectionNum: 1,
 				imageUrl:
-					'https://media.architecturaldigest.com/photos/56ba787ca254b168296a8fff/master/pass/zaha-hadid-architecture-01.jpg',
+					'https://storage.googleapis.com/kostya-works-public/design/background%201%20png.png',
 				subsectionText: [
 					{},
 					{
@@ -19,7 +19,7 @@ export const journeyData = [
 				],
 			},
 			{
-				subsectionNum: 2,
+				// subsectionNum: 2,
 				imageUrl:
 					'https://architecturesideas.com/wp-content/uploads/2018/02/modern-architecture-buildings-9.jpg',
 				subsectionText: [
@@ -38,7 +38,7 @@ export const journeyData = [
 		sectionName: 'IIT',
 		subsections: [
 			{
-				subsectionNum: 1,
+				// subsectionNum: 1,
 				imageUrl: 'https://wallpaperaccess.com/full/153244.jpg',
 				subsectionText: [
 					{},
@@ -53,7 +53,7 @@ export const journeyData = [
 				],
 			},
 			{
-				subsectionNum: 2,
+				// subsectionNum: 2,
 				imageUrl:
 					'https://cdn.britannica.com/28/116528-050-1CAC6728/Great-Court-Foster-and-Partners-British-Museum-2000.jpg',
 				subsectionText: [
@@ -75,7 +75,7 @@ export const journeyData = [
 		sectionName: 'JOBS',
 		subsections: [
 			{
-				subsectionNum: 1,
+				// subsectionNum: 1,
 				imageUrl:
 					'https://cdn.britannica.com/28/116528-050-1CAC6728/Great-Court-Foster-and-Partners-British-Museum-2000.jpg',
 				subsectionText: [
@@ -92,7 +92,7 @@ export const journeyData = [
 				],
 			},
 			{
-				subsectionNum: 2,
+				// subsectionNum: 2,
 				imageUrl: 'https://wallpaperaccess.com/full/153244.jpg',
 				subsectionText: [
 					{
@@ -107,14 +107,14 @@ export const journeyData = [
 				],
 			},
 			{
-				subsectionNum: 1,
+				// subsectionNum: 1,
 				imageUrl:
 					'https://cdn.britannica.com/28/116528-050-1CAC6728/Great-Court-Foster-and-Partners-British-Museum-2000.jpg',
 				subsectionText: [
 					{
 						text: 'JOBS',
-						size: '15px',
-						color: 'white',
+						size: '25px',
+						color: 'orange',
 						align: 'left',
 						font: 'Georgia',
 					},

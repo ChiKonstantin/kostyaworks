@@ -35,13 +35,13 @@ export default function ProductsContent() {
 					<div className='content-module'>
 						<img
 							className='img-content'
-							src='https://cdn.britannica.com/28/116528-050-1CAC6728/Great-Court-Foster-and-Partners-British-Museum-2000.jpg'
+							src='https://storage.googleapis.com/kostya-works-public/design/background%201%20png.png'
 						/>
 					</div>
 					<div className='content-module'>
 						<img
 							className='img-content'
-							src='https://architecturesideas.com/wp-content/uploads/2018/02/modern-architecture-buildings-9.jpg'
+							src='https://storage.googleapis.com/kostya-works-public/design/background%201%20png.png'
 						/>
 					</div>
 

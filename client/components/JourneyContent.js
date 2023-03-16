@@ -58,9 +58,9 @@ export default function JourneyContent() {
 	function arrowScroll(direction, sectionsArr) {
 		let scroller = document.getElementById(`${pageName}-scroller`);
 		let wrapper = document.getElementById(`${pageName}-wrapper`);
-		let contentWrapperStyle = document.defaultView.getComputedStyle(wrapper);
+		let contentWrapperStyle = document.defaultView.getComputedStyle(scroller);
 
-		let moduleWidth = parseInt(contentWrapperStyle.height);
+		let moduleWidth = parseInt(contentWrapperStyle.width);
 
 		if (direction === 'left' && scroller.scrollLeft > 0) {
 			scroller.scrollLeft -= moduleWidth;
@@ -86,7 +86,7 @@ export default function JourneyContent() {
 
 		for (let i = arr.length - 1; i >= 0; i--) {
 			// console.log('', arr[i]);
-			if (scroller.scrollLeft + moduleWidth / 2 >= arr[i].startLocation) {
+			if (scroller.scrollLeft + moduleWidth >= arr[i].startLocation) {
 				// console.log(arr[i].index);
 				setActiveNav(arr[i].index);
 				break;
@@ -148,7 +148,7 @@ export default function JourneyContent() {
 						return toReturn;
 					})}
 					<ContentModule data='none' />
-					<ContentModule data='none' />
+					{/* <ContentModule data='none' /> */}
 				</div>
 			</div>
 

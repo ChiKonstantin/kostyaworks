@@ -12,6 +12,7 @@ export default function MainView() {
 		topLimit: 0,
 		bottomLimit: window.innerHeight,
 	});
+
 	let timeOutId = 0;
 	document.documentElement.scrollTop = 0;
 
@@ -19,7 +20,7 @@ export default function MainView() {
 		clearTimeout(timeOutId);
 		timeOutId = setTimeout(() => {
 			snapViewPages();
-		}, 50);
+		}, 100);
 
 		let scrollPosition = document.documentElement.scrollTop;
 
@@ -102,11 +103,11 @@ export default function MainView() {
 		// console.log('OFFSET, THRESHOLD: ', pageTopOffset, snapThreshold);
 		if (pageTopOffset <= snapThresholdTop) {
 			document.documentElement.scrollTop = scrollPosition - pageTopOffset;
-			console.log('snap to bottom');
+			// console.log('snap to bottom');
 		} else if (pageTopOffset > snapThresholdBottom) {
 			document.documentElement.scrollTop =
 				scrollPosition + (screenHeight - pageTopOffset);
-			console.log('snap to top');
+			// console.log('snap to top');
 		}
 	}
 	return (
@@ -145,10 +146,6 @@ export default function MainView() {
 
 			<MenuArea />
 			<SMIcons />
-			{/* <section className='scroll-spacer-div'>1</section>
-			<section className='scroll-spacer-div'>2</section>
-			<section className='scroll-spacer-div'>3</section>
-			<section className='scroll-spacer-div'>4</section> */}
 		</div>
 	);
 }
