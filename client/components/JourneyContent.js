@@ -56,6 +56,14 @@ export default function JourneyContent() {
 		setNavArr(arr);
 	}
 
+	function activateContentSlide(section, activeNav) {
+		if (contentData.indexOf(section) === activeNav) {
+			return 'content-slide active';
+		} else {
+			return 'content-slide';
+		}
+	}
+
 	function arrowScroll(direction, sectionsArr) {
 		let scroller = document.getElementById(`${pageName}-scroller`);
 		let scrollerStyle = document.defaultView.getComputedStyle(scroller);
@@ -89,18 +97,27 @@ export default function JourneyContent() {
 			if (scroller.scrollLeft + scrollerWidth / 2 >= arr[i].startLocation) {
 				// console.log(arr[i].index);
 				setActiveNav(arr[i].index);
+
 				break;
 			}
 		}
 	}
 
-	function sectionContent(arr, data) {
-		const contentsArray = arr;
+	// function sectionContent(arr, data) {
+	// 	const contentsArray = arr;
 
-		let scroller = document.getElementById(`${pageName}-scroller`);
-		let scrollerStyle = document.defaultView.getComputedStyle(scroller);
-		let scrollerWidth = parseInt(scrollerStyle.width);
-	}
+	// 	let scroller = document.getElementById(`${pageName}-scroller`);
+	// 	let scrollerStyle = document.defaultView.getComputedStyle(scroller);
+	// 	let scrollerWidth = parseInt(scrollerStyle.width);
+	// 	for (let i = arr.length - 1; i >= 0; i--) {
+	// 		// console.log('', arr[i]);
+	// 		if (scroller.scrollLeft >= arr[i].startLocation) {
+	// 			// console.log(arr[i].index);
+	// 			setActiveNav(arr[i].index);
+	// 			break;
+	// 		}
+	// 	}
+	// }
 
 	function arrowStatus() {
 		let scroller = document.getElementById(`${pageName}-scroller`);
@@ -140,16 +157,24 @@ export default function JourneyContent() {
 
 	return (
 		<div className='page-content'>
+			{contentData.map((section) => {
+				return (
+					<div
+						className={activateContentSlide(section, activeNav)}
+						style={{
+							backgroundImage: `url(${section.imageUrl})`,
+						}}
+					></div>
+				);
+			})}
 			<div
 				id={pageName + '-scroller'}
 				className='content-scroller'
 				onScroll={() => {
 					arrowStatus();
 					navStatus(navArr);
-					sectionContent(navArr, contentData);
-				}}
-				style={{
-					backgroundImage: `url("https://wallpaperaccess.com/full/153244.jpg`,
+
+					// sectionContent(navArr, contentData);
 				}}
 			>
 				<div id={pageName + '-wrapper'} className='content-wrapper'>

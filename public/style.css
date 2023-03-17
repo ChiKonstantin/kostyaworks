@@ -259,9 +259,28 @@ img {
 	width: 100%;
 	height: calc(100vh - var(--bottom-offset-web));
 	position: relative;
+	transition: background-image 0.5s ease-out;
+	background-repeat: no-repeat;
+
 	/* border-radius: 30px; */
 
 	/* right: var(--arrow-width); */
+}
+
+.content-slide {
+	position: absolute;
+	width: calc(100% - var(--left-offset-web));
+	height: calc(100vh - var(--bottom-offset-web));
+	top: 0;
+	left: var(--left-offset-web);
+	/* z-index: 0; */
+	opacity: 0;
+	transition: opacity 0.25s ease-out;
+	background-color: var(--background-color, rgb(10, 10, 10));
+}
+
+.content-slide.active {
+	opacity: 1;
 }
 .content-wrapper {
 	display: flex;
@@ -635,6 +654,12 @@ img {
 	.content-scroller {
 		height: auto;
 		/* border: solid black; */
+	}
+
+	.content-slide {
+		height: 75vh;
+		width: 100vw;
+		left: 0;
 	}
 
 	.content-module {
