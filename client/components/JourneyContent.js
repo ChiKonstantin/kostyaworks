@@ -32,11 +32,12 @@ export default function JourneyContent() {
 	});
 
 	function returnNavArr(contentArr) {
-		let wrapper = document.getElementById(`${pageName}-wrapper`);
-		let contentWrapperStyle = document.defaultView.getComputedStyle(wrapper);
+		let scroller = document.getElementById(`${pageName}-scroller`);
+		let scrollerStyle = document.defaultView.getComputedStyle(scroller);
 
 		let arr = [];
-		let moduleWidth = parseInt(contentWrapperStyle.height);
+		//scroller width is equal to module width
+		let moduleWidth = parseInt(scrollerStyle.width);
 		let locationOffset = 0;
 
 		contentArr.map((section) => {
@@ -57,28 +58,27 @@ export default function JourneyContent() {
 
 	function arrowScroll(direction, sectionsArr) {
 		let scroller = document.getElementById(`${pageName}-scroller`);
-		let wrapper = document.getElementById(`${pageName}-wrapper`);
-		let contentWrapperStyle = document.defaultView.getComputedStyle(scroller);
-
-		let moduleWidth = parseInt(contentWrapperStyle.width);
+		let scrollerStyle = document.defaultView.getComputedStyle(scroller);
+		//scroller width is equal to module width
+		let scrollerWidth = parseInt(scrollerStyle.width);
 
 		if (direction === 'left' && scroller.scrollLeft > 0) {
-			scroller.scrollLeft -= moduleWidth;
+			scroller.scrollLeft -= scrollerWidth;
 		}
 
 		if (
 			direction === 'right' &&
-			scroller.scrollLeft < moduleWidth * (subsectionsCount - 1)
+			scroller.scrollLeft < scrollerWidth * (subsectionsCount - 1)
 		) {
-			scroller.scrollLeft += moduleWidth;
+			scroller.scrollLeft += scrollerWidth;
 		}
 	}
 
 	function navStatus(arr) {
 		let scroller = document.getElementById(`${pageName}-scroller`);
-		let wrapper = document.getElementById(`${pageName}-wrapper`);
-		let contentWrapperStyle = document.defaultView.getComputedStyle(wrapper);
-		let moduleWidth = parseInt(contentWrapperStyle.height);
+		let scrollerStyle = document.defaultView.getComputedStyle(scroller);
+		//scroller width is equal to module width
+		let scrollerWidth = parseInt(scrollerStyle.width);
 
 		// const activeNavNumber = Math.floor(
 		// 	(scroller.scrollLeft + scrollValue / 2) / (scrollValue * 2)
@@ -86,7 +86,7 @@ export default function JourneyContent() {
 
 		for (let i = arr.length - 1; i >= 0; i--) {
 			// console.log('', arr[i]);
-			if (scroller.scrollLeft + moduleWidth >= arr[i].startLocation) {
+			if (scroller.scrollLeft + scrollerWidth / 2 >= arr[i].startLocation) {
 				// console.log(arr[i].index);
 				setActiveNav(arr[i].index);
 				break;
@@ -94,22 +94,30 @@ export default function JourneyContent() {
 		}
 	}
 
-	function arrowStatus(sectionArr) {
+	function sectionContent(arr, data) {
+		const contentsArray = arr;
+
 		let scroller = document.getElementById(`${pageName}-scroller`);
-		let wrapper = document.getElementById(`${pageName}-wrapper`);
-		let contentWrapperStyle = document.defaultView.getComputedStyle(wrapper);
-		let moduleWidth = parseInt(contentWrapperStyle.height);
+		let scrollerStyle = document.defaultView.getComputedStyle(scroller);
+		let scrollerWidth = parseInt(scrollerStyle.width);
+	}
+
+	function arrowStatus() {
+		let scroller = document.getElementById(`${pageName}-scroller`);
+		let scrollerStyle = document.defaultView.getComputedStyle(scroller);
+		//scroller width is equal to module width
+		let scrollerWidth = parseInt(scrollerStyle.width);
 
 		if (scroller.scrollLeft === 0) {
 			setArrows(() => ({ left: false, right: true }));
 		}
 		if (
 			0 < scroller.scrollLeft &&
-			scroller.scrollLeft < moduleWidth * (subsectionsCount - 1)
+			scroller.scrollLeft < scrollerWidth * (subsectionsCount - 1)
 		) {
 			setArrows(() => ({ left: true, right: true }));
 		}
-		if (scroller.scrollLeft >= moduleWidth * (subsectionsCount - 1)) {
+		if (scroller.scrollLeft >= scrollerWidth * (subsectionsCount - 1)) {
 			setArrows(() => ({ left: true, right: false }));
 		}
 	}
@@ -136,14 +144,18 @@ export default function JourneyContent() {
 				id={pageName + '-scroller'}
 				className='content-scroller'
 				onScroll={() => {
-					arrowStatus(contentData);
+					arrowStatus();
 					navStatus(navArr);
+					sectionContent(navArr, contentData);
+				}}
+				style={{
+					backgroundImage: `url("https://wallpaperaccess.com/full/153244.jpg`,
 				}}
 			>
 				<div id={pageName + '-wrapper'} className='content-wrapper'>
 					{contentData.map((contentData) => {
 						const toReturn = contentData.subsections.map((subsection) => {
-							return <ContentModule data={subsection} />;
+							return <ContentModule component={subsection} />;
 						});
 						return toReturn;
 					})}
