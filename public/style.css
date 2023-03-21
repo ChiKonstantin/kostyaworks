@@ -273,7 +273,7 @@ img {
 	height: calc(100vh - var(--bottom-offset-web));
 	top: 0;
 	left: var(--left-offset-web);
-	/* z-index: 0; */
+	/* z-index: 3; */
 	opacity: 0;
 	transition: opacity 0.25s ease-out;
 	background-color: var(--background-color, rgb(10, 10, 10));
