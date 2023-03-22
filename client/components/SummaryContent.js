@@ -1,94 +1,149 @@
 import React, { useState, useEffect } from 'react';
-import { IoChevronBackCircle } from 'react-icons/io5';
-import { IoChevronForwardCircle } from 'react-icons/io5';
+
 import NavMarker from './NavMarker';
+import { summaryData } from '../contentData';
+import ContentModule from './ContentModule';
+import {
+	returnNavArr,
+	activateContentSlide,
+	arrowScroll,
+	navStatus,
+	arrowStatus,
+	renderLeftArrow,
+	renderRightArrow,
+} from '../functions';
 
-export default function SummaryContent() {
+export default function JourneyContent() {
+	//update these:
 	const pageName = 'summary';
-	function arrowScroll(direction) {
-		//getting the scroller
-		let scroller = document.getElementById(`${pageName}-scroller`);
-		let wrapper = document.getElementById(`${pageName}-wrapper`);
+	const contentData = summaryData;
+	//
 
-		//getting all styles from scroller
-		let contentWrapperStyle = document.defaultView.getComputedStyle(wrapper);
-		//getting height of scroller and removing px to have a pure number
-		let scrollValue = parseInt(contentWrapperStyle.height);
-		//applying scrolling to
-		if (direction === 'left') {
-			scroller.scrollLeft -= scrollValue * 2;
-		} else if (direction === 'right') {
-			scroller.scrollLeft += scrollValue * 2;
+	const [arrowState, setArrows] = useState({ left: false, right: true });
+	const [activeNav, setActiveNav] = useState(0);
+	const [activeSection, setActiveSection] = useState(0);
+	const [navArr, setNavArr] = useState([]);
+	const [subsectionsCount, setSubsectionsCount] = useState(0);
+
+	useEffect(() => {
+		if (navArr.length === 0) {
+			returnNavArr(contentData, pageName, setNavArr);
 		}
-	}
+
+		if (subsectionsCount === 0) {
+			let count = 0;
+			contentData.map((navArea) => {
+				navArea.sections.map((section) => {
+					count += section.subsections.length;
+				});
+			});
+
+			setSubsectionsCount(count);
+		}
+	});
 
 	return (
 		<div className='page-content'>
-			<div id={pageName + '-scroller'} className='content-scroller'>
+			{contentData.map((navArea) => {
+				const toReturn = navArea.sections.map((section) => {
+					return (
+						<div
+							className={activateContentSlide(
+								navArea,
+								section,
+								activeNav,
+								activeSection,
+								contentData
+							)}
+							style={{
+								backgroundImage: `url(${section.imageUrl})`,
+							}}
+						>
+							{/* <video
+							preload='auto'
+							style={{ height: '100%', width: 'auto', alignItems: 'center' }}
+							src='https://storage.googleapis.com/kostya-works-public/design/S1550015.MP4'
+							// controls
+							autoPlay
+							muted
+							loop
+						></video> */}
+						</div>
+					);
+				});
+
+				return toReturn;
+			})}
+			<div
+				id={pageName + '-scroller'}
+				className='content-scroller'
+				onScroll={() => {
+					arrowStatus(pageName, subsectionsCount, setArrows);
+					navStatus(navArr, pageName, setActiveNav, setActiveSection);
+
+					console.log(
+						'active nav:',
+						activeNav,
+						'active section: ',
+						activeSection
+					);
+
+					// sectionContent(navArr, contentData);
+				}}
+			>
 				<div id={pageName + '-wrapper'} className='content-wrapper'>
-					<div className='content-module'>
-						<img
-							className='img-content'
-							src='https://wallpaperaccess.com/full/153244.jpg'
-						/>
-					</div>
-					<div className='content-module'>
-						<img
-							className='img-content'
-							src='https://cdn.britannica.com/28/116528-050-1CAC6728/Great-Court-Foster-and-Partners-British-Museum-2000.jpg'
-						/>
-					</div>
-					<div className='content-module'>
-						<img
-							className='img-content'
-							src='https://architecturesideas.com/wp-content/uploads/2018/02/modern-architecture-buildings-9.jpg'
-						/>
-					</div>
+					{contentData.map((navArea) => {
+						const toReturn = navArea.sections.map((section) => {
+							const toReturn = section.subsections.map((subsection) => {
+								return <ContentModule component={subsection} />;
+							});
+							return toReturn;
+						});
+						return toReturn;
+					})}
 
-					<div className='content-module'>
-						<img src='https://architecturesideas.com/wp-content/uploads/2017/09/5-19.jpg' />
-					</div>
-					<div className='content-module'>
-						<img
-							className='img-content'
-							src='https://media.architecturaldigest.com/photos/56ba787ca254b168296a8fff/master/pass/zaha-hadid-architecture-01.jpg'
-						/>
-					</div>
-
-					<div className='content-module'>
-						<img
-							className='img-content'
-							src='https://wallpapercave.com/wp/EPfczsw.jpg'
-						/>
-					</div>
+					{/* <ContentModule data='none' /> */}
 				</div>
 			</div>
 
 			<div className='content-navigation'>
-				<div
-					className='content-arrow-left'
-					onClick={() => {
-						arrowScroll('left');
-					}}
-				>
-					<IoChevronBackCircle className='arrow-icon' />
-				</div>
-				<div className='navigation-visual'>
-					<div className='nav-bar'></div>
-					<div className='nav-markers-wrapper'>
-						<NavMarker text='1234' />
-						<NavMarker text='5678' />
-						<NavMarker text='2023' />
+				<div className='content-arrow'>
+					<div
+						className='arrow-wrapper'
+						onClick={() => {
+							arrowScroll('left', pageName, subsectionsCount);
+						}}
+					>
+						{renderLeftArrow(arrowState.left)}
 					</div>
 				</div>
 
-				<div
-					className='content-arrow-right'
-					onClick={() => {
-						arrowScroll('right');
-					}}
-				>
-					<IoChevronForwardCircle className='arrow-icon' />
+				<div className='navigation-visual'>
+					<div className='nav-bar'></div>
+					<div className='nav-markers-wrapper'>
+						{contentData.map((navArea) => {
+							return (
+								<NavMarker
+									index={contentData.indexOf(navArea)}
+									text={navArea.navAreaName}
+									activeNav={activeNav}
+									navArr={navArr}
+									pageName={pageName}
+								/>
+							);
+						})}
+					</div>
+				</div>
+
+				<div className='content-arrow'>
+					<div
+						className='arrow-wrapper'
+						onClick={() => {
+							arrowScroll('right', pageName, subsectionsCount);
+						}}
+					>
+						{renderRightArrow(arrowState.right)}
+					</div>
 				</div>
 			</div>
 		</div>

@@ -17,32 +17,52 @@ export function moveBarOnScroll() {
 	selectBar.style.top = `${parseInt(sideMenuStyle.top) + scrollRatio}px`;
 }
 
+//OK
 export function returnNavArr(contentArr, pageName, setNavArr) {
 	let scroller = document.getElementById(`${pageName}-scroller`);
 	let scrollerStyle = document.defaultView.getComputedStyle(scroller);
 
-	let arr = [];
+	let navArr = [];
+
 	//scroller width is equal to module width
 	let moduleWidth = parseInt(scrollerStyle.width);
-	let locationOffset = 0;
+	let navAreaOffset = 0;
+	let sectionOffset = 0;
+	let sectionsArr = [];
 
-	contentArr.map((section) => {
-		const sectionIndex = contentArr.indexOf(section);
-		const sectionStartLocation = locationOffset;
-
-		arr.push({
-			index: sectionIndex,
-			startLocation: sectionStartLocation,
+	contentArr.map((navArea) => {
+		navArea.sections.map((section) => {
+			sectionsArr.push({
+				index: navArea.sections.indexOf(section),
+				startLocation: sectionOffset,
+			});
+			sectionOffset = sectionOffset + moduleWidth * section.subsections.length;
 		});
 
-		locationOffset = locationOffset + moduleWidth * section.subsections.length;
-	});
+		navArr.push({
+			index: contentArr.indexOf(navArea),
+			startLocation: navAreaOffset,
+			sections: sectionsArr,
+		});
 
-	setNavArr(arr);
+		navAreaOffset = sectionOffset;
+		sectionsArr = [];
+	});
+	console.log('NAV ARR: ', navArr);
+	setNavArr(navArr);
 }
 
-export function activateContentSlide(section, activeNav, contentData) {
-	if (contentData.indexOf(section) === activeNav) {
+export function activateContentSlide(
+	navArea,
+	section,
+	activeNav,
+	activeSection,
+	contentData
+) {
+	if (
+		contentData.indexOf(navArea) === activeNav &&
+		navArea.sections.indexOf(section) === activeSection
+	) {
 		return 'content-slide active';
 	} else {
 		return 'content-slide';
@@ -67,7 +87,7 @@ export function arrowScroll(direction, pageName, subsectionsCount) {
 	}
 }
 
-export function navStatus(arr, pageName, setActiveNav) {
+export function navStatus(navArr, pageName, setActiveNav, setActiveSection) {
 	let scroller = document.getElementById(`${pageName}-scroller`);
 	let scrollerStyle = document.defaultView.getComputedStyle(scroller);
 	//scroller width is equal to module width
@@ -77,11 +97,20 @@ export function navStatus(arr, pageName, setActiveNav) {
 	// 	(scroller.scrollLeft + scrollValue / 2) / (scrollValue * 2)
 	// );
 
-	for (let i = arr.length - 1; i >= 0; i--) {
+	for (let i = navArr.length - 1; i >= 0; i--) {
 		// console.log('', arr[i]);
-		if (scroller.scrollLeft + scrollerWidth / 2 >= arr[i].startLocation) {
+		if (scroller.scrollLeft + scrollerWidth / 2 >= navArr[i].startLocation) {
 			// console.log(arr[i].index);
-			setActiveNav(arr[i].index);
+			setActiveNav(navArr[i].index);
+			for (let j = navArr[i].sections.length - 1; j >= 0; j--) {
+				if (
+					scroller.scrollLeft + scrollerWidth / 2 >=
+					navArr[i].sections[j].startLocation
+				) {
+					setActiveSection(navArr[i].sections[j].index);
+					break;
+				}
+			}
 
 			break;
 		}

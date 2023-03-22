@@ -21,34 +21,45 @@ export default function JourneyContent() {
 
 	const [arrowState, setArrows] = useState({ left: false, right: true });
 	const [activeNav, setActiveNav] = useState(0);
-	const [navArr, setNavArr] = useState([{ index: 0, startLocation: 0 }]);
+	const [activeSection, setActiveSection] = useState(0);
+	const [navArr, setNavArr] = useState([]);
 	const [subsectionsCount, setSubsectionsCount] = useState(0);
 
 	useEffect(() => {
-		if (navArr.length === 1) {
+		if (navArr.length === 0) {
 			returnNavArr(contentData, pageName, setNavArr);
 		}
 
 		if (subsectionsCount === 0) {
 			let count = 0;
-			contentData.map((section) => {
-				count += section.subsections.length;
+			contentData.map((navArea) => {
+				navArea.sections.map((section) => {
+					count += section.subsections.length;
+				});
 			});
+
 			setSubsectionsCount(count);
 		}
 	});
 
 	return (
 		<div className='page-content'>
-			{contentData.map((section) => {
-				return (
-					<div
-						className={activateContentSlide(section, activeNav, contentData)}
-						style={{
-							backgroundImage: `url(${section.imageUrl})`,
-						}}
-					>
-						{/* <video
+			{contentData.map((navArea) => {
+				const toReturn = navArea.sections.map((section) => {
+					return (
+						<div
+							className={activateContentSlide(
+								navArea,
+								section,
+								activeNav,
+								activeSection,
+								contentData
+							)}
+							style={{
+								backgroundImage: `url(${section.imageUrl})`,
+							}}
+						>
+							{/* <video
 							preload='auto'
 							style={{ height: '100%', width: 'auto', alignItems: 'center' }}
 							src='https://storage.googleapis.com/kostya-works-public/design/S1550015.MP4'
@@ -57,27 +68,40 @@ export default function JourneyContent() {
 							muted
 							loop
 						></video> */}
-					</div>
-				);
+						</div>
+					);
+				});
+
+				return toReturn;
 			})}
 			<div
 				id={pageName + '-scroller'}
 				className='content-scroller'
 				onScroll={() => {
 					arrowStatus(pageName, subsectionsCount, setArrows);
-					navStatus(navArr, pageName, setActiveNav);
+					navStatus(navArr, pageName, setActiveNav, setActiveSection);
+
+					console.log(
+						'active nav:',
+						activeNav,
+						'active section: ',
+						activeSection
+					);
 
 					// sectionContent(navArr, contentData);
 				}}
 			>
 				<div id={pageName + '-wrapper'} className='content-wrapper'>
-					{contentData.map((contentData) => {
-						const toReturn = contentData.subsections.map((subsection) => {
-							return <ContentModule component={subsection} />;
+					{contentData.map((navArea) => {
+						const toReturn = navArea.sections.map((section) => {
+							const toReturn = section.subsections.map((subsection) => {
+								return <ContentModule component={subsection} />;
+							});
+							return toReturn;
 						});
 						return toReturn;
 					})}
-					<ContentModule data='none' />
+
 					{/* <ContentModule data='none' /> */}
 				</div>
 			</div>
@@ -97,13 +121,14 @@ export default function JourneyContent() {
 				<div className='navigation-visual'>
 					<div className='nav-bar'></div>
 					<div className='nav-markers-wrapper'>
-						{contentData.map((contentElement) => {
+						{contentData.map((navArea) => {
 							return (
 								<NavMarker
-									index={contentData.indexOf(contentElement)}
-									text={contentElement.sectionName}
+									index={contentData.indexOf(navArea)}
+									text={navArea.navAreaName}
 									activeNav={activeNav}
 									navArr={navArr}
+									pageName={pageName}
 								/>
 							);
 						})}

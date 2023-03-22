@@ -13,7 +13,7 @@ export default function NavMarker(props) {
 	}
 
 	function scrollToPosition(position) {
-		let scroller = document.getElementById(`journey-scroller`);
+		let scroller = document.getElementById(`${props.pageName}-scroller`);
 		scroller.scrollLeft = position;
 	}
 
@@ -25,9 +25,9 @@ export default function NavMarker(props) {
 			<div className='nav-spacer'></div>
 			<div
 				className='nav-text'
-				onClick={() =>
-					scrollToPosition(props.navArr[props.index].startLocation)
-				}
+				onClick={() => {
+					scrollToPosition(props.navArr[props.index].startLocation);
+				}}
 			>
 				{props.text}
 			</div>
