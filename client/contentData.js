@@ -1,28 +1,26 @@
 import React, { useState, useEffect } from 'react';
 
-import { TestComponent } from './components/Contents';
+import {
+	BlankComponent,
+	TestComponent,
+	JourneyQuote,
+} from './components/Contents';
 
 export const journeyData = [
 	{
-		navAreaName: 'SCHOOL NAV',
+		navAreaName: 'START',
 		sections: [
 			{
 				sectionName: 'SCHOOL',
 
 				imageUrl:
-					'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.8cPYVlnfnfeApLXctxsPUQHaFj%26pid%3DApi&f=1&ipt=f56fd79f7fb63f050947819d7f9ebea4febe5548a38e6bcf014a18d5fc45141c&ipo=images',
-				subsections: [
-					<TestComponent />,
-					<TestComponent />,
-					<TestComponent />,
-					<TestComponent />,
-				],
+					'https://storage.googleapis.com/kostya-works-public/design/journey/tiles-horizon-color-png.png',
+				subsections: [<JourneyQuote />, <BlankComponent />],
 			},
 			{
 				sectionName: 'IIT',
 
-				imageUrl:
-					'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.dJsmGYE5p58_VxnNuFCJ3gHaFj%26pid%3DApi&f=1&ipt=c99f355fe84005d3a31d42756850df769f17264c05bae732b64cd14b8f651d76&ipo=images',
+				imageUrl: '',
 				subsections: [<TestComponent />, <TestComponent />, <TestComponent />],
 			},
 		],

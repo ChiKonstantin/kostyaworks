@@ -80,15 +80,6 @@ export default function JourneyContent() {
 				onScroll={() => {
 					arrowStatus(pageName, subsectionsCount, setArrows);
 					navStatus(navArr, pageName, setActiveNav, setActiveSection);
-
-					console.log(
-						'active nav:',
-						activeNav,
-						'active section: ',
-						activeSection
-					);
-
-					// sectionContent(navArr, contentData);
 				}}
 			>
 				<div id={pageName + '-wrapper'} className='content-wrapper'>
