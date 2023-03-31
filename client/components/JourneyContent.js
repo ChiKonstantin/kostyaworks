@@ -44,6 +44,14 @@ export default function JourneyContent() {
 
 	return (
 		<div className='page-content'>
+			<div
+				className='content-slide active'
+				style={{
+					backgroundImage:
+						'url(https://storage.googleapis.com/kostya-works-public/design/journey/tiles-horizon-2-png.png)',
+					filter: blur('4px'),
+				}}
+			></div>
 			{contentData.map((navArea) => {
 				const toReturn = navArea.sections.map((section) => {
 					return (
@@ -57,6 +65,7 @@ export default function JourneyContent() {
 							)}
 							style={{
 								backgroundImage: `url(${section.imageUrl})`,
+								backgroundColor: `${section.backgroundColor}`,
 							}}
 						>
 							{/* <video
