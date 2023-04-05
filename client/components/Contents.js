@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
 export function TestComponent() {
-	return <div className='mc-center'>Lorem ipsum and so on and so forth.</div>;
+	return (
+		<div className='mc-center'>
+			<span className='medium-text'>Lorem ipsum and so on and so forth.</span>
+		</div>
+	);
 }
 
 export function BlankComponent() {
@@ -79,33 +83,19 @@ export function MotivationQuote() {
 	);
 }
 
-export function Molbert() {
-	return (
-		<div className='mc-center'>
-			<div
-				className='photo-center'
-				style={{
-					backgroundImage:
-						'url(https://storage.googleapis.com/kostya-works-public/design/journey/molbert.png)',
-				}}
-			></div>
-		</div>
-	);
-}
-
-export function DaVinciPic() {
-	return (
-		<div className='mc-center'>
-			<div
-				className='photo-center'
-				style={{
-					backgroundImage:
-						'url(https://storage.googleapis.com/kostya-works-public/design/journey/davinci.png)',
-				}}
-			></div>
-		</div>
-	);
-}
+// export function DaVinciPic() {
+// 	return (
+// 		<div className='mc-center'>
+// 			<div
+// 				className='photo-center'
+// 				style={{
+// 					backgroundImage:
+// 						'url(https://storage.googleapis.com/kostya-works-public/design/journey/davinci.png)',
+// 				}}
+// 			></div>
+// 		</div>
+// 	);
+// }
 
 export function StampPic() {
 	return (
@@ -121,33 +111,33 @@ export function StampPic() {
 	);
 }
 
-export function CanoePic() {
-	return (
-		<div className='mc-center'>
-			<div
-				className='photo-center'
-				style={{
-					backgroundImage:
-						'url(https://storage.googleapis.com/kostya-works-public/design/journey/canoe01.png)',
-				}}
-			></div>
-		</div>
-	);
-}
+// export function CanoePic() {
+// 	return (
+// 		<div className='mc-center'>
+// 			<div
+// 				className='photo-center'
+// 				style={{
+// 					backgroundImage:
+// 						'url(https://storage.googleapis.com/kostya-works-public/design/journey/canoe01.png)',
+// 				}}
+// 			></div>
+// 		</div>
+// 	);
+// }
 
-export function BridgePic() {
-	return (
-		<div className='mc-center'>
-			<div
-				className='photo-center'
-				style={{
-					backgroundImage:
-						'url(https://storage.googleapis.com/kostya-works-public/design/journey/bridge.png)',
-				}}
-			></div>
-		</div>
-	);
-}
+// export function BridgePic() {
+// 	return (
+// 		<div className='mc-center'>
+// 			<div
+// 				className='photo-center'
+// 				style={{
+// 					backgroundImage:
+// 						'url(https://storage.googleapis.com/kostya-works-public/design/journey/bridge.png)',
+// 				}}
+// 			></div>
+// 		</div>
+// 	);
+// }
 export function BuildingPic() {
 	return (
 		<div className='mc-center'>
@@ -163,96 +153,92 @@ export function BuildingPic() {
 }
 
 export function ArtWall() {
-	return (
-		// <div className='mc-center'>
-		<div id='art-wall'></div>
-		// </div>
-	);
+	return <div id='art-wall'></div>;
 }
 
-export function CanoeSplit() {
-	return (
-		<div className='mc-center'>
-			<div
-				className='photo-center'
-				style={{
-					backgroundImage:
-						'url(https://storage.googleapis.com/kostya-works-public/design/journey/canoe-split.png)',
-				}}
-			></div>
-		</div>
-	);
-}
+// export function CanoeSplit() {
+// 	return (
+// 		<div className='mc-center'>
+// 			<div
+// 				className='photo-center'
+// 				style={{
+// 					backgroundImage:
+// 						'url(https://storage.googleapis.com/kostya-works-public/design/journey/canoe-split.png)',
+// 				}}
+// 			></div>
+// 		</div>
+// 	);
+// }
 
-export function Graduation() {
-	return (
-		<div className='mc-center'>
-			<div
-				className='photo-center'
-				style={{
-					backgroundImage:
-						'url(https://storage.googleapis.com/kostya-works-public/design/journey/graduation.png)',
-				}}
-			></div>
-		</div>
-	);
-}
+// export function Graduation() {
+// 	return (
+// 		<div className='mc-center'>
+// 			<div
+// 				className='photo-center'
+// 				style={{
+// 					backgroundImage:
+// 						'url(https://storage.googleapis.com/kostya-works-public/design/journey/graduation.png)',
+// 				}}
+// 			></div>
+// 		</div>
+// 	);
+// }
 
-export function KSS() {
-	return (
-		<div className='mc-center'>
-			<div
-				className='photo-center'
-				style={{
-					backgroundImage:
-						'url(https://storage.googleapis.com/kostya-works-public/design/journey/kss.png)',
-				}}
-			></div>
-		</div>
-	);
-}
+// export function KSS() {
+// 	return (
+// 		<div className='mc-center'>
+// 			<div
+// 				className='photo-center'
+// 				style={{
+// 					backgroundImage:
+// 						'url(https://storage.googleapis.com/kostya-works-public/design/journey/kss.png)',
+// 				}}
+// 			></div>
+// 		</div>
+// 	);
+// }
 
-export function EY() {
-	return (
-		<div className='mc-center'>
-			<div
-				className='photo-center'
-				style={{
-					backgroundImage:
-						'url(https://storage.googleapis.com/kostya-works-public/design/journey/ey.png)',
-				}}
-			></div>
-		</div>
-	);
-}
+// export function EY() {
+// 	return (
+// 		<div className='mc-center'>
+// 			<div
+// 				className='photo-center'
+// 				style={{
+// 					backgroundImage:
+// 						'url(https://storage.googleapis.com/kostya-works-public/design/journey/ey.png)',
+// 				}}
+// 			></div>
+// 		</div>
+// 	);
+// }
 
-export function Samarkand() {
-	return (
-		<div className='mc-center'>
-			<div
-				className='photo-center'
-				style={{
-					backgroundImage:
-						'url(https://storage.googleapis.com/kostya-works-public/design/journey/samarkand.png)',
-				}}
-			></div>
-		</div>
-	);
-}
+// export function Samarkand() {
+// 	return (
+// 		<div className='mc-center'>
+// 			<div
+// 				className='photo-center'
+// 				style={{
+// 					backgroundImage:
+// 						'url(https://storage.googleapis.com/kostya-works-public/design/journey/samarkand.png)',
+// 				}}
+// 			></div>
+// 		</div>
+// 	);
+// }
 
-export function Falcon() {
-	return (
-		<div className='mc-center'>
-			<div
-				className='photo-center'
-				style={{
-					backgroundImage:
-						'url(https://storage.googleapis.com/kostya-works-public/design/journey/falcon.png)',
-				}}
-			></div>
-		</div>
-	);
-}
+// export function Falcon() {
+// 	return (
+// 		<div className='mc-center'>
+// 			<div
+// 				className='photo-center'
+// 				style={{
+// 					backgroundImage:
+// 						'url(https://storage.googleapis.com/kostya-works-public/design/journey/falcon.png)',
+// 				}}
+// 			></div>
+// 		</div>
+// 	);
+// }
 
 export function FSDiploma() {
 	return (
@@ -270,8 +256,62 @@ export function FSDiploma() {
 
 export function BuildingsBCM() {
 	return (
-		// <div className='mc-center'>
-		<div id='buildings-wall'></div>
-		// </div>
+		<div className='mc-center'>
+			<div id='buildings-wall'></div>
+		</div>
+	);
+}
+
+export function IoCardPic() {
+	return (
+		<div className='mc-center'>
+			<div
+				id='io-card-pic'
+				style={{
+					backgroundImage:
+						'url(https://storage.googleapis.com/kostya-works-public/design/interests/io%20card.png)',
+				}}
+			></div>
+		</div>
+	);
+}
+
+export function TextComponent(props) {
+	return (
+		<div className='mc-center'>
+			<span
+				className='text'
+				style={{
+					fontSize: props.size,
+					color: props.color,
+					backgroundColor: props.backgroundColor,
+					justifyContent: props.xAlign,
+					alignItems: props.yAlign,
+				}}
+			>
+				{props.text}
+			</span>
+		</div>
+	);
+}
+
+export function CenterPhoto(props) {
+	return (
+		<div className='mc-center'>
+			<div
+				className='photo-center'
+				style={{
+					backgroundImage: `url(${props.image})`,
+					fontSize: props.size,
+					color: props.color,
+					justifyContent: props.xAlign,
+					alignItems: props.yAlign,
+				}}
+			>
+				<span style={{ backgroundColor: props.backgroundColor }}>
+					{props.text}
+				</span>
+			</div>
+		</div>
 	);
 }

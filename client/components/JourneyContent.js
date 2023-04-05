@@ -67,17 +67,7 @@ export default function JourneyContent() {
 								backgroundImage: `url(${section.imageUrl})`,
 								backgroundColor: `${section.backgroundColor}`,
 							}}
-						>
-							{/* <video
-							preload='auto'
-							style={{ height: '100%', width: 'auto', alignItems: 'center' }}
-							src='https://storage.googleapis.com/kostya-works-public/design/S1550015.MP4'
-							// controls
-							autoPlay
-							muted
-							loop
-						></video> */}
-						</div>
+						></div>
 					);
 				});
 

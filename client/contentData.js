@@ -24,6 +24,9 @@ import {
 	Falcon,
 	FSDiploma,
 	BuildingsBCM,
+	IoCardPic,
+	CenterPhoto,
+	TextComponent,
 } from './components/Contents';
 
 export const journeyData = [
@@ -36,18 +39,53 @@ export const journeyData = [
 			},
 			{
 				imageUrl:
-					'https://storage.googleapis.com/kostya-works-public/design/journey/art%20school%20wall.png',
-				backgroundColor: 'rgba(0, 0, 0, 0.3)',
-				subsections: [<TestComponent />, <TestComponent />],
+					'https://storage.googleapis.com/kostya-works-public/design/journey/art%20school%20cover.png',
+				backgroundColor: 'rgba(0, 0, 0, 1)',
+				subsections: [
+					<TextComponent
+						text={'ART SCHOOL'}
+						size={'50px'}
+						color={'white'}
+						backgroundColor={'black'}
+						xAlign={'center'}
+						yAlign={'center'}
+					/>,
+				],
 			},
 			{
 				imageUrl: '',
 				backgroundColor: 'rgba(0, 0, 0, 0.3)',
-				subsections: [<Molbert />, <DaVinciPic />],
+				subsections: [
+					<CenterPhoto
+						//MOLBERT
+						image={
+							'https://storage.googleapis.com/kostya-works-public/design/journey/molbert.png'
+						}
+						text={'It all started in art school.'}
+						size={'xx-large'}
+						color={'white'}
+						backgroundColor={'rgba(0, 0, 0, 0.85)'}
+						xAlign={'end'}
+						yAlign={'end'}
+					/>,
+					<CenterPhoto
+						//DAVINCI
+						image={
+							'https://storage.googleapis.com/kostya-works-public/design/journey/davinci.png'
+						}
+						text={'Painting a lot.'}
+						size={'xx-large'}
+						color={'white'}
+						backgroundColor={'rgba(0, 0, 0, 0.85)'}
+						xAlign={'end'}
+						yAlign={'end'}
+					/>,
+					// <DaVinciPic />,
+				],
 			},
 			{
 				imageUrl: '',
-				backgroundColor: 'rgba(0, 0, 0, 0.85)',
+				backgroundColor: 'rgba(0, 0, 0, 0.5)',
 				subsections: [<ArtWall />],
 			},
 
@@ -57,11 +95,6 @@ export const journeyData = [
 				backgroundColor: 'rgba(0, 0, 0, 0.3)',
 				subsections: [<TestComponent />, <StampPic />],
 			},
-			{
-				imageUrl: '',
-				backgroundColor: 'rgba(0, 0, 0, 1)',
-				subsections: [<BlankComponent />],
-			},
 		],
 	},
 	{
@@ -69,30 +102,88 @@ export const journeyData = [
 		sections: [
 			{
 				imageUrl:
-					'https://storage.googleapis.com/kostya-works-public/design/journey/college%20wall.png',
-				backgroundColor: 'rgba(0, 0, 0, 0.3)',
-				subsections: [<TestComponent />],
+					'https://storage.googleapis.com/kostya-works-public/design/journey/college%20cover%20small.png',
+				backgroundColor: 'rgba(0, 0, 0, 1)',
+				subsections: [
+					<TextComponent
+						text={'UNIVERSITY'}
+						size={'50px'}
+						color={'white'}
+						backgroundColor={'black'}
+						xAlign={'center'}
+						yAlign={'center'}
+					/>,
+				],
 			},
 			{
 				imageUrl: '',
 				backgroundColor: 'rgba(0, 0, 0, 0.3)',
-				subsections: [<BridgePic />, <CanoePic />, <CanoeSplit />],
+				subsections: [
+					<CenterPhoto
+						// BRIDGE
+						image={
+							'https://storage.googleapis.com/kostya-works-public/design/journey/bridge.png'
+						}
+						text={'Painting a lot.'}
+						size={'xx-large'}
+						color={'white'}
+						backgroundColor={'rgba(0, 0, 0, 0.85)'}
+						xAlign={'end'}
+						yAlign={'end'}
+					/>,
+					<CenterPhoto
+						// CANOE
+						image={
+							'https://storage.googleapis.com/kostya-works-public/design/journey/canoe01.png'
+						}
+						text={'Painting a lot.'}
+						size={'xx-large'}
+						color={'white'}
+						backgroundColor={'rgba(0, 0, 0, 0.85)'}
+						xAlign={'end'}
+						yAlign={'end'}
+					/>,
+					<CenterPhoto
+						// CANOE SPLIT
+						image={
+							'https://storage.googleapis.com/kostya-works-public/design/journey/canoe-split.png'
+						}
+						text={'Painting a lot.'}
+						size={'xx-large'}
+						color={'white'}
+						backgroundColor={'rgba(0, 0, 0, 0.85)'}
+						xAlign={'end'}
+						yAlign={'end'}
+					/>,
+					// <BridgePic />,
+					// <CanoePic />,
+					// <CanoeSplit />,
+				],
 			},
 			{
 				imageUrl:
 					'https://storage.googleapis.com/kostya-works-public/design/journey/buildings-background-center.png',
-				backgroundColor: 'rgba(0, 0, 0, 0.85)',
+				backgroundColor: 'rgba(0, 0, 0, 0.5)',
 				subsections: [<TestComponent />, <BuildingPic />],
 			},
 			{
 				imageUrl: '',
 				backgroundColor: 'rgba(0, 0, 0, 0.3)',
-				subsections: [<Graduation />],
-			},
-			{
-				imageUrl: '',
-				backgroundColor: 'rgba(0, 0, 0, 1)',
-				subsections: [<BlankComponent />],
+				subsections: [
+					<CenterPhoto
+						// GRADUATION
+						image={
+							'https://storage.googleapis.com/kostya-works-public/design/journey/graduation.png'
+						}
+						text={'Painting a lot.'}
+						size={'xx-large'}
+						color={'white'}
+						backgroundColor={'rgba(0, 0, 0, 0.85)'}
+						xAlign={'end'}
+						yAlign={'end'}
+					/>,
+					// <Graduation />,
+				],
 			},
 		],
 	},
@@ -102,19 +193,84 @@ export const journeyData = [
 			{
 				imageUrl:
 					'https://storage.googleapis.com/kostya-works-public/design/journey/work%20cover%20small.png',
-				backgroundColor: 'rgba(0, 0, 0, 0.3)',
-				subsections: [<TestComponent />],
+				backgroundColor: 'rgba(0, 0, 0, 1)',
+				subsections: [
+					<TextComponent
+						text={'WORK'}
+						size={'50px'}
+						color={'white'}
+						backgroundColor={'black'}
+						xAlign={'center'}
+						yAlign={'center'}
+					/>,
+				],
 			},
 			{
 				imageUrl: '',
 				backgroundColor: 'rgba(0, 0, 0, 0.3)',
-				subsections: [<KSS />, <EY />],
+				subsections: [
+					<CenterPhoto
+						// KSS
+						image={
+							'https://storage.googleapis.com/kostya-works-public/design/journey/kss.png'
+						}
+						text={'Painting a lot.'}
+						size={'xx-large'}
+						color={'white'}
+						backgroundColor={'rgba(0, 0, 0, 0.85)'}
+						xAlign={'end'}
+						yAlign={'end'}
+					/>,
+					<CenterPhoto
+						// EY
+						image={
+							'https://storage.googleapis.com/kostya-works-public/design/journey/ey.png'
+						}
+						text={'Painting a lot.'}
+						size={'xx-large'}
+						color={'white'}
+						backgroundColor={'rgba(0, 0, 0, 0.85)'}
+						xAlign={'end'}
+						yAlign={'end'}
+					/>,
+					// <KSS />,
+					// <EY />,
+				],
 			},
 			{
 				imageUrl:
 					'https://storage.googleapis.com/kostya-works-public/design/journey/industry%20wall.png',
-				backgroundColor: 'rgba(0, 0, 0, 0.85)',
-				subsections: [<TestComponent />, <Samarkand />, <Falcon />],
+				backgroundColor: 'rgba(0, 0, 0, 0.5)',
+				subsections: [
+					<TestComponent />,
+
+					<CenterPhoto
+						// SAMARKAND
+						image={
+							'https://storage.googleapis.com/kostya-works-public/design/journey/samarkand.png'
+						}
+						text={'Painting a lot.'}
+						size={'xx-large'}
+						color={'white'}
+						backgroundColor={'rgba(0, 0, 0, 0.85)'}
+						xAlign={'end'}
+						yAlign={'end'}
+					/>,
+					<CenterPhoto
+						// FALCON
+						image={
+							'https://storage.googleapis.com/kostya-works-public/design/journey/falcon.png'
+						}
+						text={'Painting a lot.'}
+						size={'xx-large'}
+						color={'white'}
+						backgroundColor={'rgba(0, 0, 0, 0.85)'}
+						xAlign={'end'}
+						yAlign={'end'}
+					/>,
+					// <Samarkand />,
+					// <Falcon />,
+				],
 			},
 
 			{
@@ -122,15 +278,26 @@ export const journeyData = [
 				backgroundColor: 'rgba(0, 0, 0, 0.3)',
 				subsections: [<BuildingsBCM />],
 			},
-			{
-				imageUrl: '',
-				subsections: [<TestComponent />],
-			},
+		],
+	},
+	{
+		navAreaName: 'CODING',
+		sections: [
 			{
 				imageUrl:
 					'https://storage.googleapis.com/kostya-works-public/design/journey/coding-cover.png',
 				backgroundColor: 'rgba(0, 0, 0, 1)',
-				subsections: [<BlankComponent />, <TestComponent />, <FSDiploma />],
+				subsections: [
+					<TextComponent
+						text={'CODING'}
+						size={'50px'}
+						color={'white'}
+						backgroundColor={'black'}
+						xAlign={'center'}
+						yAlign={'center'}
+					/>,
+					<FSDiploma />,
+				],
 			},
 		],
 	},
@@ -174,40 +341,33 @@ export const productsData = [
 
 export const motivationData = [
 	{
-		navAreaName: 'CREATIVITY',
+		navAreaName: 'MULTIMEDIA',
 		sections: [
 			{
-				sectionName: 'CREATIVITY',
 				imageUrl:
-					'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.Y4nhq0UDQzIIiMAzUNGmvgHaFj%26pid%3DApi&f=1&ipt=5187dde5b714f2a7a7447e022d2b5792046c0199854a0cb247267956463738e9&ipo=images',
-				subsections: [<MotivationQuote />, <BlankComponent />],
-			},
-		],
-	},
-	{
-		navAreaName: 'MEDIA',
-		sections: [
-			{
-				sectionName: 'MEDIA',
-				imageUrl:
-					'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.dJsmGYE5p58_VxnNuFCJ3gHaFj%26pid%3DApi&f=1&ipt=c99f355fe84005d3a31d42756850df769f17264c05bae732b64cd14b8f651d76&ipo=images',
+					'https://storage.googleapis.com/kostya-works-public/design/interests/synth.png',
+				backgroundColor: 'rgba(0, 0, 0, 0.5)',
 				subsections: [<TestComponent />, <TestComponent />],
 			},
 		],
 	},
 	{
-		navAreaName: 'DATA',
+		navAreaName: 'STORIES',
 		sections: [
 			{
-				sectionName: 'DATA',
+				imageUrl: '',
+				subsections: [<JourneyQuote />],
+			},
+		],
+	},
+	{
+		navAreaName: 'HUMOR',
+		sections: [
+			{
 				imageUrl:
-					'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.Y4nhq0UDQzIIiMAzUNGmvgHaFj%26pid%3DApi&f=1&ipt=5187dde5b714f2a7a7447e022d2b5792046c0199854a0cb247267956463738e9&ipo=images',
-				subsections: [
-					<TestComponent />,
-					<TestComponent />,
-					<TestComponent />,
-					<TestComponent />,
-				],
+					'https://storage.googleapis.com/kostya-works-public/design/journey/improv%20cover%20small.png',
+				backgroundColor: 'rgba(0, 0, 0, 0.5)',
+				subsections: [<TestComponent />, <IoCardPic />],
 			},
 		],
 	},

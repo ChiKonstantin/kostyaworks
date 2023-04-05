@@ -664,15 +664,27 @@ img {
 }
 
 .photo-center {
+	display: flex;
+	flex-direction: column;
+	/* justify-content: center; */
+	/* align-items: start; */
+	/* text-align: center; */
 	border: 5px solid black;
 	height: 100%;
 	width: calc((100vh - var(--bottom-offset-web)) * 0.8);
 	background-size: cover;
 	background-position: center;
+	/* padding: 15px; */
 }
 #stamp-pic {
 	width: 350px;
 	height: 294px;
+	background-size: contain;
+}
+
+#io-card-pic {
+	width: 350px;
+	height: 205px;
 	background-size: contain;
 }
 
@@ -770,6 +782,15 @@ img {
 
 	/* -webkit-text-stroke: 8px black; */
 	/* filter: invert(70%); */
+}
+
+.text {
+	/* background-color: black; */
+	background-color: white;
+	font-size: 50px;
+	/* color: white; */
+	color: black;
+	/* -webkit-text-stroke: 2px black; */
 }
 /* @MEDIA @MEDIA @MEDIA @MEDIA @MEDIA @MEDIA @MEDIA @MEDIA @MEDIA @MEDIA @MEDIA */
 @media (max-width: 920px) {

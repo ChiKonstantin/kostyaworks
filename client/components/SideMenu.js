@@ -46,7 +46,7 @@ export default function SideMenu() {
 					menuScroll(2);
 				}}
 			>
-				MOTIVATION
+				INTERESTS
 			</div>
 			<div
 				id='menu-summary'
