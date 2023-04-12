@@ -13,7 +13,7 @@ import {
 	renderRightArrow,
 } from '../functions';
 
-export default function JourneyContent() {
+export default function ProductsContent() {
 	//update these:
 	const pageName = 'products';
 	const contentData = productsData;
@@ -42,8 +42,25 @@ export default function JourneyContent() {
 		}
 	});
 
+	function transitionTime(time) {
+		console.log('SECTION TRANSITION ', time);
+		if (time) {
+			return `opacity ${time}s ease-out`;
+		} else {
+			return `opacity 0.25s ease-out`;
+		}
+	}
+
 	return (
 		<div className='page-content'>
+			<div
+				className='content-slide active'
+				style={{
+					backgroundImage:
+						'url(https://storage.googleapis.com/kostya-works-public/design/products/products%20background.png)',
+					filter: blur('4px'),
+				}}
+			></div>
 			{contentData.map((navArea) => {
 				const toReturn = navArea.sections.map((section) => {
 					return (
@@ -57,18 +74,11 @@ export default function JourneyContent() {
 							)}
 							style={{
 								backgroundImage: `url(${section.imageUrl})`,
+								backgroundColor: `${section.backgroundColor}`,
+								transition: `opacity ${section.transition}s ease-out`,
+								// transition: 'opacity 0s ease-out',
 							}}
-						>
-							{/* <video
-							preload='auto'
-							style={{ height: '100%', width: 'auto', alignItems: 'center' }}
-							src='https://storage.googleapis.com/kostya-works-public/design/S1550015.MP4'
-							// controls
-							autoPlay
-							muted
-							loop
-						></video> */}
-						</div>
+						></div>
 					);
 				});
 
@@ -80,15 +90,6 @@ export default function JourneyContent() {
 				onScroll={() => {
 					arrowStatus(pageName, subsectionsCount, setArrows);
 					navStatus(navArr, pageName, setActiveNav, setActiveSection);
-
-					console.log(
-						'active nav:',
-						activeNav,
-						'active section: ',
-						activeSection
-					);
-
-					// sectionContent(navArr, contentData);
 				}}
 			>
 				<div id={pageName + '-wrapper'} className='content-wrapper'>

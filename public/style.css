@@ -288,6 +288,10 @@ img {
 	background-size: cover;
 	background-position: center;
 	/* background-color: var(--background-color, rgb(10, 10, 10)); */
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	align-items: center;
 }
 
 .content-slide.active {
@@ -676,6 +680,23 @@ img {
 	background-position: center;
 	/* padding: 15px; */
 }
+
+.caption-picture {
+	display: flex;
+	flex-direction: column;
+	/* justify-content: center; */
+	/* align-items: start; */
+	/* text-align: center; */
+	/* border: 5px solid black; */
+	/* height: 1950px;
+	width: 2000px; */
+	/* width: calc((100vh - var(--bottom-offset-web)) * 0.8); */
+	background-size: cover;
+	background-position: center;
+	/* padding: 15px; */
+	box-shadow: 1px 1px 5px black;
+}
+
 #stamp-pic {
 	width: 350px;
 	height: 294px;
@@ -687,6 +708,12 @@ img {
 	height: 205px;
 	background-size: contain;
 }
+#irony-man {
+	width: 350px;
+	height: 523px;
+	background-size: contain;
+	box-shadow: 1px 1px 5px black;
+}
 
 #building-pic {
 	width: calc(3340px * 0.5);
@@ -694,11 +721,23 @@ img {
 	background-size: contain;
 }
 
+#baskets {
+	width: 350px;
+	height: calc(350px / 0.8166);
+	background-size: contain;
+	box-shadow: 1px 1px 5px black;
+}
+
 .no-border {
 	border: none;
 }
 
 #art-wall {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
 	height: 100%;
 	width: 100%;
 	background-size: cover;
@@ -707,6 +746,10 @@ img {
 }
 
 #buildings-wall {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	border: 5px solid black;
 	height: calc(100vh - var(--bottom-offset-web));
 	width: calc((100vh - var(--bottom-offset-web)) / 0.75);
@@ -720,7 +763,108 @@ img {
 	height: 60vh;
 	background-size: contain;
 }
+#video-cover-wrapper {
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	/* align-self: center; */
+}
 
+#video-cover {
+	width: 100%;
+	align-self: center;
+}
+
+.video-clip {
+	height: 100%;
+}
+
+.videos-div {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: center;
+	/* gap: 15px; */
+}
+
+.video-wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	/* width: 300px;*/
+	height: calc(100% / 3);
+	border: solid black;
+	border-width: 3px;
+	/* background-color: rgba(0, 0, 0, 0.3); */
+}
+
+.all-players {
+	height: 90%;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: center;
+	gap: 15px;
+}
+.player-wrapper {
+	height: 250px;
+	width: 250px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	/* border: dotted black; */
+}
+.player {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: end;
+
+	/* border: solid black; */
+	background-size: contain;
+	background-image: url('https://storage.googleapis.com/kostya-works-public/design/interests/cd.png');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.play-button {
+	color: white;
+	background-color: red;
+	font-size: xx-large;
+}
+
+.clip-name {
+	font-size: x-large;
+	color: white;
+	background-color: rgba(0, 0, 0, 0.85);
+}
+.clip-description {
+	font-size: medium;
+	color: white;
+	background-color: rgba(0, 0, 0, 0.85);
+}
+
+#madigan-img {
+	width: 769px;
+	height: 600px;
+}
+
+#deforestation-img {
+	width: calc(555px * 0.6);
+	height: calc(967px * 0.6);
+}
+
+.caption-span {
+	max-width: 500px;
+}
 /* TEXT STYLE TEXT STYLE TEXT STYLE TEXT STYLE TEXT STYLE TEXT STYLE TEXT STYLE TEXT STYLE */
 
 .x-large {
@@ -729,6 +873,9 @@ img {
 
 .large {
 	font-size: 10vh;
+}
+.medium {
+	font-size: 8vh;
 }
 
 .purple {
@@ -785,12 +932,24 @@ img {
 }
 
 .text {
+	max-width: 500px;
+	/* border: solid red; */
 	/* background-color: black; */
 	background-color: white;
 	font-size: 50px;
 	/* color: white; */
 	color: black;
+
 	/* -webkit-text-stroke: 2px black; */
+}
+
+.link {
+	/* max-width: 500px; */
+	font-size: 20px;
+	color: black;
+	text-decoration-line: underline;
+	cursor: pointer;
+	/* -webkit-text-stroke: 2px rgb(221, 101, 83); */
 }
 /* @MEDIA @MEDIA @MEDIA @MEDIA @MEDIA @MEDIA @MEDIA @MEDIA @MEDIA @MEDIA @MEDIA */
 @media (max-width: 920px) {
@@ -916,6 +1075,9 @@ img {
 	.large {
 		font-size: 7vh;
 	}
+	.medium {
+		font-size: 6vh;
+	}
 	.x-large {
 		font-size: 10vh;
 	}
@@ -943,5 +1105,29 @@ img {
 		width: 90vw;
 		height: calc(90vw * 0.75);
 		background-size: contain;
+	}
+	.videos-div {
+		flex-direction: column;
+	}
+
+	#video-cover {
+		height: 100%;
+		align-self: center;
+	}
+
+	.all-players {
+		flex-direction: column;
+	}
+	.player {
+		align-items: center;
+	}
+
+	#madigan-img {
+		width: 98vw;
+		height: calc(98vw / 1.28);
+	}
+	#deforestation-img {
+		width: 273px;
+		max-height: 475px;
 	}
 }

@@ -67,7 +67,19 @@ export default function JourneyContent() {
 								backgroundImage: `url(${section.imageUrl})`,
 								backgroundColor: `${section.backgroundColor}`,
 							}}
-						></div>
+						>
+							<div id='video-cover-wrapper'>
+								<video
+									id='video-cover'
+									src={section.video}
+									type='video/mp4'
+									preLoad='auto'
+									muted
+									autoPlay={'autoplay'}
+									loop
+								></video>
+							</div>
+						</div>
 					);
 				});
 

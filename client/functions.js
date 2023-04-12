@@ -48,7 +48,7 @@ export function returnNavArr(contentArr, pageName, setNavArr) {
 		navAreaOffset = sectionOffset;
 		sectionsArr = [];
 	});
-	console.log('NAV ARR: ', navArr);
+	// console.log('NAV ARR: ', navArr);
 	setNavArr(navArr);
 }
 

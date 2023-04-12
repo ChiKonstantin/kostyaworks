@@ -12,9 +12,10 @@ export default function MainView() {
 		topLimit: 0,
 		bottomLimit: window.innerHeight,
 	});
+	const [pauseScroll, setPause] = useState(false);
 
 	let timeOutId = 0;
-	document.documentElement.scrollTop = 0;
+	document.documentElement.scrollTop = 0.0;
 
 	window.onscroll = function () {
 		clearTimeout(timeOutId);
@@ -27,22 +28,27 @@ export default function MainView() {
 		slidePages();
 		moveBarOnScroll();
 	};
-
+	let stopPosition = 844;
 	document.getElementsByClassName;
 
-	function slidePages() {
+	function slidePages(pastPosition) {
 		const scrollPosition = document.documentElement.scrollTop;
 		const screenHeight = window.innerHeight;
 		// let mainView = document.getElementById('main-view');
 		// const scrollPosition = mainView.scrollTop;
 		// console.log('SCROLL: ', scrollPosition);
-
 		let journeyPage = document.getElementById('journey');
 		let productsPage = document.getElementById('products');
 		let motivationPage = document.getElementById('motivation');
 		let summaryPage = document.getElementById('summary');
 		// console.log('Scroll position: ', scrollPosition);
 		// console.log('%%%%%', journeyPage);
+		// console.log('past, current: ', pastPosition, scrollPosition);
+
+		// if (scrollPosition > stopPosition) {
+		// 	stopPosition = 1688;
+		// 	setPause(true);
+		// }
 
 		if (scrollPosition === 0) {
 			journeyPage.style.height = `${screenHeight}px`;

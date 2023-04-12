@@ -44,6 +44,14 @@ export default function JourneyContent() {
 
 	return (
 		<div className='page-content'>
+			<div
+				className='content-slide active'
+				style={{
+					backgroundImage:
+						'url(https://storage.googleapis.com/kostya-works-public/design/summary/polkadot%20background%20n.png)',
+					filter: blur('4px'),
+				}}
+			></div>
 			{contentData.map((navArea) => {
 				const toReturn = navArea.sections.map((section) => {
 					return (
@@ -57,18 +65,9 @@ export default function JourneyContent() {
 							)}
 							style={{
 								backgroundImage: `url(${section.imageUrl})`,
+								backgroundColor: `${section.backgroundColor}`,
 							}}
-						>
-							{/* <video
-							preload='auto'
-							style={{ height: '100%', width: 'auto', alignItems: 'center' }}
-							src='https://storage.googleapis.com/kostya-works-public/design/S1550015.MP4'
-							// controls
-							autoPlay
-							muted
-							loop
-						></video> */}
-						</div>
+						></div>
 					);
 				});
 
@@ -80,15 +79,6 @@ export default function JourneyContent() {
 				onScroll={() => {
 					arrowStatus(pageName, subsectionsCount, setArrows);
 					navStatus(navArr, pageName, setActiveNav, setActiveSection);
-
-					console.log(
-						'active nav:',
-						activeNav,
-						'active section: ',
-						activeSection
-					);
-
-					// sectionContent(navArr, contentData);
 				}}
 			>
 				<div id={pageName + '-wrapper'} className='content-wrapper'>
