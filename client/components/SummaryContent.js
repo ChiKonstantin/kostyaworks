@@ -24,6 +24,8 @@ export default function JourneyContent() {
 	const [activeSection, setActiveSection] = useState(0);
 	const [navArr, setNavArr] = useState([]);
 	const [subsectionsCount, setSubsectionsCount] = useState(0);
+	const [enableArrow, setEnableArrow] = useState(true);
+	const arrowTimer = 400;
 
 	useEffect(() => {
 		if (navArr.length === 0) {
@@ -101,14 +103,20 @@ export default function JourneyContent() {
 					<div
 						className='arrow-wrapper'
 						onClick={() => {
-							arrowScroll('left', pageName, subsectionsCount);
+							if (enableArrow) {
+								arrowScroll('left', pageName, subsectionsCount);
+								setEnableArrow(false);
+								setTimeout(() => {
+									setEnableArrow(true);
+								}, arrowTimer);
+							}
 						}}
 					>
-						{renderLeftArrow(arrowState.left)}
+						{/* {renderLeftArrow(arrowState.left)} */}
 					</div>
 				</div>
 
-				<div className='navigation-visual'>
+				{/* <div className='navigation-visual'>
 					<div className='nav-bar'></div>
 					<div className='nav-markers-wrapper'>
 						{contentData.map((navArea) => {
@@ -123,16 +131,22 @@ export default function JourneyContent() {
 							);
 						})}
 					</div>
-				</div>
+				</div> */}
 
 				<div className='content-arrow'>
 					<div
 						className='arrow-wrapper'
 						onClick={() => {
-							arrowScroll('right', pageName, subsectionsCount);
+							if (enableArrow) {
+								arrowScroll('right', pageName, subsectionsCount);
+								setEnableArrow(false);
+								setTimeout(() => {
+									setEnableArrow(true);
+								}, arrowTimer);
+							}
 						}}
 					>
-						{renderRightArrow(arrowState.right)}
+						{/* {renderRightArrow(arrowState.right)} */}
 					</div>
 				</div>
 			</div>

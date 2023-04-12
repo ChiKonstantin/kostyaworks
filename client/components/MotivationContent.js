@@ -24,6 +24,8 @@ export default function JourneyContent() {
 	const [activeSection, setActiveSection] = useState(0);
 	const [navArr, setNavArr] = useState([]);
 	const [subsectionsCount, setSubsectionsCount] = useState(0);
+	const [enableArrow, setEnableArrow] = useState(true);
+	const arrowTimer = 400;
 
 	useEffect(() => {
 		if (navArr.length === 0) {
@@ -113,7 +115,13 @@ export default function JourneyContent() {
 					<div
 						className='arrow-wrapper'
 						onClick={() => {
-							arrowScroll('left', pageName, subsectionsCount);
+							if (enableArrow) {
+								arrowScroll('left', pageName, subsectionsCount);
+								setEnableArrow(false);
+								setTimeout(() => {
+									setEnableArrow(true);
+								}, arrowTimer);
+							}
 						}}
 					>
 						{renderLeftArrow(arrowState.left)}
@@ -141,7 +149,14 @@ export default function JourneyContent() {
 					<div
 						className='arrow-wrapper'
 						onClick={() => {
-							arrowScroll('right', pageName, subsectionsCount);
+							if (enableArrow) {
+								arrowScroll('right', pageName, subsectionsCount);
+								setEnableArrow(false);
+								setTimeout(() => {
+									setEnableArrow(true);
+								}, arrowTimer);
+							}
+							// arrowScroll('right', pageName, subsectionsCount);
 						}}
 					>
 						{renderRightArrow(arrowState.right)}

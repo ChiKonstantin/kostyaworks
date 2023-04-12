@@ -9,6 +9,11 @@
 	--nav-text-size: 12px;
 	--nav-marker-spacing: 80px;
 }
+a {
+	color: rgb(92, 209, 255);
+	font-weight: bold;
+	text-decoration-line: none;
+}
 
 html {
 	width: 95vw;
@@ -709,10 +714,10 @@ img {
 	background-size: contain;
 }
 #irony-man {
-	width: 350px;
-	height: 523px;
+	width: 400px;
+	height: 400px;
 	background-size: contain;
-	box-shadow: 1px 1px 5px black;
+	/* box-shadow: 1px 1px 5px black; */
 }
 
 #building-pic {
@@ -786,7 +791,7 @@ img {
 	flex-direction: row;
 	justify-content: space-evenly;
 	align-items: center;
-	/* gap: 15px; */
+	gap: 15px;
 }
 
 .video-wrapper {
@@ -795,10 +800,17 @@ img {
 	justify-content: center;
 	align-items: center;
 	/* width: 300px;*/
-	height: calc(100% / 3);
+	width: calc(100% / 4);
 	border: solid black;
 	border-width: 3px;
 	/* background-color: rgba(0, 0, 0, 0.3); */
+}
+
+.videos-yt {
+	width: calc(100% / 3 - 50px);
+	height: calc(100% / 3);
+	border: solid black;
+	border-width: 3px;
 }
 
 .all-players {
@@ -865,6 +877,48 @@ img {
 .caption-span {
 	max-width: 500px;
 }
+
+#summary-div {
+	max-width: 500px;
+	text-align: left;
+	/* background-color: ; */
+}
+
+#profile-pic {
+	border-radius: 100%;
+	height: 50px;
+	width: 50px;
+}
+
+#name-div {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: start;
+
+	align-items: center;
+	font-size: small;
+	font-weight: 500;
+	gap: 10px;
+	margin-bottom: 0px;
+}
+
+hr {
+	height: 1px;
+	border-width: 0;
+	background-color: rgba(36, 36, 44);
+	margin-bottom: 0px;
+	/* border: #00e100 solid 1px; */
+}
+
+/* #name {
+	cursor: pointer;
+	color: white;
+
+	-webkit-user-select: none; 
+	-ms-user-select: none; 
+	user-select: none; 
+} */
 /* TEXT STYLE TEXT STYLE TEXT STYLE TEXT STYLE TEXT STYLE TEXT STYLE TEXT STYLE TEXT STYLE */
 
 .x-large {
@@ -951,6 +1005,7 @@ img {
 	cursor: pointer;
 	/* -webkit-text-stroke: 2px rgb(221, 101, 83); */
 }
+
 /* @MEDIA @MEDIA @MEDIA @MEDIA @MEDIA @MEDIA @MEDIA @MEDIA @MEDIA @MEDIA @MEDIA */
 @media (max-width: 920px) {
 	:root {
@@ -1109,6 +1164,12 @@ img {
 	.videos-div {
 		flex-direction: column;
 	}
+	.videos-yt {
+		width: 100%;
+		height: calc(100% / 3);
+		border: solid black;
+		border-width: 3px;
+	}
 
 	#video-cover {
 		height: 100%;
@@ -1129,5 +1190,11 @@ img {
 	#deforestation-img {
 		width: 273px;
 		max-height: 475px;
+	}
+
+	#summary-div {
+		max-width: 90%;
+		text-align: left;
+		/* background-color: ; */
 	}
 }

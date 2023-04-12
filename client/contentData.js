@@ -22,6 +22,8 @@ import {
 	Cringe,
 	CaptionPicture,
 	LinkComponent,
+	GoToSection,
+	Summary,
 } from './components/Contents';
 
 export const journeyData = [
@@ -49,7 +51,7 @@ export const journeyData = [
 			},
 			{
 				imageUrl: '',
-				backgroundColor: 'rgba(0, 0, 0, 0)',
+				backgroundColor: 'rgba(0, 0, 0, 0.25)',
 				subsections: [
 					<CenterPhoto
 						//MOLBERT
@@ -85,7 +87,6 @@ export const journeyData = [
 			},
 			{
 				imageUrl: '',
-				backgroundColor: 'rgba(0, 0, 0, 0.)',
 				subsections: [
 					<TextComponent
 						text={'One of my works on a real postal stamp:'}
@@ -101,7 +102,7 @@ export const journeyData = [
 			{
 				imageUrl:
 					'https://storage.googleapis.com/kostya-works-public/design/journey/envelope-center.png',
-				backgroundColor: 'rgba(0, 0, 0, 0)',
+				// backgroundColor: 'rgba(0, 0, 0, 0.25)',
 				subsections: [<StampPic />],
 			},
 		],
@@ -134,7 +135,7 @@ export const journeyData = [
 			},
 			{
 				imageUrl: '',
-				backgroundColor: 'rgba(0, 0, 0, 0)',
+				backgroundColor: 'rgba(0, 0, 0, 0.25)',
 				subsections: [
 					<CenterPhoto
 						// BRIDGE
@@ -231,7 +232,7 @@ export const journeyData = [
 			},
 			{
 				imageUrl: '',
-				backgroundColor: 'rgba(0, 0, 0, 0)',
+				backgroundColor: 'rgba(0, 0, 0, 0.25)',
 				subsections: [
 					<CenterPhoto
 						// KSS
@@ -301,7 +302,7 @@ export const journeyData = [
 
 			{
 				imageUrl: '',
-				backgroundColor: 'rgba(0, 0, 0, 0)',
+				backgroundColor: 'rgba(0, 0, 0, 0.25)',
 				subsections: [<BuildingsBCM />],
 			},
 		],
@@ -326,7 +327,7 @@ export const journeyData = [
 			},
 			{
 				imageUrl: '',
-				backgroundColor: 'rgba(0, 0, 0, 0)',
+
 				subsections: [
 					<TextComponent
 						text={'Completing a coding bootcamp.'}
@@ -336,14 +337,19 @@ export const journeyData = [
 						xAlign={'center'}
 						yAlign={'center'}
 					/>,
-					<FSDiploma />,
-					<TextComponent
+				],
+			},
+			{ backgroundColor: 'rgba(0, 0, 0, 0.25)', subsections: [<FSDiploma />] },
+			{
+				subsections: [
+					<GoToSection
 						text={'Building cool things:'}
-						size={'xx-large'}
-						color={'white'}
+						size={'40px'}
+						color={'#005dff'}
 						backgroundColor={'rgba(0, 0, 0, 0.85)'}
 						xAlign={'center'}
 						yAlign={'center'}
+						location={1}
 					/>,
 				],
 			},
@@ -373,6 +379,8 @@ export const productsData = [
 			{
 				imageUrl:
 					'https://storage.googleapis.com/kostya-works-public/design/products/chatator-phone.png',
+				backgroundColor: 'rgba(0, 0, 0, 0.25)',
+				// transition: 0,
 				subsections: [
 					<TextComponent
 						text={
@@ -389,11 +397,13 @@ export const productsData = [
 			{
 				imageUrl:
 					'https://storage.googleapis.com/kostya-works-public/design/products/chatator-join-room.png',
+				backgroundColor: 'rgba(0, 0, 0, 0.25)',
+				transition: 0,
 				subsections: [
 					<BlankComponent />,
 					<TextComponent
 						text={
-							'No sign up requirement to use - automatically generated rooms can be joined by multiple users.'
+							'No sign up requirements - automatically generated rooms can be joined by multiple users.'
 						}
 						size={'x-large'}
 						color={'white'}
@@ -406,7 +416,8 @@ export const productsData = [
 			{
 				imageUrl:
 					'https://storage.googleapis.com/kostya-works-public/design/products/chatator-text-closed.png',
-
+				backgroundColor: 'rgba(0, 0, 0, 0.25)',
+				transition: 0,
 				subsections: [
 					<TextComponent
 						text={
@@ -423,13 +434,15 @@ export const productsData = [
 			{
 				imageUrl:
 					'https://storage.googleapis.com/kostya-works-public/design/products/chatator-text-open.png',
+				backgroundColor: 'rgba(0, 0, 0, 0.25)',
 				transition: 0,
 				subsections: [<BlankComponent />],
 			},
 			{
 				imageUrl:
 					'https://storage.googleapis.com/kostya-works-public/design/products/chatator-button-off.png',
-
+				transition: 0,
+				backgroundColor: 'rgba(0, 0, 0, 0.25)',
 				subsections: [
 					<TextComponent
 						text={'The "send" button is activated only after message input.'}
@@ -444,10 +457,12 @@ export const productsData = [
 			{
 				imageUrl:
 					'https://storage.googleapis.com/kostya-works-public/design/products/chatator-button-active.png',
+				backgroundColor: 'rgba(0, 0, 0, 0.25)',
 				transition: 0,
 				subsections: [<BlankComponent />],
 			},
 			{
+				backgroundColor: 'rgba(0, 0, 0, 0)',
 				subsections: [
 					<LinkComponent
 						text={'TRY CHATATOR.COM'}
@@ -482,7 +497,8 @@ export const productsData = [
 			{
 				imageUrl:
 					'https://storage.googleapis.com/kostya-works-public/design/products/pandemic-phone.png',
-				transition: 0,
+				backgroundColor: 'rgba(0, 0, 0, 0.25)',
+				// transition: 0,
 				subsections: [
 					<TextComponent
 						text={`Pandemic-beat let's you listen to COVID pandemic data converted to soundfiles.`}
@@ -505,6 +521,7 @@ export const productsData = [
 			{
 				imageUrl:
 					'https://storage.googleapis.com/kostya-works-public/design/products/pandemic-phone-i.png',
+				backgroundColor: 'rgba(0, 0, 0, 0.25)',
 				transition: 0,
 				subsections: [
 					<TextComponent
@@ -520,6 +537,7 @@ export const productsData = [
 			{
 				imageUrl:
 					'https://storage.googleapis.com/kostya-works-public/design/products/pandemic-phone-d.png',
+				backgroundColor: 'rgba(0, 0, 0, 0.25)',
 				transition: 0,
 				subsections: [
 					<TextComponent
@@ -535,6 +553,7 @@ export const productsData = [
 			{
 				imageUrl:
 					'https://storage.googleapis.com/kostya-works-public/design/products/pandemic-phone-search.png',
+				backgroundColor: 'rgba(0, 0, 0, 0.25)',
 				transition: 0,
 				subsections: [
 					<TextComponent
@@ -548,6 +567,8 @@ export const productsData = [
 				],
 			},
 			{
+				backgroundColor: 'rgba(0, 0, 0, 0)',
+				transition: 0.25,
 				subsections: [
 					<LinkComponent
 						text={'TRY PANDEMIC BEAT'}
@@ -557,6 +578,15 @@ export const productsData = [
 						backgroundColor={'black'}
 						xAlign={'center'}
 						yAlign={'center'}
+					/>,
+					<GoToSection
+						text={'Other interests:'}
+						size={'40px'}
+						color={'#b200ff'}
+						backgroundColor={'rgba(0, 0, 0, 0.85)'}
+						xAlign={'center'}
+						yAlign={'center'}
+						location={2}
 					/>,
 				],
 			},
@@ -615,7 +645,7 @@ export const motivationData = [
 			},
 			{
 				imageUrl: '',
-				backgroundColor: 'rgba(0, 0, 0, 0.3)',
+				backgroundColor: 'rgba(0, 0, 0, 0)',
 				subsections: [
 					// <TextComponent
 					// 	text={'Some of my instruments:'}
@@ -664,7 +694,7 @@ export const motivationData = [
 			},
 			{
 				imageUrl: '',
-				backgroundColor: 'rgba(0, 0, 0, 0.3)',
+
 				subsections: [
 					<TextComponent
 						text={'Some of my videos:'}
@@ -674,9 +704,9 @@ export const motivationData = [
 						xAlign={'center'}
 						yAlign={'center'}
 					/>,
-					<VideoClips />,
 				],
 			},
+			{ backgroundColor: 'rgba(0, 0, 0, 0.3)', subsections: [<VideoClips />] },
 		],
 	},
 	{
@@ -699,7 +729,7 @@ export const motivationData = [
 			},
 			{
 				imageUrl: '',
-				backgroundColor: 'rgba(0, 0, 0, 0.3)',
+				backgroundColor: 'rgba(0, 0, 0, 0)',
 				subsections: [
 					<TextComponent
 						text={
@@ -777,13 +807,26 @@ export const motivationData = [
 					<Cringe />,
 					<IoCardPic />,
 					<IronyMan />,
-					<TextComponent
-						text={`To sum it all up:`}
-						size={'xx-large'}
-						color={'white'}
-						backgroundColor={'rgba(0, 0, 0, 0.8)'}
+					// <TextComponent
+					// 	text={`To sum it all up:`}
+					// 	size={'xx-large'}
+					// 	color={'white'}
+					// 	backgroundColor={'rgba(0, 0, 0, 0.8)'}
+					// 	xAlign={'center'}
+					// 	yAlign={'center'}
+					// />,
+				],
+			},
+			{
+				subsections: [
+					<GoToSection
+						text={'To sum it all up:'}
+						size={'40px'}
+						color={'rgb(255, 81, 68)'}
+						backgroundColor={'rgba(0, 0, 0, 0.85)'}
 						xAlign={'center'}
 						yAlign={'center'}
+						location={3}
 					/>,
 				],
 			},
@@ -798,14 +841,15 @@ export const summaryData = [
 			{
 				imageUrl: '',
 				subsections: [
-					<TextComponent
-						text={'This is a summary...'}
-						size={'50px'}
-						color={'white'}
-						backgroundColor={'rgba(0, 0, 0, 0.8)'}
-						xAlign={'center'}
-						yAlign={'center'}
-					/>,
+					// <TextComponent
+					// 	text={'This is a summary...'}
+					// 	size={'50px'}
+					// 	color={'white'}
+					// 	backgroundColor={'rgba(0, 0, 0, 0.8)'}
+					// 	xAlign={'center'}
+					// 	yAlign={'center'}
+					// />,
+					<Summary />,
 				],
 			},
 		],

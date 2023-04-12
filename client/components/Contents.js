@@ -197,8 +197,8 @@ export function IronyMan() {
 				id='irony-man'
 				style={{
 					backgroundImage:
-						'url(https://storage.googleapis.com/kostya-works-public/design/interests/irony%20man.JPG)',
-					border: '5px solid black;',
+						'url(https://storage.googleapis.com/kostya-works-public/design/interests/irony%20man%20center.png)',
+					// border: '5px solid black;',
 				}}
 			></div>
 			<br />
@@ -362,7 +362,7 @@ export function SoundClips() {
 				onPlaying={setStop}
 			>
 				<source
-					src='https://storage.googleapis.com/kostya-works-public/design/interests/come_on_and.mp3'
+					src='https://storage.googleapis.com/kostya-works-public/design/interests/LOOKING%20FOR%20GOLD%205.mp3'
 					type='audio/mpeg'
 				/>
 			</audio>
@@ -373,7 +373,7 @@ export function SoundClips() {
 				onPlaying={setStop}
 			>
 				<source
-					src='https://storage.googleapis.com/kostya-works-public/design/interests/collecting%20dust.mp3'
+					src='https://storage.googleapis.com/kostya-works-public/design/interests/Storm%20is%20ROcking_6_vocal%20correction.mp3'
 					type='audio/mpeg'
 				/>
 			</audio>
@@ -384,7 +384,7 @@ export function SoundClips() {
 				onPlaying={setStop}
 			>
 				<source
-					src='https://storage.googleapis.com/kostya-works-public/design/interests/NEVIDIMKI.mp3'
+					src='https://storage.googleapis.com/kostya-works-public/design/interests/plugs.mp3'
 					type='audio/mpeg'
 				/>
 			</audio>
@@ -404,10 +404,10 @@ export function SoundClips() {
 							<div className='play-button'>{returnPlayStatus('audio1')}</div>
 						</div>
 					</div>
-					<div className='clip-name'>Come On And</div>
-					<div className='clip-description'>
+					<div className='clip-name'>Looking For Gold</div>
+					{/* <div className='clip-description'>
 						This song is called this and that and I composed it for this reason.
-					</div>
+					</div> */}
 				</div>
 				<div className='player-wrapper'>
 					<div className='player'>
@@ -424,11 +424,10 @@ export function SoundClips() {
 							<div className='play-button'>{returnPlayStatus('audio2')}</div>
 						</div>
 					</div>
-					<div className='clip-name'>Collecting Dust</div>
-					<div className='clip-description'>
-						This song is called this and that and I composed it for this reason.
-						This song is called this and that and I composed it for this reason.
-					</div>
+					<div className='clip-name'>Storm</div>
+					{/* <div className='clip-description'>
+						And whatever happens tonight, hope we laugh about it tomorrow.
+					</div> */}
 				</div>
 
 				<div className='player-wrapper'>
@@ -447,10 +446,10 @@ export function SoundClips() {
 							<div className='play-button'>{returnPlayStatus('audio3')}</div>
 						</div>
 					</div>
-					<div className='clip-name'>Invisible</div>
-					<div className='clip-description'>
-						This song is called this and that and I composed it for this reason.
-					</div>
+					<div className='clip-name'>Plug (for CBB Podcast) </div>
+					{/* <div className='clip-description'>
+						Featured on Comedy Bang-Bang: The Podcast.
+					</div> */}
 				</div>
 			</div>
 		</div>
@@ -461,36 +460,34 @@ export function VideoClips() {
 	return (
 		<div className='mc-center'>
 			<div className='videos-div'>
-				<div className='video-wrapper'>
-					{/* <span className='clip-description'>Video 1</span> */}
-					<video
-						className='video-clip'
-						src='https://storage.googleapis.com/kostya-works-public/design/interests/IMG_1618.mov'
-						type='video/mp4'
-						preLoad='auto'
-						controls
-					></video>
-				</div>
-				<div className='video-wrapper'>
-					{/* <span className='clip-description'>Video 2</span> */}
-					<video
-						className='video-clip'
-						src='https://storage.googleapis.com/kostya-works-public/design/interests/IMG_1618.mov'
-						type='video/mp4'
-						preLoad='auto'
-						controls
-					></video>
-				</div>
-				<div className='video-wrapper'>
-					{/* <span className='clip-description'>Video 3</span> */}
-					<video
-						className='video-clip'
-						src='https://storage.googleapis.com/kostya-works-public/design/interests/IMG_1618.mov'
-						type='video/mp4'
-						preLoad='auto'
-						controls
-					></video>
-				</div>
+				{/* <span className='clip-description'>Video 1</span> */}
+
+				<iframe
+					className='videos-yt'
+					// width='200'
+					// height='112'
+					src='https://www.youtube.com/embed/Rxlar2jopMU'
+					frameborder='0'
+					allowfullscreen
+				></iframe>
+
+				<iframe
+					className='videos-yt'
+					// width='200'
+					// height='112'
+					src='https://www.youtube.com/embed/FT_fj5AXIoA'
+					frameborder='0'
+					allowfullscreen
+				></iframe>
+
+				<iframe
+					className='videos-yt'
+					// width='200'
+					// height='112'
+					src='https://www.youtube.com/embed/LLgxuBqrxqg'
+					frameborder='0'
+					allowfullscreen
+				></iframe>
 			</div>
 		</div>
 	);
@@ -514,6 +511,75 @@ export function LinkComponent(props) {
 				}}
 			>
 				{props.text}
+			</div>
+		</div>
+	);
+}
+
+export function GoToSection(props) {
+	function menuScroll(location) {
+		const screenHeight = window.innerHeight;
+		window.scrollTo({
+			top: screenHeight * location,
+			behavior: 'smooth',
+		});
+	}
+	return (
+		<div className='mc-center'>
+			<div
+				className='link'
+				style={{
+					fontSize: props.size,
+					color: props.color,
+					backgroundColor: props.backgroundColor,
+				}}
+				onClick={() => {
+					menuScroll(props.location);
+				}}
+			>
+				{props.text}
+			</div>
+		</div>
+	);
+}
+
+export function Summary() {
+	return (
+		<div className='mc-center'>
+			<div id='summary-div'>
+				{/* <div id='name-div'>
+					<img src='kostya_profile.png' id='profile-pic'></img>
+					<a href='https://www.linkedin.com/in/kbalakirev/' target='_blank'>
+						<div id='name'>Kostya Balakirev</div>
+					</a>
+				</div> */}
+
+				<div id='name-div'>
+					<img src='kostya_profile.png' id='profile-pic'></img>
+					<div style={{ backgroundColor: 'rgba(0, 0, 0, 0.8)' }}>
+						Kostya Balakirev
+					</div>
+				</div>
+				{/* <hr /> */}
+				<p style={{ backgroundColor: 'rgba(0, 0, 0, 0.8)' }}>
+					As you have probably already deduced I am a creative developer with an
+					eye for design and a passion for understanding the world.
+				</p>
+				<p style={{ backgroundColor: 'rgba(0, 0, 0, 0.8)' }}>
+					I am interested in web development projects involving creative digital
+					media experiences and multimedia in general.
+				</p>
+				<p style={{ backgroundColor: 'rgba(0, 0, 0, 0.8)' }}>
+					For collaborations, job and project proposals contact me via{' '}
+					<a href='https://www.linkedin.com/in/kbalakirev/' target='_blank'>
+						LinkedIn.
+					</a>
+				</p>
+				<p
+					style={{ backgroundColor: 'rgba(0, 0, 0, 0.8)', textAlign: 'center' }}
+				>
+					Cheers! 👋
+				</p>
 			</div>
 		</div>
 	);

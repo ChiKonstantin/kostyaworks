@@ -12,12 +12,16 @@ export default function MainView() {
 		topLimit: 0,
 		bottomLimit: window.innerHeight,
 	});
-	const [pauseScroll, setPause] = useState(false);
+	// const [enableScroll, setEnableScroll] = useState(true);
+	// const [scrollMarker, setScrollMarker] = useState(844);
 
 	let timeOutId = 0;
 	document.documentElement.scrollTop = 0.0;
 
 	window.onscroll = function () {
+		// let scrollPosition = document.documentElement.scrollTop;
+		// console.log('', scrollPosition);
+		// if (enableScroll) {
 		clearTimeout(timeOutId);
 		timeOutId = setTimeout(() => {
 			snapViewPages();
@@ -27,27 +31,29 @@ export default function MainView() {
 
 		slidePages();
 		moveBarOnScroll();
+		// } else {
+		// 	// scrollPosition = 844;
+		// }
 	};
-	let stopPosition = 844;
+
 	document.getElementsByClassName;
 
-	function slidePages(pastPosition) {
+	function slidePages() {
 		const scrollPosition = document.documentElement.scrollTop;
 		const screenHeight = window.innerHeight;
-		// let mainView = document.getElementById('main-view');
-		// const scrollPosition = mainView.scrollTop;
-		// console.log('SCROLL: ', scrollPosition);
 		let journeyPage = document.getElementById('journey');
 		let productsPage = document.getElementById('products');
 		let motivationPage = document.getElementById('motivation');
 		let summaryPage = document.getElementById('summary');
-		// console.log('Scroll position: ', scrollPosition);
-		// console.log('%%%%%', journeyPage);
-		// console.log('past, current: ', pastPosition, scrollPosition);
 
-		// if (scrollPosition > stopPosition) {
-		// 	stopPosition = 1688;
-		// 	setPause(true);
+		// if (scrollPosition > scrollMarker) {
+		// 	console.log('MARKER HIT!');
+		// 	setEnableScroll(false);
+		// 	setScrollMarker(1688);
+		// 	setTimeout(() => {
+		// 		setEnableScroll(true);
+		// 		console.log('TIMEOUT HIT');
+		// 	}, 1000);
 		// }
 
 		if (scrollPosition === 0) {
