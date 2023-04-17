@@ -528,14 +528,14 @@ img {
 	height: var(--menu-text-size);
 	width: calc(var(--left-offset-web) + 0px);
 	/* width: 100vw; */
-	background-color: rgba(0, 0, 0, 0);
+	background-color: rgba(0, 0, 0, 0.85);
 	/* background-image: linear-gradient(
 		to right,
 		rgba(0, 0, 0, 0.452),
 		black,
 		black
 	); */
-	backdrop-filter: invert(70%);
+	/* backdrop-filter: invert(70%); */
 	z-index: 4;
 }
 
