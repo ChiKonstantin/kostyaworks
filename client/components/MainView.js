@@ -12,16 +12,16 @@ export default function MainView() {
 		topLimit: 0,
 		bottomLimit: window.innerHeight,
 	});
-	// const [enableScroll, setEnableScroll] = useState(true);
+	const [previousPosition, setPreviousPosition] = useState(0);
 	// const [scrollMarker, setScrollMarker] = useState(844);
 
 	let timeOutId = 0;
 	document.documentElement.scrollTop = 0.0;
+	const marker = window.innerHeight;
 
 	window.onscroll = function () {
 		// let scrollPosition = document.documentElement.scrollTop;
-		// console.log('', scrollPosition);
-		// if (enableScroll) {
+
 		clearTimeout(timeOutId);
 		timeOutId = setTimeout(() => {
 			snapViewPages();
@@ -31,8 +31,25 @@ export default function MainView() {
 
 		slidePages();
 		moveBarOnScroll();
-		// } else {
-		// 	// scrollPosition = 844;
+		// console.log('previous: ', Math.round(previousPosition, 1));
+		console.log('scroll:', Math.round(scrollPosition, 1));
+		// if (
+		// 	scrollPosition >= marker
+		// 	// &&
+		// 	// previousPosition < marker
+		// 	// ||
+		// 	// (scrollPosition >= marker * 2 && previousPosition < marker * 2) ||
+		// 	// (scrollPosition >= marker * 3 && previousPosition < marker * 3)
+		// ) {
+		// 	document.documentElement.scrollTop = marker;
+		// 	document.body.style.overflowY = 'hidden';
+
+		// 	console.log('freeze!');
+		// 	setTimeout(() => {
+		// 		document.body.style.overflowY = 'scroll';
+		// 		console.log('timeout ends');
+		// 	}, 75);
+		// 	setPreviousPosition(scrollPosition);
 		// }
 	};
 
