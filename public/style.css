@@ -234,7 +234,8 @@ img {
 	width: calc(100% - var(--left-offset-web));
 
 	/* width: 100%; */
-	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	font-family: 'Libre Franklin', sans-serif;
+	/* font-family: 'Franklin Gothic Medium', Arial, sans-serif; */
 	/* border: dashed blueviolet; */
 	border-width: 3px;
 }
