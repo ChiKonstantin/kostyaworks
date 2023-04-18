@@ -94,7 +94,7 @@ export default function ProductsContent() {
 					navStatus(navArr, pageName, setActiveNav, setActiveSection);
 				}}
 			>
-				<div id={pageName + '-wrapper'} className='content-wrapper'>
+				<section id={pageName + '-wrapper'} className='content-wrapper'>
 					{contentData.map((navArea) => {
 						const toReturn = navArea.sections.map((section) => {
 							const toReturn = section.subsections.map((subsection) => {
@@ -106,7 +106,7 @@ export default function ProductsContent() {
 					})}
 
 					{/* <ContentModule data='none' /> */}
-				</div>
+				</section>
 			</div>
 
 			<div className='content-navigation'>
