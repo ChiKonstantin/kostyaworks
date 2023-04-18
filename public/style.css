@@ -919,6 +919,18 @@ hr {
 	/* border: #00e100 solid 1px; */
 }
 
+.section-name-mobile {
+	/* height: var(--menu-text-size);
+	width: 100vw; */
+	background-color: black;
+	/* background-image: linear-gradient(
+		to right,
+		rgba(0, 0, 0, 1),
+		rgba(0, 0, 0, 1),
+		rgba(0, 0, 0, 0)
+	); */
+}
+
 /* #name {
 	cursor: pointer;
 	color: white;
@@ -1016,9 +1028,9 @@ hr {
 
 /* @MEDIA @MEDIA @MEDIA @MEDIA @MEDIA @MEDIA @MEDIA @MEDIA @MEDIA @MEDIA @MEDIA */
 @media (max-width: 920px) {
-	body {
+	/* body {
 		overflow-y: hidden;
-	}
+	} */
 	:root {
 		--top-offset-web: 8%;
 		--top-offset-menu: 3%;
@@ -1026,6 +1038,11 @@ hr {
 		--bottom-offset-web: 15vh;
 		--menu-text-size: 3.5vh;
 		--arrow-width: calc(min(10vw, 45px));
+	}
+
+	.page {
+		position: relative;
+		width: 100vw;
 	}
 
 	.content {
@@ -1072,11 +1089,12 @@ hr {
 	#menu-products,
 	#menu-motivation,
 	#menu-summary {
-		text-align: right;
+		text-align: left;
 		position: relative;
-		right: 3.5vw;
+		/* right: 3.5vw; */
 		font-size: calc(var(--menu-text-size) * 1);
 		height: calc(var(--menu-text-size) * 1);
+		width: 100%;
 	}
 	.content-navigation {
 		height: 25vh;
@@ -1091,12 +1109,13 @@ hr {
 	}
 
 	#outlines-wrapper {
-		height: var(--bottom-offset-web);
+		height: calc(var(--bottom-offset-web) / 2);
 		width: 50%;
 		bottom: 0;
 		/* border: solid black; */
 		/* bottom: 100px; */
 		/* right: 0px; */
+		z-index: 50;
 	}
 
 	.nav-bar {
@@ -1126,6 +1145,7 @@ hr {
 	}
 
 	.icons-div {
+		top: var(--menu-text-size);
 		right: 5vw;
 		justify-content: end;
 	}

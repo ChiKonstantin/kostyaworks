@@ -5,6 +5,7 @@ import MotivationContent from './MotivationContent';
 import SummaryContent from './SummaryContent';
 import MenuArea from './MenuArea';
 import SMIcons from './SMIcons';
+import Outlines from './Outlines';
 import { moveBarOnScroll } from '../functions';
 
 export default function MainView() {
@@ -14,10 +15,13 @@ export default function MainView() {
 	});
 	const [previousPosition, setPreviousPosition] = useState(0);
 	// const [scrollMarker, setScrollMarker] = useState(844);
-
+	const [mobileView, setMobileView] = useState(false);
 	let timeOutId = 0;
 	document.documentElement.scrollTop = 0.0;
 	const marker = window.innerHeight;
+	if (window.innerWidth <= 920 && !mobileView) {
+		setMobileView(true);
+	}
 
 	window.onscroll = function () {
 		// let scrollPosition = document.documentElement.scrollTop;
@@ -28,29 +32,10 @@ export default function MainView() {
 		}, 100);
 
 		let scrollPosition = document.documentElement.scrollTop;
-
-		slidePages();
-		moveBarOnScroll();
-		// console.log('previous: ', Math.round(previousPosition, 1));
-		console.log('scroll:', Math.round(scrollPosition, 1));
-		// if (
-		// 	scrollPosition >= marker
-		// 	// &&
-		// 	// previousPosition < marker
-		// 	// ||
-		// 	// (scrollPosition >= marker * 2 && previousPosition < marker * 2) ||
-		// 	// (scrollPosition >= marker * 3 && previousPosition < marker * 3)
-		// ) {
-		// 	document.documentElement.scrollTop = marker;
-		// 	document.body.style.overflowY = 'hidden';
-
-		// 	console.log('freeze!');
-		// 	setTimeout(() => {
-		// 		document.body.style.overflowY = 'scroll';
-		// 		console.log('timeout ends');
-		// 	}, 75);
-		// 	setPreviousPosition(scrollPosition);
-		// }
+		if (!mobileView) {
+			slidePages();
+			moveBarOnScroll();
+		}
 	};
 
 	document.getElementsByClassName;
@@ -113,15 +98,6 @@ export default function MainView() {
 		}
 	}
 
-	function colorChange() {
-		const scrollPosition = document.documentElement.scrollTop;
-		const screenHeight = window.innerHeight;
-		const positionRatio = Math.round(
-			Math.min(scrollPosition / screenHeight, 1)
-		);
-		const colorChangeRatio = 0.7;
-	}
-
 	function snapViewPages() {
 		let scrollPosition = document.documentElement.scrollTop;
 		const snapThresholdValue = 0.5;
@@ -139,7 +115,7 @@ export default function MainView() {
 			// console.log('snap to top');
 		}
 	}
-	return (
+	return !mobileView ? (
 		<div
 			id='main-view'
 			// onScroll={() => {
@@ -174,6 +150,49 @@ export default function MainView() {
 			</div>
 
 			<MenuArea />
+			<SMIcons />
+		</div>
+	) : (
+		<div id='main-view'>
+			<section id='journey' className='page'>
+				<div id='journey-menu' className='side-menu-spacer'></div>
+				<div id='journey-content' className='content'>
+					<div id='menu-journey' className='section-name-mobile'>
+						JOURNEY
+					</div>
+					<JourneyContent />
+				</div>
+			</section>
+			<section id='products' className='page'>
+				<div id='products-menu' className='side-menu-spacer'></div>
+				<div id='products-content' className='content'>
+					<div id='menu-products' className='section-name-mobile'>
+						PRODUCTS
+					</div>
+					<ProductsContent />
+				</div>
+			</section>
+			<section id='motivation' className='page'>
+				<div id='motivation-menu' className='side-menu-spacer'></div>
+				<div id='motivation-content' className='content'>
+					<div id='menu-motivation' className='section-name-mobile'>
+						INTERESTS
+					</div>
+					<MotivationContent />
+				</div>
+			</section>
+
+			<section id='summary' className='page'>
+				<div id='summary-menu' className='side-menu-spacer'></div>
+				<div id='summary-content' className='content'>
+					<div id='menu-summary' className='section-name-mobile'>
+						SUMMARY
+					</div>
+					<SummaryContent />
+				</div>
+			</section>
+
+			<Outlines />
 			<SMIcons />
 		</div>
 	);
