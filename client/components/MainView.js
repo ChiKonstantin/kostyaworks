@@ -25,14 +25,14 @@ export default function MainView() {
 
 	window.onscroll = function () {
 		// let scrollPosition = document.documentElement.scrollTop;
-
-		clearTimeout(timeOutId);
-		timeOutId = setTimeout(() => {
-			snapViewPages();
-		}, 100);
-
-		let scrollPosition = document.documentElement.scrollTop;
 		if (!mobileView) {
+			clearTimeout(timeOutId);
+			timeOutId = setTimeout(() => {
+				snapViewPages();
+			}, 100);
+
+			let scrollPosition = document.documentElement.scrollTop;
+
 			slidePages();
 			moveBarOnScroll();
 		}

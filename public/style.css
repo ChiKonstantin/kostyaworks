@@ -148,7 +148,6 @@ img {
 	overflow: hidden;
 	display: flex;
 	flex-direction: row;
-	/* scroll-snap-align: start; */
 
 	/* border: dotted grey; */
 }
@@ -1047,6 +1046,14 @@ hr {
 
 	.content {
 		width: 100%;
+	}
+
+	#main-view {
+		scroll-snap-type: y mandatory;
+	}
+
+	.page {
+		scroll-snap-align: start;
 	}
 
 	.content-scroller {
