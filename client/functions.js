@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { IoChevronBackCircle } from 'react-icons/io5';
 import { IoChevronForwardCircle } from 'react-icons/io5';
+import { RiArrowRightDoubleLine } from 'react-icons/ri';
+import { RiArrowLeftDoubleLine } from 'react-icons/ri';
+import { MdArrowBackIos } from 'react-icons/md';
+import { MdArrowForwardIos } from 'react-icons/md';
 
 export function moveBarOnScroll() {
 	let selectBar = document.getElementById('menu-select-bar');
@@ -139,16 +143,16 @@ export function arrowStatus(pageName, subsectionsCount, setArrows) {
 
 export function renderLeftArrow(direction) {
 	if (direction) {
-		return <IoChevronBackCircle className='arrow-icon active' />;
+		return <MdArrowBackIos className='arrow-icon active' />;
 	} else {
-		return <IoChevronBackCircle className='arrow-icon inactive' />;
+		return <MdArrowBackIos className='arrow-icon inactive' />;
 	}
 }
 
 export function renderRightArrow(direction) {
 	if (direction) {
-		return <IoChevronForwardCircle className='arrow-icon active' />;
+		return <MdArrowForwardIos className='arrow-icon active' />;
 	} else {
-		return <IoChevronForwardCircle className='arrow-icon inactive' />;
+		return <MdArrowForwardIos className='arrow-icon inactive' />;
 	}
 }

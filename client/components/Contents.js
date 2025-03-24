@@ -739,7 +739,11 @@ export function WelcomeThree() {
 					<span className='welcome-three-spans'>
 						For collaborations, project proposals, or job opportunities, please
 						contact me via{' '}
-						<a href='https://www.linkedin.com/in/kbalakirev/' target='_blank'>
+						<a
+							className='section-clickable'
+							vhref='https://www.linkedin.com/in/kbalakirev/'
+							target='_blank'
+						>
 							LinkedIn.
 						</a>
 					</span>
