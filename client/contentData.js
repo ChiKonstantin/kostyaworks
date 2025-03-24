@@ -24,6 +24,9 @@ import {
 	LinkComponent,
 	GoToSection,
 	Summary,
+	WelcomeOne,
+	WelcomeTwo,
+	WelcomeThree,
 } from './components/Contents';
 
 export const journeyData = [
@@ -836,21 +839,32 @@ export const motivationData = [
 
 export const summaryData = [
 	{
-		navAreaName: '',
+		navAreaName: 'ONE',
 		sections: [
 			{
-				imageUrl: '',
-				subsections: [
-					// <TextComponent
-					// 	text={'This is a summary...'}
-					// 	size={'50px'}
-					// 	color={'white'}
-					// 	backgroundColor={'rgba(0, 0, 0, 0.8)'}
-					// 	xAlign={'center'}
-					// 	yAlign={'center'}
-					// />,
-					<Summary />,
-				],
+				imageUrl:
+					'https://storage.googleapis.com/kostya-works-public/design/summary/whiteboard.png',
+				subsections: [<WelcomeOne />],
+			},
+		],
+	},
+	{
+		navAreaName: 'TWO',
+		sections: [
+			{
+				imageUrl:
+					'https://storage.googleapis.com/kostya-works-public/design/summary/pegboard_dark.png',
+				subsections: [<WelcomeTwo />],
+			},
+		],
+	},
+	{
+		navAreaName: 'THREE',
+		sections: [
+			{
+				imageUrl:
+					'https://storage.googleapis.com/kostya-works-public/design/summary/corkboard.png',
+				subsections: [<WelcomeThree />],
 			},
 		],
 	},

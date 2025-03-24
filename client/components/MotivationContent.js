@@ -13,7 +13,7 @@ import {
 	renderRightArrow,
 } from '../functions';
 
-export default function JourneyContent() {
+export default function MotivationContent() {
 	//update these:
 	const pageName = 'motivation';
 	const contentData = motivationData;

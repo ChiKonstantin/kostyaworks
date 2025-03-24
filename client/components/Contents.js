@@ -543,10 +543,17 @@ export function GoToSection(props) {
 	);
 }
 
-export function Summary() {
+export function WelcomeOne() {
+	function menuScroll(location) {
+		const screenHeight = window.innerHeight;
+		window.scrollTo({
+			top: screenHeight * location,
+			behavior: 'smooth',
+		});
+	}
 	return (
-		<div className='mc-center'>
-			<div id='summary-div'>
+		<div className='mc-center  welcome'>
+			<div className='summary-div'>
 				{/* <div id='name-div'>
 					<img src='kostya_profile.png' id='profile-pic'></img>
 					<a href='https://www.linkedin.com/in/kbalakirev/' target='_blank'>
@@ -554,31 +561,197 @@ export function Summary() {
 					</a>
 				</div> */}
 
-				<div id='name-div'>
+				<span>
+					<p>
+						<span className='welcome-one-spans'>Hello!</span>
+					</p>
+					<p>
+						<span className='welcome-one-spans'>
+							If I knew you were visiting this portfolio site I’d be happy and a
+							little surprised. It was tucked away nicely, yet you found it and
+							here you are. So welcome!
+						</span>
+					</p>
+					<p>
+						<span className='welcome-one-spans'>
+							This site has things you can click on and scroll and swipe. Some
+							things move up and down, and fade in and out - it is to impress
+							you.
+						</span>
+					</p>
+					<p>
+						<span className='welcome-one-spans'>
+							This site has four sections:
+						</span>
+					</p>
+					<p>
+						<span
+							className='section-clickable'
+							style={{
+								backgroundColor: 'rgba(0, 0, 0, 0.9)',
+								color: ' rgb(255, 81, 68)',
+							}}
+						>
+							WELCOME{' '}
+						</span>{' '}
+						– <span className='welcome-one-spans'>You’re here.</span> <br />
+						<span
+							className='section-clickable'
+							style={{
+								backgroundColor: 'rgba(0, 0, 0, 0.9)',
+								color: '#005dff',
+							}}
+							onClick={() => {
+								menuScroll(1);
+							}}
+						>
+							PRODUCTS
+						</span>{' '}
+						–{' '}
+						<span className='welcome-one-spans'>
+							Some things I worked on and want you to see.
+						</span>{' '}
+						<br />
+						<span
+							className='section-clickable'
+							style={{
+								backgroundColor: 'rgba(0, 0, 0, 0.9)',
+								color: '#b200ff',
+							}}
+							onClick={() => {
+								menuScroll(2);
+							}}
+						>
+							INTERESTS
+						</span>{' '}
+						–{' '}
+						<span className='welcome-one-spans'>
+							Other things I enjoy doing.
+						</span>{' '}
+						<br />
+						<span
+							className='section-clickable'
+							style={{
+								backgroundColor: 'rgba(0, 0, 0, 0.9)',
+								color: '#ffd800',
+							}}
+							onClick={() => {
+								menuScroll(3);
+							}}
+						>
+							JOURNEY
+						</span>{' '}
+						–{' '}
+						<span className='welcome-one-spans'>
+							The bio, the origins, the B-side, the gossip…
+						</span>
+					</p>
+
+					<p>
+						<span className='welcome-one-spans'>
+							I hope you like it! I like it...
+						</span>
+					</p>
+				</span>
+			</div>
+		</div>
+	);
+}
+
+export function WelcomeTwo() {
+	return (
+		<div className='mc-center  welcome'>
+			<div className='summary-div'>
+				{/* <div id='name-div'>
 					<img src='kostya_profile.png' id='profile-pic'></img>
-					<div style={{ backgroundColor: 'rgba(0, 0, 0, 0.8)' }}>
-						Kostya Balakirev
-					</div>
-				</div>
-				{/* <hr /> */}
-				<p style={{ backgroundColor: 'rgba(0, 0, 0, 0.8)' }}>
-					As you have probably already deduced I am a creative developer with an
-					eye for design and a passion for understanding the world.
-				</p>
-				<p style={{ backgroundColor: 'rgba(0, 0, 0, 0.8)' }}>
-					I am interested in web development projects involving creative digital
-					media experiences and multimedia in general.
-				</p>
-				<p style={{ backgroundColor: 'rgba(0, 0, 0, 0.8)' }}>
-					For collaborations, job and project proposals contact me via{' '}
 					<a href='https://www.linkedin.com/in/kbalakirev/' target='_blank'>
-						LinkedIn.
+						<div id='name'>Kostya Balakirev</div>
 					</a>
+				</div> */}
+
+				<p>
+					<span className='welcome-two-spans'>Now a bit about me:</span>
 				</p>
-				<p
-					style={{ backgroundColor: 'rgba(0, 0, 0, 0.8)', textAlign: 'center' }}
-				>
-					Cheers! 👋
+				<p>
+					<span className='welcome-two-spans'>
+						My name is Kostya, it is short for Konstantin. I respond to both. I
+						am an American, but was born in a different country, which explains
+						the name.
+					</span>
+				</p>
+				<p>
+					<span className='welcome-two-spans'>
+						I can do many things decently, but I like creating things the best,
+						which means I don’t mind spending time doing it, which means I do it
+						well, and if I don’t do it well, I want to try again and eventually
+						do it well.
+					</span>
+				</p>
+				<p>
+					<span className='welcome-two-spans'>
+						I particularly like when things look good, work smoothly and make
+						overall sense.
+					</span>
+				</p>
+				<p>
+					<span className='welcome-two-spans'>
+						Ideally I prefer working with a group of intelligent and real people
+						who also want to build or improve things and make good money in the
+						process. If you are looking to offer me a job, I think it is a great
+						idea and it will be good for both of us. And for the world...
+					</span>
+				</p>
+			</div>
+		</div>
+	);
+}
+
+export function WelcomeThree() {
+	return (
+		<div className='mc-center welcome'>
+			<div className='summary-div'>
+				{/* <div id='name-div'>
+					<img src='kostya_profile.png' id='profile-pic'></img>
+					<a href='https://www.linkedin.com/in/kbalakirev/' target='_blank'>
+						<div id='name'>Kostya Balakirev</div>
+					</a>
+				</div> */}
+
+				<p>
+					<span className='welcome-three-spans'>What else…</span>
+				</p>
+				<p>
+					<span className='welcome-three-spans'>
+						Experimenting, learning and questioning is good in my opinion. I’ve
+						been playing around with OpenAI APIs and you can do many useful
+						things with them.
+					</span>
+				</p>
+
+				<p>
+					<span className='welcome-three-spans'>
+						I wanted to be an architect but studied engineering and worked as an
+						analyst in finance. I am also a husband and a dad.
+					</span>
+				</p>
+
+				<p>
+					<span className='welcome-three-spans'>
+						For collaborations, project proposals, or job opportunities, please
+						contact me via{' '}
+						<a href='https://www.linkedin.com/in/kbalakirev/' target='_blank'>
+							LinkedIn.
+						</a>
+					</span>
+				</p>
+				<p>
+					<span className='welcome-three-spans'>
+						Again, it is crazy that you found this site and read all of these
+						words. Thank you!
+					</span>
+				</p>
+				<p>
+					<span className='welcome-three-spans'>Kostya BALAKIREV</span>
 				</p>
 			</div>
 		</div>

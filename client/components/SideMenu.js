@@ -25,13 +25,14 @@ export default function SideMenu() {
 		<div id='side-menu'>
 			<div id='menu-select-bar'></div>
 			<div
-				id='menu-journey'
+				id='menu-summary'
 				onClick={() => {
 					menuScroll(0);
 				}}
 			>
-				JOURNEY
+				WELCOME
 			</div>
+
 			<div
 				id='menu-products'
 				onClick={() => {
@@ -49,12 +50,12 @@ export default function SideMenu() {
 				INTERESTS
 			</div>
 			<div
-				id='menu-summary'
+				id='menu-journey'
 				onClick={() => {
 					menuScroll(3);
 				}}
 			>
-				SUMMARY
+				JOURNEY
 			</div>
 		</div>
 	);

@@ -59,7 +59,7 @@ export default function MainView() {
 		// }
 
 		if (scrollPosition === 0) {
-			journeyPage.style.height = `${screenHeight}px`;
+			summaryPage.style.height = `${screenHeight}px`;
 		}
 		if (scrollPosition < screenHeight) {
 			products.style.height = `${screenHeight}px`;
@@ -68,18 +68,18 @@ export default function MainView() {
 			motivationPage.style.height = `${screenHeight}px`;
 		}
 		if (scrollPosition < screenHeight * 3) {
-			summaryPage.style.height = `${screenHeight}px`;
+			journeyPage.style.height = `${screenHeight}px`;
 		}
 
 		//controlling page 1 div height:
 		if (scrollPosition > 0) {
-			journeyPage.style.height = `${screenHeight - scrollPosition}px`;
+			summaryPage.style.height = `${screenHeight - scrollPosition}px`;
 		}
 
 		//controlling page 2 div height, collapsing div 1:
 		if (scrollPosition > screenHeight) {
 			productsPage.style.height = `${screenHeight * 2 - scrollPosition}px`;
-			journeyPage.style.height = '0px';
+			summaryPage.style.height = '0px';
 		}
 
 		//controlling page 3 div height, collapsing div 2:
@@ -89,12 +89,12 @@ export default function MainView() {
 		}
 		//controlling page 4 div height, collapsing div 3:
 		if (scrollPosition > screenHeight * 3) {
-			summaryPage.style.height = `${screenHeight * 4 - scrollPosition}px`;
+			journeyPage.style.height = `${screenHeight * 4 - scrollPosition}px`;
 			motivationPage.style.height = '0px';
 		}
 		// collapsing div 4:
 		if (scrollPosition > screenHeight * 4) {
-			summaryPage.style.height = '0px';
+			journeyPage.style.height = '0px';
 		}
 	}
 
@@ -123,10 +123,10 @@ export default function MainView() {
 			// 	moveBarOnScroll();
 			// }}
 		>
-			<div id='summary' className='page'>
-				<div id='summary-menu' className='side-menu-spacer'></div>
-				<div id='summary-content' className='content'>
-					<SummaryContent />
+			<div id='journey' className='page'>
+				<div id='journey-menu' className='side-menu-spacer'></div>
+				<div id='journey-content' className='content'>
+					<JourneyContent />
 				</div>
 			</div>
 
@@ -142,27 +142,27 @@ export default function MainView() {
 					<ProductsContent />
 				</div>
 			</div>
-			<div id='journey' className='page'>
-				<div id='journey-menu' className='side-menu-spacer'></div>
-				<div id='journey-content' className='content'>
-					<JourneyContent />
+			<div id='summary' className='page'>
+				<div id='summary-menu' className='side-menu-spacer'></div>
+				<div id='summary-content' className='content'>
+					<SummaryContent />
 				</div>
 			</div>
-
 			<MenuArea />
 			<SMIcons />
 		</div>
 	) : (
 		<div id='main-view'>
-			<section id='journey' className='page'>
-				<div id='journey-menu' className='side-menu-spacer'></div>
-				<div id='journey-content' className='content'>
-					<div id='menu-journey' className='section-name-mobile'>
-						JOURNEY
+			<section id='summary' className='page'>
+				<div id='summary-menu' className='side-menu-spacer'></div>
+				<div id='summary-content' className='content'>
+					<div id='menu-summary' className='section-name-mobile'>
+						WELCOME
 					</div>
-					<JourneyContent />
+					<SummaryContent />
 				</div>
 			</section>
+
 			<section id='products' className='page'>
 				<div id='products-menu' className='side-menu-spacer'></div>
 				<div id='products-content' className='content'>
@@ -181,14 +181,13 @@ export default function MainView() {
 					<MotivationContent />
 				</div>
 			</section>
-
-			<section id='summary' className='page'>
-				<div id='summary-menu' className='side-menu-spacer'></div>
-				<div id='summary-content' className='content'>
-					<div id='menu-summary' className='section-name-mobile'>
-						SUMMARY
+			<section id='journey' className='page'>
+				<div id='journey-menu' className='side-menu-spacer'></div>
+				<div id='journey-content' className='content'>
+					<div id='menu-journey' className='section-name-mobile'>
+						JOURNEY
 					</div>
-					<SummaryContent />
+					<JourneyContent />
 				</div>
 			</section>
 

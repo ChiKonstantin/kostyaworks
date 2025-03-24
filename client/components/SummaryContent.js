@@ -13,7 +13,7 @@ import {
 	renderRightArrow,
 } from '../functions';
 
-export default function JourneyContent() {
+export default function SummaryContent() {
 	//update these:
 	const pageName = 'summary';
 	const contentData = summaryData;
@@ -50,8 +50,10 @@ export default function JourneyContent() {
 				className='content-slide active'
 				style={{
 					backgroundImage:
-						'url(https://storage.googleapis.com/kostya-works-public/design/summary/polkadot%20background%20n.png)',
-					filter: blur('4px'),
+						'url(https://storage.googleapis.com/kostya-works-public/design/summary/fire_tiles.png)',
+					// backgroundImage:
+					// 	'url(https://storage.googleapis.com/kostya-works-public/design/summary/waves%20background.png)',
+					// filter: blur('4px'),
 				}}
 			></div>
 			{contentData.map((navArea) => {
@@ -112,11 +114,11 @@ export default function JourneyContent() {
 							}
 						}}
 					>
-						{/* {renderLeftArrow(arrowState.left)} */}
+						{renderLeftArrow(arrowState.left)}
 					</div>
 				</div>
 
-				{/* <div className='navigation-visual'>
+				<div className='navigation-visual'>
 					<div className='nav-bar'></div>
 					<div className='nav-markers-wrapper'>
 						{contentData.map((navArea) => {
@@ -131,7 +133,7 @@ export default function JourneyContent() {
 							);
 						})}
 					</div>
-				</div> */}
+				</div>
 
 				<div className='content-arrow'>
 					<div
@@ -146,7 +148,7 @@ export default function JourneyContent() {
 							}
 						}}
 					>
-						{/* {renderRightArrow(arrowState.right)} */}
+						{renderRightArrow(arrowState.right)}
 					</div>
 				</div>
 			</div>
