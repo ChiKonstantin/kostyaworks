@@ -6,7 +6,7 @@ export default function Outlines() {
 			<div id='outline-bw' className='outlines-containers'>
 				<img
 					className='outline-images'
-					src='https://storage.googleapis.com/kostya-works-public/design/bw-profile-outline.png'
+					src='https://storage.googleapis.com/kostya-works-public/design/bw-profile-outline-cursor.png'
 				/>
 			</div>
 			<div id='outline-red' className='outlines-containers'>

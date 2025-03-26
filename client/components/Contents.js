@@ -222,16 +222,125 @@ export function TextComponent(props) {
 			className='mc-center'
 			style={{ justifyContent: props.xAlign, alignItems: props.yAlign }}
 		>
-			<span
+			<p
 				className='text'
 				style={{
 					fontSize: props.size,
-					color: props.color,
-					backgroundColor: props.backgroundColor,
+					textAlign: props.textAlign,
+					// color: props.color,
+					// backgroundColor: props.backgroundColor,
 				}}
 			>
-				{props.text}
-			</span>
+				<mark
+					style={{
+						color: props.color,
+						backgroundColor: props.backgroundColor,
+						// borderRadius: '5px',
+						padding: '0 4px',
+					}}
+				>
+					{props.text}
+				</mark>
+			</p>
+		</div>
+	);
+}
+
+export function Paragraphs(props) {
+	return (
+		<div
+			className='mc-center'
+			style={{
+				justifyContent: props.xAlign,
+				alignItems: props.yAlign,
+				textAlign: 'left',
+				backgroundImage: `url(${props.image})`,
+			}}
+		>
+			<div className='text'>
+				{props.text.map((item) => {
+					return (
+						<p
+							style={{
+								fontSize: props.size,
+								textAlign: props.textAlign,
+							}}
+						>
+							<mark
+								style={{
+									color: props.color,
+									backgroundColor: props.backgroundColor,
+									// borderRadius: '5px',
+									padding: '0 4px',
+								}}
+							>
+								{item}
+							</mark>
+						</p>
+					);
+				})}
+			</div>
+		</div>
+	);
+}
+
+export function List(props) {
+	return (
+		<div
+			className='mc-center'
+			style={{
+				justifyContent: props.xAlign,
+				alignItems: props.yAlign,
+				textAlign: 'left',
+				backgroundImage: `url(${props.image})`,
+			}}
+		>
+			<ul className='text'>
+				{props.text.map((item) => {
+					return (
+						<li
+							style={{
+								fontSize: props.size,
+								textAlign: props.textAlign,
+							}}
+						>
+							<mark
+								style={{
+									color: props.color,
+									backgroundColor: props.backgroundColor,
+									// borderRadius: '5px',
+									padding: '0 4px',
+								}}
+							>
+								{item}
+							</mark>
+						</li>
+					);
+				})}
+			</ul>
+		</div>
+	);
+}
+
+export function HTMLComponent(props) {
+	return (
+		<div
+			className='mc-center'
+			style={{ justifyContent: props.xAlign, alignItems: props.yAlign }}
+		>
+			<div
+				// className='text'
+				// style={{
+				// 	fontSize: props.size,
+				// 	// textAlign: props.textAlign,
+				// 	color: props.color,
+				// 	backgroundColor: props.backgroundColor,
+				// }}
+				dangerouslySetInnerHTML={props.text}
+			>
+				{/* {props.text} */}
+			</div>
+			{/* </p> */}
 		</div>
 	);
 }
@@ -254,6 +363,37 @@ export function CenterPhoto(props) {
 					{props.text}
 				</span>
 			</div>
+		</div>
+	);
+}
+export function TextOverImage(props) {
+	return (
+		<div
+			className='mc-center'
+			style={{
+				backgroundImage: `url(${props.image})`,
+				// backgroundSize: 'contain',
+				// backgroundPositionX: 'center',
+				// backgroundPositionY: 'center',
+				// backgroundRepeat: 'no-repeat',
+			}}
+		>
+			<p
+				className='text'
+				style={{
+					fontSize: props.size,
+					textAlign: props.textAlign,
+				}}
+			>
+				<mark
+					style={{
+						color: props.color,
+						backgroundColor: props.backgroundColor,
+					}}
+				>
+					{props.text}
+				</mark>
+			</p>
 		</div>
 	);
 }
@@ -567,9 +707,8 @@ export function WelcomeOne() {
 					</p>
 					<p>
 						<span className='welcome-one-spans'>
-							If I knew you were visiting this portfolio site I’d be happy and a
-							little surprised. It was tucked away nicely, yet you found it and
-							here you are. So welcome!
+							I am surprised you found your way to my portfolio site. Yet you
+							did, and here you are. So welcome!
 						</span>
 					</p>
 					<p>
@@ -643,7 +782,7 @@ export function WelcomeOne() {
 						</span>{' '}
 						–{' '}
 						<span className='welcome-one-spans'>
-							The bio, the origins, the B-side, the gossip…
+							The bio, the origins, the B-side, the gossip.
 						</span>
 					</p>
 
@@ -674,17 +813,13 @@ export function WelcomeTwo() {
 				</p>
 				<p>
 					<span className='welcome-two-spans'>
-						My name is Kostya, it is short for Konstantin. I respond to both. I
-						am an American, but was born in a different country, which explains
-						the name.
+						My name is Kostya, it is short for Konstantin. I am an American, but
+						was born in a different country, hence the name.
 					</span>
 				</p>
 				<p>
 					<span className='welcome-two-spans'>
-						I can do many things decently, but I like creating things the best,
-						which means I don’t mind spending time doing it, which means I do it
-						well, and if I don’t do it well, I want to try again and eventually
-						do it well.
+						I can do many things decently, but I like creating things the best.
 					</span>
 				</p>
 				<p>
@@ -695,10 +830,14 @@ export function WelcomeTwo() {
 				</p>
 				<p>
 					<span className='welcome-two-spans'>
-						Ideally I prefer working with a group of intelligent and real people
-						who also want to build or improve things and make good money in the
-						process. If you are looking to offer me a job, I think it is a great
-						idea and it will be good for both of us. And for the world...
+						I prefer working with a group of intelligent people who also want to
+						build or improve things and make money in the process.
+					</span>
+				</p>
+				<p>
+					<span className='welcome-two-spans'>
+						If you are looking to offer me a job, I think it is a great idea and
+						it will be good for both of us. And for the world...
 					</span>
 				</p>
 			</div>
@@ -722,23 +861,21 @@ export function WelcomeThree() {
 				</p>
 				<p>
 					<span className='welcome-three-spans'>
-						Experimenting, learning and questioning is good in my opinion. I’ve
-						been playing around with OpenAI APIs and you can do many useful
-						things with them.
+						+ Experimenting, learning and questioning is good in my opinion.
+						Most recently I have been playing with OpenAI APIs.
 					</span>
 				</p>
 
 				<p>
 					<span className='welcome-three-spans'>
-						I wanted to be an architect but studied engineering and worked as an
-						analyst in finance. I am also a husband and a dad.
+						+ I wanted to be an architect but studied engineering and worked as
+						an analyst in finance. I am also a husband and a dad.
 					</span>
 				</p>
 
 				<p>
 					<span className='welcome-three-spans'>
-						For collaborations, project proposals, or job opportunities, please
-						contact me via{' '}
+						+ For collaborations or job opportunities, please contact me via{' '}
 						<a
 							className='section-clickable'
 							vhref='https://www.linkedin.com/in/kbalakirev/'
@@ -757,6 +894,59 @@ export function WelcomeThree() {
 				<p>
 					<span className='welcome-three-spans'>Kostya BALAKIREV</span>
 				</p>
+			</div>
+		</div>
+	);
+}
+
+export function ProductsContents() {
+	return (
+		<div className='mc-center'>
+			<div className='contents-div'>
+				<p>NOTICE:</p>
+				<p>These are the things I've worked on:</p>
+				<ul>
+					<li>
+						✅ 🌐
+						<a
+							className='products'
+							href='http://www.chatator.com/'
+							target='_blank'
+						>
+							Chatator
+						</a>
+					</li>
+					<li>
+						⏳ 🌐
+						<a
+							className='products'
+							href='http://www.pandemic.kostya.works/'
+							target='_blank'
+						>
+							Pandemic Beat{' '}
+						</a>
+					</li>
+					<li>
+						📼
+						<a
+							className='products'
+							href='https://youtu.be/X4i_PReaSVI'
+							target='_blank'
+						>
+							{' '}
+							Neighbor Fave{' '}
+						</a>{' '}
+					</li>
+					<li>⏳ Aprix/Sentelex </li>
+					<li>⏳ Nougat News </li>
+					<li>⏳ Baby Shower Invite </li>
+				</ul>
+
+				<p>
+					Some have been added to this site ✅. Some are being added ⏳. Some
+					are live for you to use 🌐 or have a video 📼.{' '}
+				</p>
+				<p>P.S. Use the portfolio navigation below ⤵️</p>
 			</div>
 		</div>
 	);

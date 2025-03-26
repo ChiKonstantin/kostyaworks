@@ -5,6 +5,7 @@ import { RiArrowRightDoubleLine } from 'react-icons/ri';
 import { RiArrowLeftDoubleLine } from 'react-icons/ri';
 import { MdArrowBackIos } from 'react-icons/md';
 import { MdArrowForwardIos } from 'react-icons/md';
+import { MdOutlineArrowBackIosNew } from 'react-icons/md';
 
 export function moveBarOnScroll() {
 	let selectBar = document.getElementById('menu-select-bar');
@@ -143,9 +144,9 @@ export function arrowStatus(pageName, subsectionsCount, setArrows) {
 
 export function renderLeftArrow(direction) {
 	if (direction) {
-		return <MdArrowBackIos className='arrow-icon active' />;
+		return <MdOutlineArrowBackIosNew className='arrow-icon active' />;
 	} else {
-		return <MdArrowBackIos className='arrow-icon inactive' />;
+		return <MdOutlineArrowBackIosNew className='arrow-icon inactive' />;
 	}
 }
 

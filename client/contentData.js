@@ -27,6 +27,10 @@ import {
 	WelcomeOne,
 	WelcomeTwo,
 	WelcomeThree,
+	TextOverImage,
+	Paragraphs,
+	List,
+	ProductsContents,
 } from './components/Contents';
 
 export const journeyData = [
@@ -362,113 +366,242 @@ export const journeyData = [
 
 export const productsData = [
 	{
+		navAreaName: 'CONTENTS',
+		sections: [{ subsections: [<ProductsContents />] }],
+	},
+
+	{
 		navAreaName: 'CHATATOR',
 
 		sections: [
 			{
 				imageUrl:
-					'https://storage.googleapis.com/kostya-works-public/design/products/chatator%20cover.png',
+					'https://storage.googleapis.com/kostya-works-public/design/products/chatator/chatator%20wall.png',
 				subsections: [
-					<TextComponent
-						text={'CHATATOR'}
+					<Paragraphs
+						text={['CHATATOR', 'a messenger that translates.']}
 						size={'50px'}
 						color={'white'}
 						backgroundColor={'rgba(0, 0, 0, 0.85)'}
 						xAlign={'center'}
 						yAlign={'center'}
 					/>,
-				],
-			},
-			{
-				imageUrl:
-					'https://storage.googleapis.com/kostya-works-public/design/products/chatator-phone.png',
-				backgroundColor: 'rgba(0, 0, 0, 0.25)',
-				// transition: 0,
-				subsections: [
-					<TextComponent
-						text={
-							'Chatator is a web application that allows you to have a text chat that is automatically translated to the native language of each chat user.'
-						}
-						size={'x-large'}
-						color={'white'}
-						backgroundColor={'rgba(0, 0, 0, 0.85)'}
-						xAlign={'end'}
+					<Paragraphs
+						image='https://storage.googleapis.com/kostya-works-public/design/summary/corkboard_n.png'
+						text={[
+							'Overview:',
+							'Sole developer: ideation, design, front and back end.',
+						]}
+						size={'xx-large'}
+						color={'black'}
+						backgroundColor={'rgb(253, 240, 147)'}
+						xAlign={'center'}
 						yAlign={'center'}
+						textAlign={'left'}
 					/>,
 				],
 			},
 			{
 				imageUrl:
-					'https://storage.googleapis.com/kostya-works-public/design/products/chatator-join-room.png',
-				backgroundColor: 'rgba(0, 0, 0, 0.25)',
-				transition: 0,
+					'https://storage.googleapis.com/kostya-works-public/design/products/chatator/rainy%20glass%20wall.png',
+				backgroundColor: 'rgba(0, 0, 0, 0.60)',
+
 				subsections: [
+					<Paragraphs
+						image=''
+						text={[
+							'My wife and my mother had a communication problem. ',
+							'Not because they don’t get along. No.',
+
+							`They simply can't speak each other’s language. Literally. And they live in different countries.`,
+							'So why isn’t there a messenger that instantly translates the texts?',
+						]}
+						size={'x-large'}
+						color={'white'}
+						backgroundColor={'rgba(0, 0, 0, 0.85)'}
+						xAlign={'center'}
+						yAlign={'center'}
+						textAlign={'left'}
+					/>,
+				],
+			},
+			{
+				imageUrl:
+					'https://storage.googleapis.com/kostya-works-public/design/products/chatator/lighbulb%20senter.png',
+				backgroundColor: 'rgba(255, 255, 255, 0.60)',
+				subsections: [
+					<Paragraphs
+						text={['I can build one!']}
+						size={'xx-large'}
+						color={'white'}
+						backgroundColor={'rgba(0, 0, 0, 0.95)'}
+						xAlign={'center'}
+						yAlign={'center'}
+						textAlign={'center'}
+					/>,
+				],
+			},
+			{
+				imageUrl:
+					'https://storage.googleapis.com/kostya-works-public/design/products/chatator/think%20cloud.png',
+				backgroundColor: 'rgba(0, 0, 0, 0.85)',
+				subsections: [
+					<Paragraphs
+						image={
+							'https://storage.googleapis.com/kostya-works-public/design/summary/whiteboard.png'
+						}
+						text={[
+							'1. It will be a web app.',
+							`2. I can simply use any translation API to translate the messages in real time, if users indicate their preferred languages.`,
+							`3. Websocket protocol can be used to push messages to each user.`,
+							`4. A room setup similar to what is used by Zoom will work for any number of users (as a bonus: no need for signup).`,
+						]}
+						size={'x-large'}
+						color={'black'}
+						backgroundColor={'rgba(255, 255, 255, 0.85)'}
+						xAlign={'center'}
+						yAlign={'center'}
+						textAlign={'left'}
+					/>,
+					<Paragraphs
+						text={[
+							'The name?',
+							'A portmanteau of “chat” and “translator”: Chatator.',
+						]}
+						size={'xx-large'}
+						color={'black'}
+						backgroundColor={'rgba(255, 255, 255, 0.85)'}
+						xAlign={'center'}
+						yAlign={'center'}
+						textAlign={'center'}
+					/>,
+					<Paragraphs
+						text={[
+							`Sounds like “potato”.`,
+							`It’s got a fun feel to it and it's easy to remember.`,
+						]}
+						size={'xx-large'}
+						color={'black'}
+						backgroundColor={'rgba(255, 255, 255, 0.85)'}
+						xAlign={'center'}
+						yAlign={'center'}
+						textAlign={'center'}
+					/>,
+					<Paragraphs
+						image={
+							'https://storage.googleapis.com/kostya-works-public/design/products/chatator/potato%20center.png'
+						}
+						text={[]}
+						size={'xx-large'}
+						color={'white'}
+						backgroundColor={'rgba(0, 0, 0, 0.85)'}
+						xAlign={'center'}
+						yAlign={'center'}
+						textAlign={'left'}
+					/>,
+				],
+			},
+
+			{
+				imageUrl:
+					'https://storage.googleapis.com/kostya-works-public/design/products/chatator/chatator%20concept%20wall.png',
+				backgroundColor: '',
+
+				subsections: [
+					<Paragraphs
+						image={''}
+						text={[
+							'Key decisions:',
+							`1. Message bubbles do look like small colorful potatoes.`,
+							`2. Sending messages is like tossing small text potatoes to each other.`,
+							`3. Potatoes come in a variety of colors - instantly giving a design inspiration.`,
+						]}
+						size={'xx-large'}
+						color={'white'}
+						backgroundColor={'rgba(0, 0, 0, 0.85)'}
+						xAlign={'center'}
+						yAlign={'center'}
+						textAlign={'left'}
+					/>,
+					<Paragraphs
+						image={''}
+						text={[
+							`4. The interface will follow an intuitive messenger layout.`,
+							`5. No sign up needed: room system.`,
+							`6. Each message can be expanded to see the original language.`,
+						]}
+						size={'xx-large'}
+						color={'white'}
+						backgroundColor={'rgba(0, 0, 0, 0.85)'}
+						xAlign={'center'}
+						yAlign={'center'}
+						textAlign={'left'}
+					/>,
 					<BlankComponent />,
-					<TextComponent
-						text={
-							'No sign up requirements - automatically generated rooms can be joined by multiple users.'
-						}
-						size={'x-large'}
-						color={'white'}
-						backgroundColor={'rgba(0, 0, 0, 0.85)'}
-						xAlign={'end'}
-						yAlign={'center'}
-					/>,
 				],
 			},
 			{
 				imageUrl:
-					'https://storage.googleapis.com/kostya-works-public/design/products/chatator-text-closed.png',
-				backgroundColor: 'rgba(0, 0, 0, 0.25)',
-				transition: 0,
+					'https://storage.googleapis.com/kostya-works-public/design/products/chatator/chatator%20screenshot.png',
+				backgroundColor: 'rgba(0, 0, 0, 0.85)',
 				subsections: [
-					<TextComponent
-						text={
-							'Each message can be expanded to see the original language text.'
-						}
-						size={'x-large'}
+					<Paragraphs
+						image={''}
+						text={['Voilà!', 'A simple and practical app.']}
+						size={'40px'}
 						color={'white'}
 						backgroundColor={'rgba(0, 0, 0, 0.85)'}
-						xAlign={'end'}
+						xAlign={'center'}
 						yAlign={'center'}
+						textAlign={'center'}
 					/>,
+					<BlankComponent />,
 				],
 			},
+
 			{
 				imageUrl:
-					'https://storage.googleapis.com/kostya-works-public/design/products/chatator-text-open.png',
-				backgroundColor: 'rgba(0, 0, 0, 0.25)',
-				transition: 0,
-				subsections: [<BlankComponent />],
-			},
-			{
-				imageUrl:
-					'https://storage.googleapis.com/kostya-works-public/design/products/chatator-button-off.png',
-				transition: 0,
-				backgroundColor: 'rgba(0, 0, 0, 0.25)',
+					'https://storage.googleapis.com/kostya-works-public/design/summary/whiteboard_n.png',
+				backgroundColor: 'rgba(224, 170, 177, 0.438)',
 				subsections: [
-					<TextComponent
-						text={'The "send" button is activated only after message input.'}
+					<Paragraphs
+						text={[
+							`Takeaways:`,
+							`💸To have a dedicated chat channel just for my family I could use Google's translation API - and pay for it, but free translation API’s that could translate well enough are hard to find, making scaling challenging. `,
+							`🤨 Websockets could be unreliable and cumbersome to implement. I used the Socket.io library which made implementation a little easier.`,
+							`✅ I did learn a significant amount about chat interface and functionality which I used in my later projects.`,
+						]}
 						size={'x-large'}
-						color={'white'}
-						backgroundColor={'rgba(0, 0, 0, 0.85)'}
-						xAlign={'end'}
+						color={'darkblue'}
+						backgroundColor={'rgba(255, 255, 255, 0.85)'}
+						xAlign={'center'}
 						yAlign={'center'}
+						textAlign={'left'}
+					/>,
+					<Paragraphs
+						text={[
+							`Technicalities:`,
+							`👤 Sole developer and designer.`,
+							`⚛️ React/Redux on the front end. I used Paint.Net for sketching and initial design ideas.`,
+							`⚙️ Back end was built with Node.js with the help of Express.js framework.`,
+							`💾 No databases were used for privacy reasons and honestly to simplify and get the project done, a trade off is a fleeting nature of chats.`,
+						]}
+						size={'x-large'}
+						color={'darkblue'}
+						backgroundColor={'rgba(255, 255, 255, 0.85)'}
+						xAlign={'center'}
+						yAlign={'center'}
+						textAlign={'left'}
 					/>,
 				],
 			},
 			{
 				imageUrl:
-					'https://storage.googleapis.com/kostya-works-public/design/products/chatator-button-active.png',
-				backgroundColor: 'rgba(0, 0, 0, 0.25)',
-				transition: 0,
-				subsections: [<BlankComponent />],
-			},
-			{
+					'https://storage.googleapis.com/kostya-works-public/design/products/chatator%20cover.png',
 				backgroundColor: 'rgba(0, 0, 0, 0)',
 				subsections: [
 					<LinkComponent
-						text={'TRY CHATATOR.COM'}
+						text={'Try CHATATOR'}
 						link={'http://www.chatator.com/'}
 						size={'40px'}
 						color={'rgb(221, 101, 83)'}
@@ -480,121 +613,121 @@ export const productsData = [
 			},
 		],
 	},
-	{
-		navAreaName: 'PANDEMIC',
-		sections: [
-			{
-				imageUrl:
-					'https://storage.googleapis.com/kostya-works-public/design/products/pandemic%20cover.png',
-				subsections: [
-					<TextComponent
-						text={'PANDEMIC BEAT'}
-						size={'50px'}
-						color={'white'}
-						backgroundColor={'rgba(0, 0, 0, 0.85)'}
-						xAlign={'center'}
-						yAlign={'center'}
-					/>,
-				],
-			},
-			{
-				imageUrl:
-					'https://storage.googleapis.com/kostya-works-public/design/products/pandemic-phone.png',
-				backgroundColor: 'rgba(0, 0, 0, 0.25)',
-				// transition: 0,
-				subsections: [
-					<TextComponent
-						text={`Pandemic-beat let's you listen to COVID pandemic data converted to soundfiles.`}
-						size={'x-large'}
-						color={'black'}
-						backgroundColor={'rgba(255, 255, 255, 0.7)'}
-						xAlign={'end'}
-						yAlign={'center'}
-					/>,
-					<TextComponent
-						text={`I wrote code to convert COVID-19 graphs into audio files after noticing how the graphs resembled sound waves.`}
-						size={'x-large'}
-						color={'black'}
-						backgroundColor={'rgba(255, 255, 255, 0.7)'}
-						xAlign={'end'}
-						yAlign={'center'}
-					/>,
-				],
-			},
-			{
-				imageUrl:
-					'https://storage.googleapis.com/kostya-works-public/design/products/pandemic-phone-i.png',
-				backgroundColor: 'rgba(0, 0, 0, 0.25)',
-				transition: 0,
-				subsections: [
-					<TextComponent
-						text={`Two sets of sound files: new recorded daily cases.`}
-						size={'x-large'}
-						color={'black'}
-						backgroundColor={'rgba(255, 255, 255, 0.7)'}
-						xAlign={'end'}
-						yAlign={'center'}
-					/>,
-				],
-			},
-			{
-				imageUrl:
-					'https://storage.googleapis.com/kostya-works-public/design/products/pandemic-phone-d.png',
-				backgroundColor: 'rgba(0, 0, 0, 0.25)',
-				transition: 0,
-				subsections: [
-					<TextComponent
-						text={`And daily deceased cases.`}
-						size={'x-large'}
-						color={'black'}
-						backgroundColor={'rgba(255, 255, 255, 0.7)'}
-						xAlign={'end'}
-						yAlign={'center'}
-					/>,
-				],
-			},
-			{
-				imageUrl:
-					'https://storage.googleapis.com/kostya-works-public/design/products/pandemic-phone-search.png',
-				backgroundColor: 'rgba(0, 0, 0, 0.25)',
-				transition: 0,
-				subsections: [
-					<TextComponent
-						text={'Search bar to find indiviudal countries.'}
-						size={'x-large'}
-						color={'black'}
-						backgroundColor={'rgba(255, 255, 255, 0.7)'}
-						xAlign={'end'}
-						yAlign={'center'}
-					/>,
-				],
-			},
-			{
-				backgroundColor: 'rgba(0, 0, 0, 0)',
-				transition: 0.25,
-				subsections: [
-					<LinkComponent
-						text={'TRY PANDEMIC BEAT'}
-						link={'http://www.pandemic.kostya.works/'}
-						size={'40px'}
-						color={'rgb(120, 219, 69)'}
-						backgroundColor={'black'}
-						xAlign={'center'}
-						yAlign={'center'}
-					/>,
-					<GoToSection
-						text={'Other interests:'}
-						size={'40px'}
-						color={'#b200ff'}
-						backgroundColor={'rgba(0, 0, 0, 0.85)'}
-						xAlign={'center'}
-						yAlign={'center'}
-						location={2}
-					/>,
-				],
-			},
-		],
-	},
+	// {
+	// 	navAreaName: 'PANDEMIC',
+	// 	sections: [
+	// 		{
+	// 			imageUrl:
+	// 				'https://storage.googleapis.com/kostya-works-public/design/products/pandemic%20cover.png',
+	// 			subsections: [
+	// 				<TextComponent
+	// 					text={'PANDEMIC BEAT'}
+	// 					size={'50px'}
+	// 					color={'white'}
+	// 					backgroundColor={'rgba(0, 0, 0, 0.85)'}
+	// 					xAlign={'center'}
+	// 					yAlign={'center'}
+	// 				/>,
+	// 			],
+	// 		},
+	// 		{
+	// 			imageUrl:
+	// 				'https://storage.googleapis.com/kostya-works-public/design/products/pandemic-phone.png',
+	// 			backgroundColor: 'rgba(0, 0, 0, 0.25)',
+	// 			transition: 0,
+	// 			subsections: [
+	// 				<TextComponent
+	// 					text={`Pandemic-beat let's you listen to COVID pandemic data converted to soundfiles.`}
+	// 					size={'x-large'}
+	// 					color={'black'}
+	// 					backgroundColor={'rgba(255, 255, 255, 0.7)'}
+	// 					xAlign={'end'}
+	// 					yAlign={'center'}
+	// 				/>,
+	// 				<TextComponent
+	// 					text={`I wrote code to convert COVID-19 graphs into audio files after noticing how the graphs resembled sound waves.`}
+	// 					size={'x-large'}
+	// 					color={'black'}
+	// 					backgroundColor={'rgba(255, 255, 255, 0.7)'}
+	// 					xAlign={'end'}
+	// 					yAlign={'center'}
+	// 				/>,
+	// 			],
+	// 		},
+	// 		{
+	// 			imageUrl:
+	// 				'https://storage.googleapis.com/kostya-works-public/design/products/pandemic-phone-i.png',
+	// 			backgroundColor: 'rgba(0, 0, 0, 0.25)',
+	// 			transition: 0,
+	// 			subsections: [
+	// 				<TextComponent
+	// 					text={`Two sets of sound files: new recorded daily cases.`}
+	// 					size={'x-large'}
+	// 					color={'black'}
+	// 					backgroundColor={'rgba(255, 255, 255, 0.7)'}
+	// 					xAlign={'end'}
+	// 					yAlign={'center'}
+	// 				/>,
+	// 			],
+	// 		},
+	// 		{
+	// 			imageUrl:
+	// 				'https://storage.googleapis.com/kostya-works-public/design/products/pandemic-phone-d.png',
+	// 			backgroundColor: 'rgba(0, 0, 0, 0.25)',
+	// 			transition: 0,
+	// 			subsections: [
+	// 				<TextComponent
+	// 					text={`And daily deceased cases.`}
+	// 					size={'x-large'}
+	// 					color={'black'}
+	// 					backgroundColor={'rgba(255, 255, 255, 0.7)'}
+	// 					xAlign={'end'}
+	// 					yAlign={'center'}
+	// 				/>,
+	// 			],
+	// 		},
+	// 		{
+	// 			imageUrl:
+	// 				'https://storage.googleapis.com/kostya-works-public/design/products/pandemic-phone-search.png',
+	// 			backgroundColor: 'rgba(0, 0, 0, 0.25)',
+	// 			transition: 0,
+	// 			subsections: [
+	// 				<TextComponent
+	// 					text={'Search bar to find indiviudal countries.'}
+	// 					size={'x-large'}
+	// 					color={'black'}
+	// 					backgroundColor={'rgba(255, 255, 255, 0.7)'}
+	// 					xAlign={'end'}
+	// 					yAlign={'center'}
+	// 				/>,
+	// 			],
+	// 		},
+	// 		{
+	// 			backgroundColor: 'rgba(0, 0, 0, 0)',
+	// 			transition: 0.25,
+	// 			subsections: [
+	// 				<LinkComponent
+	// 					text={'TRY PANDEMIC BEAT'}
+	// 					link={'http://www.pandemic.kostya.works/'}
+	// 					size={'40px'}
+	// 					color={'rgb(120, 219, 69)'}
+	// 					backgroundColor={'black'}
+	// 					xAlign={'center'}
+	// 					yAlign={'center'}
+	// 				/>,
+	// 				<GoToSection
+	// 					text={'Other interests:'}
+	// 					size={'40px'}
+	// 					color={'#b200ff'}
+	// 					backgroundColor={'rgba(0, 0, 0, 0.85)'}
+	// 					xAlign={'center'}
+	// 					yAlign={'center'}
+	// 					location={2}
+	// 				/>,
+	// 			],
+	// 		},
+	// 	],
+	// },
 	// {
 	// 	navAreaName: 'KOSTYA.works',
 	// 	sections: [
@@ -712,78 +845,78 @@ export const motivationData = [
 			{ backgroundColor: 'rgba(0, 0, 0, 0.3)', subsections: [<VideoClips />] },
 		],
 	},
-	{
-		navAreaName: 'IMAGES',
-		sections: [
-			{
-				imageUrl:
-					'https://storage.googleapis.com/kostya-works-public/design/interests/images%20cover%20new.png',
-				backgroundColor: 'rgba(0, 0, 0, 0)',
-				subsections: [
-					<TextComponent
-						text={'IMAGES'}
-						size={'50px'}
-						color={'white'}
-						backgroundColor={'rgba(0, 0, 0, 0.95)'}
-						xAlign={'center'}
-						yAlign={'center'}
-					/>,
-				],
-			},
-			{
-				imageUrl: '',
-				backgroundColor: 'rgba(0, 0, 0, 0)',
-				subsections: [
-					<TextComponent
-						text={
-							'One 🖼️ is worth 💯+ 💯+ 💯+ 💯+ 💯+ 💯+ 💯+ 💯+ 💯+ 💯  words.'
-						}
-						size={'xx-large'}
-						color={'white'}
-						backgroundColor={'rgba(0, 0, 0, 0.8)'}
-						xAlign={'center'}
-						yAlign={'center'}
-					/>,
-					// <IoCardPic />,
-				],
-			},
-			{
-				imageUrl: '',
-				backgroundColor: 'rgba(0, 0, 0, 0.3)',
-				subsections: [
-					<CaptionPicture
-						// MAGPIE
-						id={'madigan-img'}
-						image={
-							'https://storage.googleapis.com/kostya-works-public/design/interests/madigan%20tenure_PNG.png'
-						}
-						text={
-							'Comparing tenure of people with power for my media project "The Magpie News".'
-						}
-						size={'large'}
-						color={'white'}
-						backgroundColor={'rgba(0, 0, 0, 0.85)'}
-					/>,
-					<CaptionPicture
-						// BLOG
+	// {
+	// 	navAreaName: 'IMAGES',
+	// 	sections: [
+	// 		{
+	// 			imageUrl:
+	// 				'https://storage.googleapis.com/kostya-works-public/design/interests/images%20cover%20new.png',
+	// 			backgroundColor: 'rgba(0, 0, 0, 0)',
+	// 			subsections: [
+	// 				<TextComponent
+	// 					text={'IMAGES'}
+	// 					size={'50px'}
+	// 					color={'white'}
+	// 					backgroundColor={'rgba(0, 0, 0, 0.95)'}
+	// 					xAlign={'center'}
+	// 					yAlign={'center'}
+	// 				/>,
+	// 			],
+	// 		},
+	// 		{
+	// 			imageUrl: '',
+	// 			backgroundColor: 'rgba(0, 0, 0, 0)',
+	// 			subsections: [
+	// 				<TextComponent
+	// 					text={
+	// 						'One 🖼️ is worth 💯+ 💯+ 💯+ 💯+ 💯+ 💯+ 💯+ 💯+ 💯+ 💯  words.'
+	// 					}
+	// 					size={'xx-large'}
+	// 					color={'white'}
+	// 					backgroundColor={'rgba(0, 0, 0, 0.8)'}
+	// 					xAlign={'center'}
+	// 					yAlign={'center'}
+	// 				/>,
+	// 				// <IoCardPic />,
+	// 			],
+	// 		},
+	// 		{
+	// 			imageUrl: '',
+	// 			backgroundColor: 'rgba(0, 0, 0, 0.3)',
+	// 			subsections: [
+	// 				<CaptionPicture
+	// 					// MAGPIE
+	// 					id={'madigan-img'}
+	// 					image={
+	// 						'https://storage.googleapis.com/kostya-works-public/design/interests/madigan%20tenure_PNG.png'
+	// 					}
+	// 					text={
+	// 						'Comparing tenure of people with power for my media project "The Magpie News".'
+	// 					}
+	// 					size={'large'}
+	// 					color={'white'}
+	// 					backgroundColor={'rgba(0, 0, 0, 0.85)'}
+	// 				/>,
+	// 				<CaptionPicture
+	// 					// BLOG
 
-						id={'deforestation-img'}
-						image={
-							'https://storage.googleapis.com/kostya-works-public/design/interests/deforestation.png'
-						}
-						text={
-							'This illustration of illegal tree cutting at a park from investigation I did for my blog. It generated public awareness and ultimately forced the developer to plant more trees to compensate for damage.'
-						}
-						size={'medium'}
-						color={'white'}
-						backgroundColor={'rgba(0, 0, 0, 0.85)'}
-						imgWidth={'555px'}
-						imgHeight={'967px'}
-					/>,
-				],
-			},
-		],
-	},
+	// 					id={'deforestation-img'}
+	// 					image={
+	// 						'https://storage.googleapis.com/kostya-works-public/design/interests/deforestation.png'
+	// 					}
+	// 					text={
+	// 						'This illustration of illegal tree cutting at a park from investigation I did for my blog. It generated public awareness and ultimately forced the developer to plant more trees to compensate for damage.'
+	// 					}
+	// 					size={'medium'}
+	// 					color={'white'}
+	// 					backgroundColor={'rgba(0, 0, 0, 0.85)'}
+	// 					imgWidth={'555px'}
+	// 					imgHeight={'967px'}
+	// 				/>,
+	// 			],
+	// 		},
+	// 	],
+	// },
 	{
 		navAreaName: 'HUMOR',
 		sections: [
@@ -820,50 +953,50 @@ export const motivationData = [
 					// />,
 				],
 			},
-			{
-				subsections: [
-					<GoToSection
-						text={'To sum it all up:'}
-						size={'40px'}
-						color={'rgb(255, 81, 68)'}
-						backgroundColor={'rgba(0, 0, 0, 0.85)'}
-						xAlign={'center'}
-						yAlign={'center'}
-						location={3}
-					/>,
-				],
-			},
+			// {
+			// 	subsections: [
+			// 		<GoToSection
+			// 			text={'To sum it all up:'}
+			// 			size={'40px'}
+			// 			color={'rgb(255, 81, 68)'}
+			// 			backgroundColor={'rgba(0, 0, 0, 0.85)'}
+			// 			xAlign={'center'}
+			// 			yAlign={'center'}
+			// 			location={3}
+			// 		/>,
+			// 	],
+			// },
 		],
 	},
 ];
 
 export const summaryData = [
 	{
-		navAreaName: 'ONE',
+		navAreaName: 'WELCOME',
 		sections: [
 			{
 				imageUrl:
-					'https://storage.googleapis.com/kostya-works-public/design/summary/whiteboard.png',
+					'https://storage.googleapis.com/kostya-works-public/design/summary/whiteboard_n.png',
 				subsections: [<WelcomeOne />],
 			},
 		],
 	},
 	{
-		navAreaName: 'TWO',
+		navAreaName: 'ABOUT',
 		sections: [
 			{
 				imageUrl:
-					'https://storage.googleapis.com/kostya-works-public/design/summary/pegboard_dark.png',
+					'https://storage.googleapis.com/kostya-works-public/design/summary/pegboard_dark_n.png',
 				subsections: [<WelcomeTwo />],
 			},
 		],
 	},
 	{
-		navAreaName: 'THREE',
+		navAreaName: 'MORE',
 		sections: [
 			{
 				imageUrl:
-					'https://storage.googleapis.com/kostya-works-public/design/summary/corkboard.png',
+					'https://storage.googleapis.com/kostya-works-public/design/summary/corkboard_n.png',
 				subsections: [<WelcomeThree />],
 			},
 		],

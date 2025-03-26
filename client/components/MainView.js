@@ -155,7 +155,11 @@ export default function MainView() {
 		<div id='main-view'>
 			<section id='summary' className='page'>
 				<div id='summary-menu' className='side-menu-spacer'></div>
+
 				<div id='summary-content' className='content'>
+					<div id='mobile-notice'>
+						!!! THIS SITE MIGHT NOT WORK PROPERLY ON PHONES !!!
+					</div>
 					<div id='menu-summary' className='section-name-mobile'>
 						WELCOME
 					</div>
