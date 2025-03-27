@@ -817,7 +817,7 @@ img {
 
 #diploma-pic {
 	/* width: calc(60vh / 0.75); */
-	width: 60vh;
+	width: calc(60vh / 0.75);
 	height: 60vh;
 	background-size: contain;
 }
